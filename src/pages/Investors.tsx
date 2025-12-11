@@ -27,15 +27,24 @@ const Investors = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
-      {/* Header */}
-      <header className="p-6">
+    <div className="min-h-screen bg-background flex flex-col relative overflow-hidden">
+      {/* Background gradients */}
+      <div className="absolute inset-0 bg-gradient-to-br from-card/50 via-background to-card/30" />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-radial from-primary/10 via-transparent to-transparent rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gradient-radial from-accent/10 via-transparent to-transparent rounded-full blur-3xl" />
+      {/* Header with back button */}
+      <header className="p-6 flex items-center justify-between">
         <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
           <Shield className="w-5 h-5 text-primary" />
           <span className="font-semibold">
             <span className="text-foreground">Likeness</span>
             <span className="text-primary">Vault</span>
           </span>
+        </Link>
+        <Link to="/">
+          <Button variant="outline" size="sm" className="border-border/50 text-foreground hover:bg-muted/20">
+            ← Back to Home
+          </Button>
         </Link>
       </header>
 

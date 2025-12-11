@@ -20,8 +20,10 @@ const ProblemSection = () => {
 
   return (
     <section ref={ref} className="relative py-32 overflow-hidden">
-      {/* Background */}
+      {/* Background with dimension */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-card/50 to-background" />
+      <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-br from-destructive/5 via-transparent to-transparent" />
+      <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-radial from-muted/20 via-transparent to-transparent" />
       
       {/* Decorative elements */}
       <motion.div
