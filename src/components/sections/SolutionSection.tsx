@@ -23,8 +23,10 @@ const SolutionSection = () => {
 
   return (
     <section ref={ref} className="relative py-32 overflow-hidden">
-      {/* Background gradient */}
+      {/* Background gradient with color pops */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-card/30 to-background" />
+      <div className="absolute top-1/4 -left-48 w-[500px] h-[500px] bg-gradient-radial from-primary/10 via-transparent to-transparent rounded-full blur-3xl" />
+      <div className="absolute bottom-1/4 -right-48 w-[400px] h-[400px] bg-gradient-radial from-accent/8 via-transparent to-transparent rounded-full blur-3xl" />
       
       {/* Animated connection lines */}
       <div className="absolute inset-0 overflow-hidden">
