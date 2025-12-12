@@ -49,21 +49,24 @@ const pillars: Pillar[] = [
 const colorClasses = {
   gold: {
     border: 'hover:border-primary/50',
-    glow: 'group-hover:shadow-[0_0_60px_hsl(var(--primary)/0.3)]',
+    glow: 'group-hover:shadow-[0_0_60px_hsl(43_74%_60%/0.2)]',
     icon: 'text-primary',
-    accent: 'bg-primary/10'
+    accent: 'bg-primary/10',
+    gradient: 'text-gradient-gold'
   },
   cyan: {
     border: 'hover:border-accent/50',
-    glow: 'group-hover:shadow-[0_0_60px_hsl(var(--accent)/0.3)]',
+    glow: 'group-hover:shadow-[0_0_60px_hsl(187_100%_45%/0.2)]',
     icon: 'text-accent',
-    accent: 'bg-accent/10'
+    accent: 'bg-accent/10',
+    gradient: 'text-gradient-cyan'
   },
   titanium: {
     border: 'hover:border-foreground/30',
-    glow: 'group-hover:shadow-[0_0_60px_hsl(var(--foreground)/0.1)]',
+    glow: 'group-hover:shadow-[0_0_60px_hsl(0_0%_100%/0.05)]',
     icon: 'text-foreground',
-    accent: 'bg-foreground/10'
+    accent: 'bg-foreground/10',
+    gradient: 'text-foreground'
   }
 };
 
@@ -80,12 +83,15 @@ const PillarsSection = () => {
 
   return (
     <section ref={ref} className="relative py-32 overflow-hidden">
-      {/* Parallax background */}
+      {/* Background */}
+      <div className="absolute inset-0 bg-background" />
+      
+      {/* Parallax ambient orb */}
       <motion.div 
         style={{ y: backgroundY }}
         className="absolute inset-0"
       >
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-gradient-radial from-primary/5 via-transparent to-transparent rounded-full" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-gradient-radial from-primary/8 via-transparent to-transparent rounded-full blur-[80px]" />
       </motion.div>
 
       <div className="container relative z-10">
@@ -129,7 +135,7 @@ const PillarsSection = () => {
                   transition={{ duration: 0.3 }}
                   className={`
                     relative h-full p-8 lg:p-10 
-                    bg-card/80 backdrop-blur-sm 
+                    bg-card/70 backdrop-blur-sm 
                     border border-border/50 rounded-lg
                     ${colors.border} ${colors.glow}
                     transition-all duration-500
@@ -145,7 +151,7 @@ const PillarsSection = () => {
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-2xl md:text-3xl font-bold mb-4">
+                  <h3 className={`text-2xl md:text-3xl font-bold mb-4 ${colors.gradient}`}>
                     {pillar.title}
                   </h3>
 

@@ -44,10 +44,11 @@ const ProductModulesSection = () => {
   return (
     <section className="relative py-32 overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-background to-card/50" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border)/0.05)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border)/0.05)_1px,transparent_1px)] bg-[size:40px_40px]" />
-      </div>
+      <div className="absolute inset-0 bg-background" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-card/30" />
+      
+      {/* Grid pattern */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(0_0%_100%/0.015)_1px,transparent_1px),linear-gradient(to_bottom,hsl(0_0%_100%/0.015)_1px,transparent_1px)] bg-[size:50px_50px]" />
 
       <div className="container relative z-10">
         {/* Section header */}
@@ -77,7 +78,7 @@ const ProductModulesSection = () => {
               viewport={{ once: true, margin: "-50px" }}
               className="group"
             >
-              <div className="relative h-full p-6 bg-card/50 backdrop-blur-sm border border-border/50 rounded-lg hover:border-accent/30 transition-all duration-300 overflow-hidden">
+              <div className="relative h-full p-6 bg-card/60 backdrop-blur-sm border border-border/50 rounded-lg hover:border-accent/30 transition-all duration-300 overflow-hidden">
                 {/* Hover glow effect */}
                 <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 

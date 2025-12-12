@@ -31,7 +31,7 @@ const Navbar = () => {
         transition={{ duration: 0.6 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled 
-            ? 'bg-background/80 backdrop-blur-lg border-b border-border/50' 
+            ? 'bg-background/90 backdrop-blur-lg border-b border-border/50' 
             : 'bg-transparent'
         }`}
       >
@@ -66,7 +66,7 @@ const Navbar = () => {
                   Investors
                 </Button>
               </Link>
-              <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90">
+              <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 glow-gold">
                 Early Access
               </Button>
             </div>
@@ -90,7 +90,7 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 bg-background/95 backdrop-blur-lg md:hidden pt-20"
+            className="fixed inset-0 z-40 bg-background/98 backdrop-blur-lg md:hidden pt-20"
           >
             <div className="container py-8">
               <div className="flex flex-col gap-6">
@@ -111,7 +111,7 @@ const Navbar = () => {
                 >
                   Investors
                 </Link>
-                <Button className="mt-4 bg-primary text-primary-foreground hover:bg-primary/90 w-full">
+                <Button className="mt-4 bg-primary text-primary-foreground hover:bg-primary/90 glow-gold w-full">
                   Early Access
                 </Button>
               </div>

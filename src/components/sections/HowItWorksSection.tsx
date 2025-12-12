@@ -38,7 +38,11 @@ const HowItWorksSection = () => {
   return (
     <section ref={ref} className="relative py-32 overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-card/30 to-background" />
+      <div className="absolute inset-0 bg-background" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-card/20 to-transparent" />
+      
+      {/* Ambient orb */}
+      <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-gradient-radial from-accent/8 via-transparent to-transparent rounded-full blur-[100px]" />
 
       <div className="container relative z-10">
         {/* Section header */}
@@ -85,7 +89,7 @@ const HowItWorksSection = () => {
                     whileInView={{ scale: 1 }}
                     transition={{ duration: 0.5, delay: index * 0.2 + 0.3 }}
                     viewport={{ once: true }}
-                    className="w-[4.5rem] h-[4.5rem] rounded-xl bg-card border border-primary/30 flex items-center justify-center glow-gold"
+                    className="w-[4.5rem] h-[4.5rem] rounded-xl bg-card/80 border border-primary/30 flex items-center justify-center glow-gold"
                   >
                     <step.icon className="w-7 h-7 text-primary" />
                   </motion.div>

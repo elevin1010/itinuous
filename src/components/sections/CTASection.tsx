@@ -23,27 +23,29 @@ const CTASection = () => {
 
   return (
     <section className="relative py-32 overflow-hidden">
-      {/* Background with rich gradients */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-card/50 to-background" />
-        <div className="absolute inset-0 bg-gradient-to-tr from-muted/20 via-transparent to-muted/10" />
-        <motion.div
-          animate={{ 
-            scale: [1, 1.1, 1],
-            opacity: [0.3, 0.5, 0.3]
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial from-primary/20 via-transparent to-transparent rounded-full blur-3xl"
-        />
-        <motion.div
-          animate={{ 
-            scale: [1.1, 1, 1.1],
-            opacity: [0.2, 0.4, 0.2]
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/3 right-1/4 w-[400px] h-[400px] bg-gradient-radial from-accent/15 via-transparent to-transparent rounded-full blur-3xl"
-        />
-      </div>
+      {/* Background */}
+      <div className="absolute inset-0 bg-background" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-card/30 to-transparent" />
+      
+      {/* Animated gold orb */}
+      <motion.div
+        animate={{ 
+          scale: [1, 1.15, 1],
+          opacity: [0.15, 0.25, 0.15]
+        }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial from-primary/20 via-transparent to-transparent rounded-full blur-[100px]"
+      />
+      
+      {/* Secondary orb */}
+      <motion.div
+        animate={{ 
+          scale: [1.1, 1, 1.1],
+          opacity: [0.08, 0.15, 0.08]
+        }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-1/3 right-1/4 w-[400px] h-[400px] bg-gradient-radial from-accent/15 via-transparent to-transparent rounded-full blur-[80px]"
+      />
 
       <div className="container relative z-10">
         <motion.div
@@ -70,7 +72,7 @@ const CTASection = () => {
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="flex-1 bg-card/50 border-border/50 text-foreground placeholder:text-muted-foreground focus:border-primary"
+                className="flex-1 bg-card/60 border-border/50 text-foreground placeholder:text-muted-foreground focus:border-primary"
                 required
               />
               <Button 
