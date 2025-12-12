@@ -23,10 +23,13 @@ const SolutionSection = () => {
 
   return (
     <section ref={ref} className="relative py-32 overflow-hidden">
-      {/* Background gradient with color pops */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-card/30 to-background" />
-      <div className="absolute top-1/4 -left-48 w-[500px] h-[500px] bg-gradient-radial from-primary/10 via-transparent to-transparent rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 -right-48 w-[400px] h-[400px] bg-gradient-radial from-accent/8 via-transparent to-transparent rounded-full blur-3xl" />
+      {/* Background */}
+      <div className="absolute inset-0 bg-background" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-card/20 to-transparent" />
+      
+      {/* Ambient orbs */}
+      <div className="absolute top-1/4 -left-48 w-[500px] h-[500px] bg-gradient-radial from-primary/10 via-transparent to-transparent rounded-full blur-[100px]" />
+      <div className="absolute bottom-1/4 -right-48 w-[400px] h-[400px] bg-gradient-radial from-accent/8 via-transparent to-transparent rounded-full blur-[100px]" />
       
       {/* Animated connection lines */}
       <div className="absolute inset-0 overflow-hidden">
@@ -43,9 +46,9 @@ const SolutionSection = () => {
           />
           <defs>
             <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="hsl(var(--primary))" />
-              <stop offset="50%" stopColor="hsl(var(--accent))" />
-              <stop offset="100%" stopColor="hsl(var(--primary))" />
+              <stop offset="0%" stopColor="hsl(43 74% 60%)" />
+              <stop offset="50%" stopColor="hsl(187 100% 45%)" />
+              <stop offset="100%" stopColor="hsl(43 74% 60%)" />
             </linearGradient>
           </defs>
         </svg>
@@ -75,7 +78,7 @@ const SolutionSection = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="flex items-center gap-4 p-4 bg-card/50 backdrop-blur-sm border border-border/30 rounded-lg hover:border-primary/30 transition-colors group"
+                className="flex items-center gap-4 p-4 bg-card/60 backdrop-blur-sm border border-border/30 rounded-lg hover:border-primary/30 transition-colors group"
               >
                 <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                   <feature.icon className="w-6 h-6 text-primary" />
@@ -94,7 +97,7 @@ const SolutionSection = () => {
                 whileInView={{ scale: 1 }}
                 transition={{ duration: 0.8, type: "spring" }}
                 viewport={{ once: true }}
-                className="absolute inset-1/4 bg-card border border-primary/30 rounded-2xl flex items-center justify-center glow-gold"
+                className="absolute inset-1/4 bg-card/80 border border-primary/30 rounded-2xl flex items-center justify-center glow-gold"
               >
                 <div className="text-center">
                   <div className="text-5xl font-bold text-gradient-gold mb-2">LV</div>

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Shield, Lock, Eye, EyeOff } from 'lucide-react';
+import { Shield, Lock, Eye, EyeOff, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -28,12 +28,15 @@ const Investors = () => {
 
   return (
     <div className="min-h-screen bg-background flex flex-col relative overflow-hidden">
-      {/* Background gradients */}
-      <div className="absolute inset-0 bg-gradient-to-br from-card/50 via-background to-card/30" />
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-radial from-primary/10 via-transparent to-transparent rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gradient-radial from-accent/10 via-transparent to-transparent rounded-full blur-3xl" />
+      {/* Background */}
+      <div className="absolute inset-0 gradient-mesh" />
+      
+      {/* Ambient orbs */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-radial from-primary/15 via-transparent to-transparent rounded-full blur-[100px]" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gradient-radial from-accent/10 via-transparent to-transparent rounded-full blur-[100px]" />
+      
       {/* Header with back button */}
-      <header className="p-6 flex items-center justify-between">
+      <header className="relative z-10 p-6 flex items-center justify-between">
         <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
           <Shield className="w-5 h-5 text-primary" />
           <span className="font-semibold">
@@ -42,14 +45,15 @@ const Investors = () => {
           </span>
         </Link>
         <Link to="/">
-          <Button variant="outline" size="sm" className="border-border/50 text-foreground hover:bg-muted/20">
-            ← Back to Home
+          <Button variant="outline" size="sm" className="border-border hover:border-foreground/30 text-foreground hover:bg-foreground/5 gap-2">
+            <ArrowLeft className="w-4 h-4" />
+            Back to Home
           </Button>
         </Link>
       </header>
 
       {/* Main content */}
-      <main className="flex-1 flex items-center justify-center p-6">
+      <main className="relative z-10 flex-1 flex items-center justify-center p-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -57,7 +61,7 @@ const Investors = () => {
           className="w-full max-w-md"
         >
           {/* Login card */}
-          <div className="p-8 bg-card/50 backdrop-blur-sm border border-border/50 rounded-lg">
+          <div className="p-8 bg-card/70 backdrop-blur-sm border border-border/50 rounded-lg">
             {/* Icon */}
             <div className="flex justify-center mb-8">
               <div className="relative">
@@ -65,9 +69,9 @@ const Investors = () => {
                   <Lock className="w-8 h-8 text-primary" />
                 </div>
                 <motion.div
-                  animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] }}
-                  transition={{ duration: 3, repeat: Infinity }}
-                  className="absolute inset-0 bg-primary/20 rounded-xl blur-xl"
+                  animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.6, 0.3] }}
+                  transition={{ duration: 4, repeat: Infinity }}
+                  className="absolute inset-0 bg-primary/30 rounded-xl blur-2xl"
                 />
               </div>
             </div>
@@ -88,7 +92,7 @@ const Investors = () => {
                   placeholder="Email address"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="bg-background/50 border-border/50 text-foreground placeholder:text-muted-foreground"
+                  className="bg-background/50 border-border/50 text-foreground placeholder:text-muted-foreground focus:border-primary"
                   required
                 />
               </div>
@@ -99,7 +103,7 @@ const Investors = () => {
                   placeholder="Password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="bg-background/50 border-border/50 text-foreground placeholder:text-muted-foreground pr-10"
+                  className="bg-background/50 border-border/50 text-foreground placeholder:text-muted-foreground pr-10 focus:border-primary"
                   required
                 />
                 <button
@@ -113,7 +117,7 @@ const Investors = () => {
 
               <Button
                 type="submit"
-                className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+                className="w-full bg-primary text-primary-foreground hover:bg-primary/90 glow-gold"
                 disabled={isLoading}
               >
                 {isLoading ? 'Signing in...' : 'Sign In'}
@@ -134,25 +138,18 @@ const Investors = () => {
               </p>
               <Button
                 variant="outline"
-                className="border-border/50 text-foreground hover:bg-muted/20"
+                className="border-border hover:border-foreground/30 text-foreground hover:bg-foreground/5"
                 onClick={() => toast.info('Access request feature coming soon')}
               >
                 Request Investor Access
               </Button>
             </div>
           </div>
-
-          {/* Back to home */}
-          <div className="text-center mt-6">
-            <Link to="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              ← Back to home
-            </Link>
-          </div>
         </motion.div>
       </main>
 
       {/* Footer */}
-      <footer className="p-6 text-center">
+      <footer className="relative z-10 p-6 text-center">
         <p className="text-xs text-muted-foreground">
           © 2025 LikenessVault. Confidential.
         </p>

@@ -54,7 +54,8 @@ const RoadmapSection = () => {
   return (
     <section ref={ref} className="relative py-32 overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-card/50 via-background to-background" />
+      <div className="absolute inset-0 bg-background" />
+      <div className="absolute inset-0 bg-gradient-to-b from-card/30 via-transparent to-transparent" />
 
       <div className="container relative z-10">
         {/* Section header */}

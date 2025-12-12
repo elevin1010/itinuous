@@ -54,7 +54,11 @@ const AudienceSection = () => {
   return (
     <section className="relative py-32 overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-card/20 to-background" />
+      <div className="absolute inset-0 bg-background" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-card/20 to-transparent" />
+      
+      {/* Ambient orb */}
+      <div className="absolute top-1/2 left-1/4 w-[500px] h-[500px] bg-gradient-radial from-primary/8 via-transparent to-transparent rounded-full blur-[100px]" />
 
       <div className="container relative z-10">
         {/* Section header */}
@@ -82,7 +86,7 @@ const AudienceSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="p-6 bg-card/50 backdrop-blur-sm border border-border/50 rounded-lg"
+              className="p-6 bg-card/60 backdrop-blur-sm border border-border/50 rounded-lg"
             >
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
@@ -122,7 +126,7 @@ const AudienceSection = () => {
                   w-full p-4 text-left rounded-lg transition-all duration-300
                   flex items-center gap-4
                   ${activeIndex === index 
-                    ? 'bg-card border border-primary/30 glow-gold' 
+                    ? 'bg-card/80 border border-primary/30 glow-gold' 
                     : 'bg-card/30 border border-transparent hover:bg-card/50'
                   }
                 `}
@@ -150,7 +154,7 @@ const AudienceSection = () => {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.4 }}
-              className="h-full p-8 bg-card/50 backdrop-blur-sm border border-border/50 rounded-lg"
+              className="h-full p-8 bg-card/60 backdrop-blur-sm border border-border/50 rounded-lg"
             >
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-16 h-16 rounded-lg bg-primary/10 flex items-center justify-center">
