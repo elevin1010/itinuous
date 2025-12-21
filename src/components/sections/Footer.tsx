@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import Logo from '@/components/Logo';
 
 const Footer = () => {
   return (
@@ -12,12 +13,8 @@ const Footer = () => {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="flex items-center gap-3"
           >
-            <span className="text-xl font-bold tracking-tight">
-              <span className="text-foreground">Int</span>
-              <span className="text-primary">inuous</span>
-            </span>
+            <Logo size="sm" />
           </motion.div>
 
           {/* Links */}
