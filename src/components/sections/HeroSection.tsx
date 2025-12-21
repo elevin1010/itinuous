@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Shield, ChevronDown } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 
 const HeroSection = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -129,35 +129,6 @@ const HeroSection = () => {
         style={{ opacity, scale }}
         className="relative z-10 text-center px-4 max-w-5xl mx-auto"
       >
-        {/* Shield logo with enhanced glow */}
-        <motion.div
-          initial={{ scale: 0, opacity: 0, rotateY: -180 }}
-          animate={{ scale: 1, opacity: 1, rotateY: 0 }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
-          className="mb-10 flex justify-center"
-        >
-          <div className="relative">
-            <motion.div
-              animate={{ 
-                boxShadow: [
-                  "0 0 30px hsl(43 74% 60% / 0.3), 0 0 60px hsl(43 74% 60% / 0.1)",
-                  "0 0 50px hsl(43 74% 60% / 0.5), 0 0 100px hsl(43 74% 60% / 0.2)",
-                  "0 0 30px hsl(43 74% 60% / 0.3), 0 0 60px hsl(43 74% 60% / 0.1)"
-                ]
-              }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="p-5 rounded-2xl bg-card/80 backdrop-blur-sm border border-primary/30"
-            >
-              <Shield className="w-16 h-16 md:w-20 md:h-20 text-primary" />
-            </motion.div>
-            <motion.div
-              animate={{ scale: [1, 1.4, 1], opacity: [0.2, 0.5, 0.2] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute inset-0 bg-primary/30 rounded-2xl blur-3xl"
-            />
-          </div>
-        </motion.div>
-
         {/* Wordmark with staggered reveal */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -172,7 +143,7 @@ const HeroSection = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.5, duration: 0.7 }}
             >
-              Likeness
+              Int
             </motion.span>
             <motion.span 
               className="text-gradient-gold inline-block"
@@ -180,7 +151,7 @@ const HeroSection = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.7, duration: 0.7 }}
             >
-              Vault
+              inuous
             </motion.span>
           </h1>
         </motion.div>
@@ -190,17 +161,17 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9, duration: 0.6 }}
-          className="text-xl md:text-2xl lg:text-3xl text-muted-foreground mb-3 font-light tracking-wide"
+          className="text-xl md:text-2xl lg:text-3xl text-muted-foreground mb-3 font-light tracking-wide max-w-3xl mx-auto"
         >
-          The Global Identity & Rights Registry
+          Verifiable continuity in a generative world
         </motion.p>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.6 }}
-          className="text-lg md:text-xl text-primary font-mono mb-14"
+          className="text-lg md:text-xl text-foreground/70 mb-14 max-w-2xl mx-auto leading-relaxed"
         >
-          for the AI Era
+          Generative AI has made identity infinite — and trust fragile. Intinuous provides the continuity and authority layer that allows humans and persistent entities to remain economically legible over time.
         </motion.p>
 
         {/* CTAs */}
@@ -214,7 +185,7 @@ const HeroSection = () => {
             size="lg" 
             className="bg-primary text-primary-foreground hover:bg-primary/90 glow-gold px-10 py-7 text-lg font-semibold group"
           >
-            <span>Join Early Access</span>
+            <span>Reach Out</span>
             <motion.span
               animate={{ x: [0, 6, 0] }}
               transition={{ duration: 1.5, repeat: Infinity }}

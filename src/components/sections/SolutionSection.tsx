@@ -1,12 +1,12 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
-import { Fingerprint, Lock, Globe, Zap } from 'lucide-react';
+import { UserCheck, Clock, Eye, FileText } from 'lucide-react';
 
 const features = [
-  { icon: Fingerprint, label: "Biometric Identity Layer" },
-  { icon: Lock, label: "Cryptographic Rights Management" },
-  { icon: Globe, label: "Global AI Integration" },
-  { icon: Zap, label: "Real-time Enforcement" },
+  { icon: UserCheck, label: "Verified registration under defined authority" },
+  { icon: Clock, label: "Continuity anchored over time" },
+  { icon: Eye, label: "Ongoing attribution and monitoring" },
+  { icon: FileText, label: "Evidence and escalation support when disputes arise" },
 ];
 
 const SolutionSection = () => {
@@ -22,7 +22,7 @@ const SolutionSection = () => {
   const centerOpacity = useTransform(scrollYProgress, [0.2, 0.4], [0, 1]);
 
   return (
-    <section ref={ref} className="relative py-32 overflow-hidden">
+    <section id="solution" ref={ref} className="relative py-32 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-background" />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-card/20 to-transparent" />
@@ -61,9 +61,9 @@ const SolutionSection = () => {
           className="text-center mb-24"
         >
           <blockquote className="text-3xl md:text-4xl lg:text-5xl font-light text-foreground leading-relaxed max-w-4xl mx-auto">
-            "Identity is now <span className="text-gradient-gold font-medium">digital</span>.
+            "Intinuous does not decide <span className="text-gradient-gold font-medium">truth</span>.
             <br />
-            Rights must be <span className="text-primary font-medium">too</span>."
+            It records <span className="text-primary font-medium">continuity and authority</span> so truth can be evaluated."
           </blockquote>
         </motion.div>
 
@@ -91,7 +91,7 @@ const SolutionSection = () => {
           {/* Right - Diagram */}
           <motion.div style={{ x: rightX }} className="relative">
             <div className="relative aspect-square max-w-md mx-auto">
-              {/* Central vault icon */}
+              {/* Central icon */}
               <motion.div
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
@@ -100,9 +100,9 @@ const SolutionSection = () => {
                 className="absolute inset-1/4 bg-card/80 border border-primary/30 rounded-2xl flex items-center justify-center glow-gold"
               >
                 <div className="text-center">
-                  <div className="text-5xl font-bold text-gradient-gold mb-2">LV</div>
+                  <div className="text-5xl font-bold text-gradient-gold mb-2">∞</div>
                   <div className="text-xs font-mono text-muted-foreground uppercase tracking-widest">
-                    Identity Vault
+                    Continuity
                   </div>
                 </div>
               </motion.div>

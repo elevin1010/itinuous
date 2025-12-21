@@ -4,39 +4,33 @@ import { Database, Shield, Scan, FileCheck, Link2, BarChart3 } from 'lucide-reac
 const modules = [
   {
     icon: Database,
-    name: "Identity Vault",
-    code: "vault.encode()",
-    description: "Secure biometric encoding and storage"
+    name: "Identity Registry",
+    description: "Secure registration and storage under defined authority"
   },
   {
     icon: Shield,
-    name: "Rights Engine",
-    code: "rights.define()",
-    description: "Permission and licensing management"
+    name: "Authority Layer",
+    description: "Permission and authorization management"
   },
   {
     icon: Scan,
-    name: "Verification API",
-    code: "verify.check()",
-    description: "Real-time identity authentication"
+    name: "Verification",
+    description: "Continuity authentication over time"
   },
   {
     icon: FileCheck,
-    name: "Compliance Suite",
-    code: "comply.audit()",
-    description: "Legal documentation and evidence"
+    name: "Evidence",
+    description: "Documentation and dispute support"
   },
   {
     icon: Link2,
-    name: "Platform Connect",
-    code: "connect.sync()",
-    description: "AI platform integrations"
+    name: "Attribution",
+    description: "Usage observation and monitoring"
   },
   {
     icon: BarChart3,
-    name: "Analytics Dashboard",
-    code: "track.monitor()",
-    description: "Usage insights and alerts"
+    name: "Insights",
+    description: "Activity visibility and reporting"
   }
 ];
 
@@ -60,10 +54,10 @@ const ProductModulesSection = () => {
           className="text-center mb-20"
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            Product <span className="text-gradient-gold">Modules</span>
+            Core <span className="text-gradient-gold">Capabilities</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Enterprise-grade infrastructure for identity protection
+            Infrastructure for identity continuity
           </p>
         </motion.div>
 
@@ -93,13 +87,6 @@ const ProductModulesSection = () => {
                 <h3 className="relative text-xl font-semibold text-foreground mb-2">
                   {module.name}
                 </h3>
-
-                {/* Code snippet */}
-                <div className="relative mb-4">
-                  <code className="text-sm font-mono text-primary/80 bg-background/50 px-2 py-1 rounded">
-                    {module.code}
-                  </code>
-                </div>
 
                 {/* Description */}
                 <p className="relative text-sm text-muted-foreground">

@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
@@ -15,10 +14,9 @@ const Footer = () => {
             viewport={{ once: true }}
             className="flex items-center gap-3"
           >
-            <Shield className="w-6 h-6 text-primary" />
-            <span className="text-xl font-bold">
-              <span className="text-foreground">Likeness</span>
-              <span className="text-primary">Vault</span>
+            <span className="text-xl font-bold tracking-tight">
+              <span className="text-foreground">Int</span>
+              <span className="text-primary">inuous</span>
             </span>
           </motion.div>
 
@@ -55,7 +53,7 @@ const Footer = () => {
             viewport={{ once: true }}
             className="text-sm text-muted-foreground"
           >
-            © 2025 LikenessVault. All rights reserved.
+            © 2025 Intinuous. All rights reserved.
           </motion.div>
         </div>
       </div>

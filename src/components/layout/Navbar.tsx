@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Shield, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 
@@ -17,10 +17,10 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { label: 'Solution', href: '#solution' },
+    { label: 'The Shift', href: '#insight' },
+    { label: 'Approach', href: '#solution' },
     { label: 'Who It\'s For', href: '#audience' },
-    { label: 'How It Works', href: '#how-it-works' },
-    { label: 'Roadmap', href: '#roadmap' },
+    { label: 'Vision', href: '#vision' },
   ];
 
   return (
@@ -39,10 +39,9 @@ const Navbar = () => {
           <nav className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2">
-              <Shield className="w-6 h-6 text-primary" />
-              <span className="text-lg font-bold">
-                <span className="text-foreground">Likeness</span>
-                <span className="text-primary">Vault</span>
+              <span className="text-lg font-bold tracking-tight">
+                <span className="text-foreground">Int</span>
+                <span className="text-primary">inuous</span>
               </span>
             </Link>
 
@@ -67,7 +66,7 @@ const Navbar = () => {
                 </Button>
               </Link>
               <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 glow-gold">
-                Early Access
+                Get in Touch
               </Button>
             </div>
 
@@ -112,7 +111,7 @@ const Navbar = () => {
                   Investors
                 </Link>
                 <Button className="mt-4 bg-primary text-primary-foreground hover:bg-primary/90 glow-gold w-full">
-                  Early Access
+                  Get in Touch
                 </Button>
               </div>
             </div>

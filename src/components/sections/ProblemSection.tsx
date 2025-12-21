@@ -1,13 +1,5 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
-import { AlertTriangle, Copy, Users, DollarSign } from 'lucide-react';
-
-const stats = [
-  { value: "95%", label: "of deepfakes go undetected", icon: AlertTriangle },
-  { value: "$25B", label: "annual identity fraud losses", icon: DollarSign },
-  { value: "500M+", label: "AI-generated faces created daily", icon: Copy },
-  { value: "Zero", label: "universal protection standards", icon: Users },
-];
 
 const ProblemSection = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -24,8 +16,8 @@ const ProblemSection = () => {
       <div className="absolute inset-0 bg-background" />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-card/30 to-transparent" />
       
-      {/* Warning glow - top */}
-      <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-br from-muted/30 via-transparent to-transparent" />
+      {/* Subtle glow - top */}
+      <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-br from-muted/20 via-transparent to-transparent" />
       
       {/* Ambient orbs */}
       <motion.div
@@ -53,40 +45,32 @@ const ProblemSection = () => {
           className="text-center mb-20"
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            AI has made identity
+            Identity has become
             <br />
-            <span className="text-muted-foreground">infinitely reproducible</span>
+            <span className="text-muted-foreground">an attack surface</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Your face, voice, and likeness can be cloned in seconds. 
-            Current protections were built for a pre-AI world.
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            AI does not need to recreate a specific person to replace them. "Looking real" is no longer meaningful. The issue is not fakes — it is the absence of continuity.
           </p>
         </motion.div>
 
-        {/* Stats grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {stats.map((stat, index) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true, margin: "-50px" }}
-              className="group relative"
-            >
-              <div className="relative p-8 bg-card/60 backdrop-blur-sm border border-border/50 rounded-lg hover:border-primary/40 transition-all duration-300">
-                <stat.icon className="w-8 h-8 text-primary/80 mb-4" />
-                <div className="text-4xl md:text-5xl font-bold text-foreground mb-2 font-mono">
-                  {stat.value}
-                </div>
-                <p className="text-muted-foreground">{stat.label}</p>
-                
-                {/* Hover glow */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
-              </div>
-            </motion.div>
-          ))}
-        </div>
+        {/* Core insight */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: "-50px" }}
+          className="max-w-4xl mx-auto"
+        >
+          <div className="relative p-10 bg-card/60 backdrop-blur-sm border border-border/50 rounded-lg">
+            <p className="text-xl md:text-2xl text-foreground/90 leading-relaxed text-center">
+              There is no authoritative way to determine who is allowed to stand in for whom, or whether an identity today is the same entity as yesterday.
+            </p>
+            
+            {/* Hover glow */}
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 rounded-lg" />
+          </div>
+        </motion.div>
 
         {/* Dividing line with message */}
         <motion.div
@@ -98,7 +82,7 @@ const ProblemSection = () => {
         >
           <div className="flex-1 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
           <p className="text-muted-foreground font-mono text-sm whitespace-nowrap">
-            There has to be a better way
+            A different frame is required
           </p>
           <div className="flex-1 h-px bg-gradient-to-l from-transparent via-border to-transparent" />
         </motion.div>
