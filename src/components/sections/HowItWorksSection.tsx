@@ -42,7 +42,7 @@ const HowItWorksSection = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-card/20 to-transparent" />
       
       {/* Ambient orb */}
-      <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-gradient-radial from-accent/8 via-transparent to-transparent rounded-full blur-[100px]" />
+      <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-gradient-radial from-primary/6 via-transparent to-transparent rounded-full blur-[100px]" />
 
       <div className="container relative z-10">
         {/* Section header */}
@@ -54,7 +54,7 @@ const HowItWorksSection = () => {
           className="text-center mb-20"
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            How It <span className="text-gradient-cyan">Works</span>
+            How It <span className="text-gradient-gold">Works</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Three simple steps to protect your digital identity
@@ -67,7 +67,7 @@ const HowItWorksSection = () => {
           <div className="absolute left-[2.25rem] top-0 bottom-0 w-px bg-border/30 hidden md:block">
             <motion.div
               style={{ scaleY: lineProgress }}
-              className="absolute inset-0 bg-gradient-to-b from-primary via-accent to-primary origin-top"
+              className="absolute inset-0 bg-gradient-to-b from-primary via-primary/70 to-primary origin-top"
             />
           </div>
 
@@ -107,7 +107,7 @@ const HowItWorksSection = () => {
                     {step.description}
                   </p>
                   <div className="inline-flex items-center gap-2 px-4 py-2 bg-muted/30 border border-border/50 rounded-full">
-                    <span className="text-sm font-mono text-accent">{step.details}</span>
+                    <span className="text-sm font-mono text-primary">{step.details}</span>
                   </div>
                 </div>
               </motion.div>

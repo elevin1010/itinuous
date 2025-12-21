@@ -37,7 +37,7 @@ const milestones = [
 
 const statusColors = {
   completed: { dot: 'bg-primary', text: 'text-primary', bg: 'bg-primary/10' },
-  current: { dot: 'bg-accent', text: 'text-accent', bg: 'bg-accent/10' },
+  current: { dot: 'bg-primary', text: 'text-primary', bg: 'bg-primary/10' },
   upcoming: { dot: 'bg-muted-foreground', text: 'text-foreground', bg: 'bg-muted/30' },
   future: { dot: 'bg-muted', text: 'text-muted-foreground', bg: 'bg-muted/20' }
 };
@@ -80,7 +80,7 @@ const RoadmapSection = () => {
           <div className="absolute left-4 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-0.5 bg-border/30">
             <motion.div
               style={{ scaleY: lineProgress }}
-              className="absolute inset-0 bg-gradient-to-b from-primary via-accent to-muted origin-top"
+              className="absolute inset-0 bg-gradient-to-b from-primary via-primary/60 to-muted origin-top"
             />
           </div>
 

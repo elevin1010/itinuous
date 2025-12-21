@@ -44,7 +44,7 @@ const CTASection = () => {
           opacity: [0.08, 0.15, 0.08]
         }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/3 right-1/4 w-[400px] h-[400px] bg-gradient-radial from-accent/15 via-transparent to-transparent rounded-full blur-[80px]"
+        className="absolute top-1/3 right-1/4 w-[400px] h-[400px] bg-gradient-radial from-primary/10 via-transparent to-transparent rounded-full blur-[80px]"
       />
 
       <div className="container relative z-10">
@@ -98,7 +98,7 @@ const CTASection = () => {
               Early access priority
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-accent rounded-full" />
+              <div className="w-2 h-2 bg-primary/70 rounded-full" />
               Founding member benefits
             </div>
             <div className="flex items-center gap-2">
