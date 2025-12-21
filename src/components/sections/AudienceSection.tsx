@@ -46,116 +46,116 @@ const AudienceSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section id="audience" className="relative py-32 overflow-hidden">
+    <section id="audience" className="relative py-40 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-background" />
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-card/20 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-card/15 to-transparent" />
       
       {/* Ambient orb */}
-      <div className="absolute top-1/2 left-1/4 w-[500px] h-[500px] bg-gradient-radial from-primary/8 via-transparent to-transparent rounded-full blur-[100px]" />
+      <div className="absolute top-1/2 left-1/4 w-[500px] h-[500px] bg-gradient-radial from-primary/6 via-transparent to-transparent rounded-full blur-[120px]" />
 
       <div className="container relative z-10">
         {/* Section header */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 1, ease: "easeOut" }}
           viewport={{ once: true, margin: "-100px" }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light mb-6">
             Who It's <span className="text-gradient-gold">For</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-muted-foreground font-light">
             People and organizations with reputational or economic surface area
           </p>
         </motion.div>
 
-        {/* Audience selector - Mobile: cards, Desktop: tabs + detail */}
-        <div className="lg:hidden space-y-4">
+        {/* Mobile: cards */}
+        <div className="lg:hidden space-y-4 max-w-2xl mx-auto">
           {audiences.map((audience, index) => (
             <motion.div
               key={audience.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.6, delay: index * 0.08 }}
               viewport={{ once: true }}
-              className="p-6 bg-card/60 backdrop-blur-sm border border-border/50 rounded-lg"
+              className="p-6 bg-card/50 backdrop-blur-sm border border-border/30 rounded-xl"
             >
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                  <audience.icon className="w-6 h-6 text-primary" />
+                <div className="w-11 h-11 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <audience.icon className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground">{audience.title}</h3>
-                  <p className="text-sm text-muted-foreground">{audience.subtitle}</p>
+                  <h3 className="font-light text-foreground">{audience.title}</h3>
+                  <p className="text-sm text-muted-foreground/70 font-light">{audience.subtitle}</p>
                 </div>
               </div>
-              <p className="text-muted-foreground text-sm">{audience.description}</p>
+              <p className="text-muted-foreground text-sm font-light leading-relaxed">{audience.description}</p>
             </motion.div>
           ))}
         </div>
 
-        {/* Desktop layout */}
-        <div className="hidden lg:grid grid-cols-12 gap-8">
+        {/* Desktop: tabs + detail */}
+        <div className="hidden lg:grid grid-cols-12 gap-10 max-w-5xl mx-auto">
           {/* Tabs */}
-          <div className="col-span-4 space-y-2">
+          <div className="col-span-5 space-y-2">
             {audiences.map((audience, index) => (
               <motion.button
                 key={audience.title}
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
                 viewport={{ once: true }}
                 onClick={() => setActiveIndex(index)}
                 className={`
-                  w-full p-4 text-left rounded-lg transition-all duration-300
+                  w-full p-4 text-left rounded-xl transition-all duration-300
                   flex items-center gap-4
                   ${activeIndex === index 
-                    ? 'bg-card/80 border border-primary/30 glow-gold' 
-                    : 'bg-card/30 border border-transparent hover:bg-card/50'
+                    ? 'bg-card/70 border border-primary/20' 
+                    : 'bg-transparent border border-transparent hover:bg-card/40'
                   }
                 `}
               >
                 <div className={`
                   w-10 h-10 rounded-lg flex items-center justify-center transition-colors
-                  ${activeIndex === index ? 'bg-primary/20' : 'bg-muted/30'}
+                  ${activeIndex === index ? 'bg-primary/15' : 'bg-muted/20'}
                 `}>
-                  <audience.icon className={`w-5 h-5 ${activeIndex === index ? 'text-primary' : 'text-muted-foreground'}`} />
+                  <audience.icon className={`w-5 h-5 ${activeIndex === index ? 'text-primary' : 'text-muted-foreground/70'}`} />
                 </div>
                 <div>
-                  <h3 className={`font-medium ${activeIndex === index ? 'text-foreground' : 'text-muted-foreground'}`}>
+                  <h3 className={`font-light ${activeIndex === index ? 'text-foreground' : 'text-muted-foreground'}`}>
                     {audience.title}
                   </h3>
-                  <p className="text-xs text-muted-foreground">{audience.subtitle}</p>
+                  <p className="text-xs text-muted-foreground/60 font-light">{audience.subtitle}</p>
                 </div>
               </motion.button>
             ))}
           </div>
 
           {/* Detail panel */}
-          <div className="col-span-8">
+          <div className="col-span-7">
             <motion.div
               key={activeIndex}
-              initial={{ opacity: 0, x: 20 }}
+              initial={{ opacity: 0, x: 15 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.4 }}
-              className="h-full p-8 bg-card/60 backdrop-blur-sm border border-border/50 rounded-lg flex flex-col justify-center"
+              className="h-full p-10 bg-card/50 backdrop-blur-sm border border-border/30 rounded-xl flex flex-col justify-center"
             >
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-16 h-16 rounded-lg bg-primary/10 flex items-center justify-center">
+              <div className="flex items-center gap-5 mb-8">
+                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center">
                   {(() => {
                     const Icon = audiences[activeIndex].icon;
-                    return <Icon className="w-8 h-8 text-primary" />;
+                    return <Icon className="w-7 h-7 text-primary" />;
                   })()}
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-foreground">{audiences[activeIndex].title}</h3>
-                  <p className="text-muted-foreground">{audiences[activeIndex].subtitle}</p>
+                  <h3 className="text-2xl font-light text-foreground">{audiences[activeIndex].title}</h3>
+                  <p className="text-muted-foreground/70 font-light">{audiences[activeIndex].subtitle}</p>
                 </div>
               </div>
 
-              <p className="text-xl text-foreground/80 leading-relaxed">
+              <p className="text-lg text-foreground/80 leading-relaxed font-light">
                 {audiences[activeIndex].description}
               </p>
             </motion.div>

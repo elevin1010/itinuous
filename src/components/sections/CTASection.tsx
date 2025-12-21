@@ -3,70 +3,60 @@ import { Button } from '@/components/ui/button';
 
 const CTASection = () => {
   return (
-    <section className="relative py-32 overflow-hidden">
+    <section className="relative py-40 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-background" />
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-card/30 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-card/20 to-transparent" />
       
       {/* Animated gold orb */}
       <motion.div
         animate={{ 
-          scale: [1, 1.15, 1],
-          opacity: [0.15, 0.25, 0.15]
-        }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial from-primary/20 via-transparent to-transparent rounded-full blur-[100px]"
-      />
-      
-      {/* Secondary orb */}
-      <motion.div
-        animate={{ 
-          scale: [1.1, 1, 1.1],
-          opacity: [0.08, 0.15, 0.08]
+          scale: [1, 1.1, 1],
+          opacity: [0.1, 0.18, 0.1]
         }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/3 right-1/4 w-[400px] h-[400px] bg-gradient-radial from-primary/10 via-transparent to-transparent rounded-full blur-[80px]"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial from-primary/15 via-transparent to-transparent rounded-full blur-[120px]"
       />
 
-      <div className="container relative z-10">
+      <div className="container relative z-10 max-w-3xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 1, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="max-w-3xl mx-auto text-center"
+          className="text-center"
         >
           {/* Heading */}
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light mb-8">
             Private Previews <span className="text-gradient-gold">Underway</span>
           </h2>
-          <p className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-muted-foreground mb-14 max-w-2xl mx-auto leading-relaxed font-light">
             Intinuous is currently in discussion with early partners. If you represent an organization with meaningful identity surface area, we'd welcome a conversation.
           </p>
 
           {/* CTA */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+          <div className="mb-16">
             <Button 
               size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 glow-gold px-10 py-7 text-lg"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 px-12 py-6 text-base font-medium tracking-wide"
             >
               Reach Out to Learn More
             </Button>
           </div>
 
           {/* Trust indicators */}
-          <div className="flex flex-wrap justify-center gap-8 text-sm text-muted-foreground">
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-primary rounded-full" />
-              In discussion with early partners
+          <div className="flex flex-wrap justify-center gap-10 text-sm text-muted-foreground/70">
+            <div className="flex items-center gap-2.5">
+              <div className="w-1.5 h-1.5 bg-primary/60 rounded-full" />
+              <span className="font-light">In discussion with early partners</span>
             </div>
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-primary/70 rounded-full" />
-              Private previews available
+            <div className="flex items-center gap-2.5">
+              <div className="w-1.5 h-1.5 bg-primary/40 rounded-full" />
+              <span className="font-light">Private previews available</span>
             </div>
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-foreground/50 rounded-full" />
-              Confidential inquiries welcome
+            <div className="flex items-center gap-2.5">
+              <div className="w-1.5 h-1.5 bg-foreground/30 rounded-full" />
+              <span className="font-light">Confidential inquiries welcome</span>
             </div>
           </div>
         </motion.div>
