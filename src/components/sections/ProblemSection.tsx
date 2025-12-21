@@ -38,7 +38,7 @@ const ProblemSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
           viewport={{ once: true, margin: "-100px" }}
-          className="text-center mb-24"
+          className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-light mb-8 leading-tight">
             Identity has become
@@ -50,7 +50,7 @@ const ProblemSection = () => {
           </p>
         </motion.div>
 
-        {/* Core insight */}
+        {/* Core insight - What remains scarce */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -58,9 +58,23 @@ const ProblemSection = () => {
           viewport={{ once: true, margin: "-50px" }}
         >
           <div className="relative p-12 md:p-16 bg-card/50 backdrop-blur-sm border border-border/30 rounded-xl">
-            <p className="text-xl md:text-2xl text-foreground/80 leading-relaxed text-center font-light">
-              There is no authoritative way to determine who is allowed to stand in for whom, or whether an identity today is the same entity as yesterday.
+            <p className="text-xl md:text-2xl text-foreground/80 leading-relaxed text-center font-light mb-8">
+              What remains scarce is a <span className="text-gradient-gold">persistent identity</span> with:
             </p>
+            <ul className="flex flex-col md:flex-row justify-center gap-6 md:gap-12 text-lg text-muted-foreground font-light">
+              <li className="flex items-center gap-3">
+                <span className="w-1.5 h-1.5 bg-primary/60 rounded-full" />
+                verifiable origin
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="w-1.5 h-1.5 bg-primary/60 rounded-full" />
+                accountable history
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="w-1.5 h-1.5 bg-primary/60 rounded-full" />
+                recognized authority
+              </li>
+            </ul>
           </div>
         </motion.div>
 
@@ -70,7 +84,7 @@ const ProblemSection = () => {
           whileInView={{ scaleX: 1, opacity: 1 }}
           transition={{ duration: 1.2, delay: 0.3 }}
           viewport={{ once: true }}
-          className="mt-24 flex items-center gap-10"
+          className="mt-20 flex items-center gap-10"
         >
           <div className="flex-1 h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
           <p className="text-muted-foreground/70 text-sm tracking-wide">
