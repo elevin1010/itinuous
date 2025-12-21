@@ -16,92 +16,69 @@ const SolutionSection = () => {
     offset: ["start end", "end start"]
   });
 
-  const leftX = useTransform(scrollYProgress, [0, 0.5], ["-100px", "0px"]);
-  const rightX = useTransform(scrollYProgress, [0, 0.5], ["100px", "0px"]);
-  const centerScale = useTransform(scrollYProgress, [0.2, 0.5], [0.8, 1]);
+  const leftX = useTransform(scrollYProgress, [0, 0.5], ["-60px", "0px"]);
+  const rightX = useTransform(scrollYProgress, [0, 0.5], ["60px", "0px"]);
+  const centerScale = useTransform(scrollYProgress, [0.2, 0.5], [0.95, 1]);
   const centerOpacity = useTransform(scrollYProgress, [0.2, 0.4], [0, 1]);
 
   return (
-    <section id="solution" ref={ref} className="relative py-32 overflow-hidden">
+    <section id="solution" ref={ref} className="relative py-40 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-background" />
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-card/20 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-card/15 to-transparent" />
       
       {/* Ambient orbs */}
-      <div className="absolute top-1/4 -left-48 w-[500px] h-[500px] bg-gradient-radial from-primary/10 via-transparent to-transparent rounded-full blur-[100px]" />
-      <div className="absolute bottom-1/4 -right-48 w-[400px] h-[400px] bg-gradient-radial from-primary/6 via-transparent to-transparent rounded-full blur-[100px]" />
-      
-      {/* Animated connection lines */}
-      <div className="absolute inset-0 overflow-hidden">
-        <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
-          <motion.path
-            initial={{ pathLength: 0, opacity: 0 }}
-            whileInView={{ pathLength: 1, opacity: 0.3 }}
-            transition={{ duration: 2, delay: 0.5 }}
-            viewport={{ once: true }}
-            d="M 100 400 Q 400 200 600 400 Q 800 600 1100 400"
-            fill="none"
-            stroke="url(#gradient1)"
-            strokeWidth="1"
-          />
-          <defs>
-            <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="hsl(43 74% 60%)" />
-              <stop offset="50%" stopColor="hsl(43 74% 70%)" />
-              <stop offset="100%" stopColor="hsl(43 74% 60%)" />
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
+      <div className="absolute top-1/4 -left-48 w-[500px] h-[500px] bg-gradient-radial from-primary/8 via-transparent to-transparent rounded-full blur-[120px]" />
+      <div className="absolute bottom-1/4 -right-48 w-[400px] h-[400px] bg-gradient-radial from-primary/5 via-transparent to-transparent rounded-full blur-[120px]" />
 
       <div className="container relative z-10">
         {/* Pull quote */}
         <motion.div
           style={{ scale: centerScale, opacity: centerOpacity }}
-          className="text-center mb-24"
+          className="text-center mb-28 max-w-4xl mx-auto"
         >
-          <blockquote className="text-3xl md:text-4xl lg:text-5xl font-light text-foreground leading-relaxed max-w-4xl mx-auto">
-            "Intinuous does not decide <span className="text-gradient-gold font-medium">truth</span>.
+          <blockquote className="text-2xl md:text-3xl lg:text-4xl font-light text-foreground/90 leading-relaxed">
+            "Intinuous does not decide <span className="text-gradient-gold">truth</span>.
             <br />
-            It records <span className="text-primary font-medium">continuity and authority</span> so truth can be evaluated."
+            It records <span className="text-primary">continuity and authority</span> so truth can be evaluated."
           </blockquote>
         </motion.div>
 
         {/* Split layout */}
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-20 items-center max-w-6xl mx-auto">
           {/* Left - Features */}
-          <motion.div style={{ x: leftX }} className="space-y-6">
+          <motion.div style={{ x: leftX }} className="space-y-5">
             {features.map((feature, index) => (
               <motion.div
                 key={feature.label}
-                initial={{ opacity: 0, x: -40 }}
+                initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="flex items-center gap-4 p-4 bg-card/60 backdrop-blur-sm border border-border/30 rounded-lg hover:border-primary/30 transition-colors group"
+                className="flex items-center gap-5 p-5 bg-card/50 backdrop-blur-sm border border-border/30 rounded-lg hover:border-primary/20 transition-colors group"
               >
-                <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                  <feature.icon className="w-6 h-6 text-primary" />
+                <div className="flex-shrink-0 w-11 h-11 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/15 transition-colors">
+                  <feature.icon className="w-5 h-5 text-primary" />
                 </div>
-                <span className="text-lg font-medium text-foreground">{feature.label}</span>
+                <span className="text-base text-foreground/80 font-light">{feature.label}</span>
               </motion.div>
             ))}
           </motion.div>
 
           {/* Right - Diagram */}
           <motion.div style={{ x: rightX }} className="relative">
-            <div className="relative aspect-square max-w-md mx-auto">
+            <div className="relative aspect-square max-w-sm mx-auto">
               {/* Central icon */}
               <motion.div
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                transition={{ duration: 0.8, type: "spring" }}
+                initial={{ scale: 0.9, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 1, ease: "easeOut" }}
                 viewport={{ once: true }}
-                className="absolute inset-1/4 bg-card/80 border border-primary/30 rounded-2xl flex items-center justify-center glow-gold"
+                className="absolute inset-1/4 bg-card/70 border border-primary/20 rounded-2xl flex items-center justify-center"
               >
                 <div className="text-center">
-                  <div className="text-5xl font-bold text-gradient-gold mb-2">∞</div>
-                  <div className="text-xs font-mono text-muted-foreground uppercase tracking-widest">
+                  <div className="text-4xl font-light text-gradient-gold mb-2">∞</div>
+                  <div className="text-xs text-muted-foreground/70 uppercase tracking-[0.2em] font-light">
                     Continuity
                   </div>
                 </div>
@@ -110,27 +87,27 @@ const SolutionSection = () => {
               {/* Orbiting elements */}
               <motion.div
                 animate={{ rotate: 360 }}
-                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
                 className="absolute inset-0"
               >
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-primary/15 border border-primary/40 rounded-full flex items-center justify-center">
-                  <div className="w-3 h-3 bg-primary rounded-full" />
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-primary/10 border border-primary/30 rounded-full flex items-center justify-center">
+                  <div className="w-2 h-2 bg-primary/60 rounded-full" />
                 </div>
               </motion.div>
 
               <motion.div
                 animate={{ rotate: -360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-8"
+                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-10"
               >
-                <div className="absolute bottom-0 right-0 w-8 h-8 bg-primary/20 border border-primary/50 rounded-full flex items-center justify-center">
-                  <div className="w-2 h-2 bg-primary rounded-full" />
+                <div className="absolute bottom-0 right-0 w-6 h-6 bg-primary/15 border border-primary/40 rounded-full flex items-center justify-center">
+                  <div className="w-1.5 h-1.5 bg-primary/60 rounded-full" />
                 </div>
               </motion.div>
 
-              {/* Outer ring */}
-              <div className="absolute inset-0 border border-dashed border-border/30 rounded-full" />
-              <div className="absolute inset-8 border border-dashed border-border/20 rounded-full" />
+              {/* Outer rings */}
+              <div className="absolute inset-0 border border-dashed border-border/20 rounded-full" />
+              <div className="absolute inset-10 border border-dashed border-border/15 rounded-full" />
             </div>
           </motion.div>
         </div>

@@ -32,7 +32,7 @@ const HeroSection = () => {
       {/* Base dark background */}
       <div className="absolute inset-0 bg-background" />
       
-      {/* Gradient mesh - Formless/Jeton inspired */}
+      {/* Gradient mesh */}
       <div className="absolute inset-0 gradient-mesh" />
       
       {/* Animated gold orb - top left */}
@@ -40,10 +40,10 @@ const HeroSection = () => {
         style={{ y }}
         animate={{
           scale: [1, 1.1, 1],
-          opacity: [0.15, 0.25, 0.15]
+          opacity: [0.12, 0.2, 0.12]
         }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/4 -left-32 w-[600px] h-[600px] bg-gradient-radial from-primary/20 via-primary/5 to-transparent rounded-full blur-[100px]"
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-1/4 -left-32 w-[600px] h-[600px] bg-gradient-radial from-primary/15 via-primary/5 to-transparent rounded-full blur-[120px]"
       />
       
       {/* Animated secondary gold orb - bottom right */}
@@ -51,125 +51,79 @@ const HeroSection = () => {
         style={{ y }}
         animate={{
           scale: [1.1, 1, 1.1],
-          opacity: [0.1, 0.2, 0.1]
-        }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-1/4 -right-32 w-[700px] h-[700px] bg-gradient-radial from-primary/10 via-primary/3 to-transparent rounded-full blur-[120px]"
-      />
-
-      {/* Lighter gold accent orb - center top */}
-      <motion.div
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.05, 0.1, 0.05]
+          opacity: [0.08, 0.15, 0.08]
         }}
         transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-radial from-primary/8 via-transparent to-transparent rounded-full blur-[80px]"
+        className="absolute bottom-1/4 -right-32 w-[700px] h-[700px] bg-gradient-radial from-primary/10 via-primary/3 to-transparent rounded-full blur-[140px]"
       />
 
       {/* Interactive mouse-following glow */}
       <motion.div
         animate={{
-          x: mousePosition.x * 80,
-          y: mousePosition.y * 80,
+          x: mousePosition.x * 60,
+          y: mousePosition.y * 60,
         }}
-        transition={{ type: "spring", stiffness: 30, damping: 30 }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-radial from-primary/10 via-transparent to-transparent rounded-full blur-[60px] pointer-events-none"
+        transition={{ type: "spring", stiffness: 20, damping: 40 }}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-gradient-radial from-primary/8 via-transparent to-transparent rounded-full blur-[80px] pointer-events-none"
       />
 
       {/* Subtle grid pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(0_0%_100%/0.02)_1px,transparent_1px),linear-gradient(to_bottom,hsl(0_0%_100%/0.02)_1px,transparent_1px)] bg-[size:80px_80px]" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(0_0%_100%/0.015)_1px,transparent_1px),linear-gradient(to_bottom,hsl(0_0%_100%/0.015)_1px,transparent_1px)] bg-[size:100px_100px]" />
       
       {/* Vignette overlay */}
-      <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-background/60" />
+      <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-background/50" />
 
-      {/* Floating geometric shapes */}
+      {/* Floating geometric shapes - more subtle */}
       <motion.div
         animate={{ rotate: 360 }}
-        transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-        className="absolute top-20 right-20 w-40 h-40 border border-primary/10 rounded-full"
+        transition={{ duration: 90, repeat: Infinity, ease: "linear" }}
+        className="absolute top-24 right-24 w-32 h-32 border border-primary/5 rounded-full"
       />
       <motion.div
         animate={{ rotate: -360 }}
-        transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
-        className="absolute bottom-32 left-20 w-56 h-56 border border-primary/10"
+        transition={{ duration: 70, repeat: Infinity, ease: "linear" }}
+        className="absolute bottom-40 left-24 w-48 h-48 border border-primary/5"
         style={{ clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)' }}
       />
-      
-      {/* Animated particles */}
-      {[...Array(8)].map((_, i) => (
-        <motion.div
-          key={i}
-          animate={{
-            y: [0, -40, 0],
-            opacity: [0.2, 0.6, 0.2],
-            scale: [1, 1.3, 1]
-          }}
-          transition={{
-            duration: 5 + i * 0.8,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: i * 0.7
-          }}
-          className={`absolute w-1.5 h-1.5 rounded-full blur-[1px] ${i % 2 === 0 ? 'bg-primary/60' : 'bg-foreground/30'}`}
-          style={{
-            top: `${15 + (i * 10)}%`,
-            left: `${5 + (i * 12)}%`,
-          }}
-        />
-      ))}
 
-      {/* Gradient accent lines */}
-      <div className="absolute top-0 left-1/4 w-px h-1/3 bg-gradient-to-b from-transparent via-primary/20 to-transparent" />
-      <div className="absolute top-1/3 right-1/4 w-px h-1/3 bg-gradient-to-b from-transparent via-primary/15 to-transparent" />
-      <div className="absolute bottom-0 left-1/3 w-1/3 h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
+      {/* Gradient accent lines - more subtle */}
+      <div className="absolute top-0 left-1/4 w-px h-1/3 bg-gradient-to-b from-transparent via-primary/10 to-transparent" />
+      <div className="absolute top-1/3 right-1/4 w-px h-1/3 bg-gradient-to-b from-transparent via-primary/8 to-transparent" />
 
       {/* Hero content */}
       <motion.div 
         style={{ opacity, scale }}
-        className="relative z-10 text-center px-4 max-w-5xl mx-auto"
+        className="relative z-10 text-center px-6 max-w-4xl mx-auto"
       >
-        {/* Wordmark with staggered reveal */}
+        {/* Wordmark */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.8 }}
-          className="mb-8"
+          transition={{ delay: 0.3, duration: 1, ease: "easeOut" }}
+          className="mb-12"
         >
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tight">
-            <motion.span 
-              className="text-foreground inline-block"
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.5, duration: 0.7 }}
-            >
-              Int
-            </motion.span>
-            <motion.span 
-              className="text-gradient-gold inline-block"
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.7, duration: 0.7 }}
-            >
-              inuous
-            </motion.span>
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tight">
+            <span className="text-foreground">Int</span>
+            <span className="text-gradient-gold">inuous</span>
           </h1>
         </motion.div>
 
-        {/* Tagline */}
+        {/* Primary tagline */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9, duration: 0.6 }}
-          className="text-xl md:text-2xl lg:text-3xl text-muted-foreground mb-3 font-light tracking-wide max-w-3xl mx-auto"
+          transition={{ delay: 0.6, duration: 0.8 }}
+          className="text-2xl md:text-3xl lg:text-4xl text-foreground/90 mb-8 font-light tracking-wide leading-snug"
         >
           Verifiable continuity in a generative world
         </motion.p>
+        
+        {/* Secondary description */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 0.6 }}
-          className="text-lg md:text-xl text-foreground/70 mb-14 max-w-2xl mx-auto leading-relaxed"
+          transition={{ delay: 0.8, duration: 0.8 }}
+          className="text-lg md:text-xl text-muted-foreground mb-16 max-w-2xl mx-auto leading-relaxed font-light"
         >
           Generative AI has made identity infinite — and trust fragile. Intinuous provides the continuity and authority layer that allows humans and persistent entities to remain economically legible over time.
         </motion.p>
@@ -178,26 +132,19 @@ const HeroSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.2, duration: 0.6 }}
+          transition={{ delay: 1, duration: 0.8 }}
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
           <Button 
             size="lg" 
-            className="bg-primary text-primary-foreground hover:bg-primary/90 glow-gold px-10 py-7 text-lg font-semibold group"
+            className="bg-primary text-primary-foreground hover:bg-primary/90 px-12 py-6 text-base font-medium tracking-wide"
           >
-            <span>Reach Out</span>
-            <motion.span
-              animate={{ x: [0, 6, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-              className="ml-2"
-            >
-              →
-            </motion.span>
+            Reach Out
           </Button>
           <Button 
             size="lg" 
             variant="outline" 
-            className="border-border hover:border-foreground/30 text-foreground hover:bg-foreground/5 px-10 py-7 text-lg"
+            className="border-border/50 hover:border-foreground/20 text-foreground/80 hover:text-foreground hover:bg-foreground/5 px-12 py-6 text-base font-light tracking-wide"
           >
             Learn More
           </Button>
@@ -208,16 +155,16 @@ const HeroSection = () => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 0.6 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2"
+        transition={{ delay: 1.5, duration: 1 }}
+        className="absolute bottom-12 left-1/2 -translate-x-1/2"
       >
         <motion.div
-          animate={{ y: [0, 12, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="flex flex-col items-center gap-3"
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+          className="flex flex-col items-center gap-4"
         >
-          <span className="text-xs text-muted-foreground font-mono tracking-widest">SCROLL</span>
-          <ChevronDown className="w-5 h-5 text-muted-foreground" />
+          <span className="text-xs text-muted-foreground/60 font-light tracking-[0.3em] uppercase">Scroll</span>
+          <ChevronDown className="w-4 h-4 text-muted-foreground/40" />
         </motion.div>
       </motion.div>
     </section>
