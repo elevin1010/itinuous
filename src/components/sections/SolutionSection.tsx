@@ -29,7 +29,7 @@ const SolutionSection = () => {
       
       {/* Ambient orbs */}
       <div className="absolute top-1/4 -left-48 w-[500px] h-[500px] bg-gradient-radial from-primary/10 via-transparent to-transparent rounded-full blur-[100px]" />
-      <div className="absolute bottom-1/4 -right-48 w-[400px] h-[400px] bg-gradient-radial from-accent/8 via-transparent to-transparent rounded-full blur-[100px]" />
+      <div className="absolute bottom-1/4 -right-48 w-[400px] h-[400px] bg-gradient-radial from-primary/6 via-transparent to-transparent rounded-full blur-[100px]" />
       
       {/* Animated connection lines */}
       <div className="absolute inset-0 overflow-hidden">
@@ -47,7 +47,7 @@ const SolutionSection = () => {
           <defs>
             <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
               <stop offset="0%" stopColor="hsl(43 74% 60%)" />
-              <stop offset="50%" stopColor="hsl(187 100% 45%)" />
+              <stop offset="50%" stopColor="hsl(43 74% 70%)" />
               <stop offset="100%" stopColor="hsl(43 74% 60%)" />
             </linearGradient>
           </defs>
@@ -63,7 +63,7 @@ const SolutionSection = () => {
           <blockquote className="text-3xl md:text-4xl lg:text-5xl font-light text-foreground leading-relaxed max-w-4xl mx-auto">
             "Identity is now <span className="text-gradient-gold font-medium">digital</span>.
             <br />
-            Rights must be <span className="text-gradient-cyan font-medium">too</span>."
+            Rights must be <span className="text-primary font-medium">too</span>."
           </blockquote>
         </motion.div>
 
@@ -113,8 +113,8 @@ const SolutionSection = () => {
                 transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
                 className="absolute inset-0"
               >
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-accent/20 border border-accent/50 rounded-full flex items-center justify-center">
-                  <div className="w-3 h-3 bg-accent rounded-full" />
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-primary/15 border border-primary/40 rounded-full flex items-center justify-center">
+                  <div className="w-3 h-3 bg-primary rounded-full" />
                 </div>
               </motion.div>
 

@@ -46,7 +46,7 @@ const HeroSection = () => {
         className="absolute top-1/4 -left-32 w-[600px] h-[600px] bg-gradient-radial from-primary/20 via-primary/5 to-transparent rounded-full blur-[100px]"
       />
       
-      {/* Animated cyan orb - bottom right */}
+      {/* Animated secondary gold orb - bottom right */}
       <motion.div
         style={{ y }}
         animate={{
@@ -54,17 +54,17 @@ const HeroSection = () => {
           opacity: [0.1, 0.2, 0.1]
         }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-1/4 -right-32 w-[700px] h-[700px] bg-gradient-radial from-accent/15 via-accent/5 to-transparent rounded-full blur-[120px]"
+        className="absolute bottom-1/4 -right-32 w-[700px] h-[700px] bg-gradient-radial from-primary/10 via-primary/3 to-transparent rounded-full blur-[120px]"
       />
 
-      {/* Purple accent orb - center top */}
+      {/* Lighter gold accent orb - center top */}
       <motion.div
         animate={{
           scale: [1, 1.2, 1],
           opacity: [0.05, 0.1, 0.05]
         }}
         transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-radial from-[hsl(280,60%,50%)]/10 via-transparent to-transparent rounded-full blur-[80px]"
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-radial from-primary/8 via-transparent to-transparent rounded-full blur-[80px]"
       />
 
       {/* Interactive mouse-following glow */}
@@ -92,7 +92,7 @@ const HeroSection = () => {
       <motion.div
         animate={{ rotate: -360 }}
         transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
-        className="absolute bottom-32 left-20 w-56 h-56 border border-accent/10"
+        className="absolute bottom-32 left-20 w-56 h-56 border border-primary/10"
         style={{ clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)' }}
       />
       
@@ -111,7 +111,7 @@ const HeroSection = () => {
             ease: "easeInOut",
             delay: i * 0.7
           }}
-          className={`absolute w-1.5 h-1.5 rounded-full blur-[1px] ${i % 3 === 0 ? 'bg-primary/60' : i % 3 === 1 ? 'bg-accent/60' : 'bg-foreground/30'}`}
+          className={`absolute w-1.5 h-1.5 rounded-full blur-[1px] ${i % 2 === 0 ? 'bg-primary/60' : 'bg-foreground/30'}`}
           style={{
             top: `${15 + (i * 10)}%`,
             left: `${5 + (i * 12)}%`,
@@ -121,7 +121,7 @@ const HeroSection = () => {
 
       {/* Gradient accent lines */}
       <div className="absolute top-0 left-1/4 w-px h-1/3 bg-gradient-to-b from-transparent via-primary/20 to-transparent" />
-      <div className="absolute top-1/3 right-1/4 w-px h-1/3 bg-gradient-to-b from-transparent via-accent/20 to-transparent" />
+      <div className="absolute top-1/3 right-1/4 w-px h-1/3 bg-gradient-to-b from-transparent via-primary/15 to-transparent" />
       <div className="absolute bottom-0 left-1/3 w-1/3 h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
 
       {/* Hero content */}
@@ -198,7 +198,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.6 }}
-          className="text-lg md:text-xl text-gradient-cyan font-mono mb-14"
+          className="text-lg md:text-xl text-primary font-mono mb-14"
         >
           for the AI Era
         </motion.p>

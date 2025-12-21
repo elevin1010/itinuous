@@ -78,14 +78,14 @@ const ProductModulesSection = () => {
               viewport={{ once: true, margin: "-50px" }}
               className="group"
             >
-              <div className="relative h-full p-6 bg-card/60 backdrop-blur-sm border border-border/50 rounded-lg hover:border-accent/30 transition-all duration-300 overflow-hidden">
+              <div className="relative h-full p-6 bg-card/60 backdrop-blur-sm border border-border/50 rounded-lg hover:border-primary/30 transition-all duration-300 overflow-hidden">
                 {/* Hover glow effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
                 {/* Icon */}
                 <div className="relative mb-4">
-                  <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
-                    <module.icon className="w-6 h-6 text-accent" />
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                    <module.icon className="w-6 h-6 text-primary" />
                   </div>
                 </div>
 
@@ -96,7 +96,7 @@ const ProductModulesSection = () => {
 
                 {/* Code snippet */}
                 <div className="relative mb-4">
-                  <code className="text-sm font-mono text-accent/80 bg-background/50 px-2 py-1 rounded">
+                  <code className="text-sm font-mono text-primary/80 bg-background/50 px-2 py-1 rounded">
                     {module.code}
                   </code>
                 </div>
@@ -108,8 +108,8 @@ const ProductModulesSection = () => {
 
                 {/* Corner decoration */}
                 <div className="absolute bottom-0 right-0 w-16 h-16 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-2 right-2 w-6 h-px bg-accent/30" />
-                  <div className="absolute bottom-2 right-2 w-px h-6 bg-accent/30" />
+                  <div className="absolute bottom-2 right-2 w-6 h-px bg-primary/30" />
+                  <div className="absolute bottom-2 right-2 w-px h-6 bg-primary/30" />
                 </div>
               </div>
             </motion.div>

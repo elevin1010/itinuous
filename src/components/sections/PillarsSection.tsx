@@ -7,7 +7,7 @@ interface Pillar {
   title: string;
   description: string;
   details: string[];
-  color: 'gold' | 'cyan' | 'titanium';
+  color: 'gold' | 'gold-light' | 'titanium';
 }
 
 const pillars: Pillar[] = [
@@ -31,7 +31,7 @@ const pillars: Pillar[] = [
       "Instant permission checks",
       "Cross-platform identity graph"
     ],
-    color: 'cyan'
+    color: 'gold-light'
   },
   {
     icon: Gavel,
@@ -54,12 +54,12 @@ const colorClasses = {
     accent: 'bg-primary/10',
     gradient: 'text-gradient-gold'
   },
-  cyan: {
+  'gold-light': {
     border: 'hover:border-accent/50',
-    glow: 'group-hover:shadow-[0_0_60px_hsl(187_100%_45%/0.2)]',
+    glow: 'group-hover:shadow-[0_0_60px_hsl(43_60%_50%/0.2)]',
     icon: 'text-accent',
     accent: 'bg-accent/10',
-    gradient: 'text-gradient-cyan'
+    gradient: 'text-gradient-gold-light'
   },
   titanium: {
     border: 'hover:border-foreground/30',
@@ -105,7 +105,7 @@ const PillarsSection = () => {
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             <span className="text-gradient-gold">Secure.</span>{' '}
-            <span className="text-gradient-cyan">Verify.</span>{' '}
+            <span className="text-gradient-gold-light">Verify.</span>{' '}
             <span className="text-foreground">Enforce.</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
