@@ -32,15 +32,26 @@ const SolutionSection = () => {
       <div className="absolute bottom-1/4 -right-48 w-[400px] h-[400px] bg-gradient-radial from-primary/5 via-transparent to-transparent rounded-full blur-[120px]" />
 
       <div className="container relative z-10">
+        {/* Section header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="text-center mb-8"
+        >
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light leading-tight">
+            What Intinuous <span className="text-gradient-gold">provides</span>
+          </h2>
+        </motion.div>
+
         {/* Pull quote */}
         <motion.div
           style={{ scale: centerScale, opacity: centerOpacity }}
-          className="text-center mb-28 max-w-4xl mx-auto"
+          className="text-center mb-20 max-w-4xl mx-auto"
         >
-          <blockquote className="text-2xl md:text-3xl lg:text-4xl font-light text-foreground/90 leading-relaxed">
-            "Intinuous does not decide <span className="text-gradient-gold">truth</span>.
-            <br />
-            It records <span className="text-primary">continuity and authority</span> so truth can be evaluated."
+          <blockquote className="text-xl md:text-2xl font-light text-muted-foreground leading-relaxed">
+            Intinuous does not decide truth. It records continuity and authority so truth can be evaluated.
           </blockquote>
         </motion.div>
 
@@ -48,6 +59,7 @@ const SolutionSection = () => {
         <div className="grid lg:grid-cols-2 gap-20 items-center max-w-6xl mx-auto">
           {/* Left - Features */}
           <motion.div style={{ x: leftX }} className="space-y-5">
+            <p className="text-sm text-muted-foreground/70 uppercase tracking-[0.2em] mb-6 font-light">Core system primitives</p>
             {features.map((feature, index) => (
               <motion.div
                 key={feature.label}
@@ -63,6 +75,9 @@ const SolutionSection = () => {
                 <span className="text-base text-foreground/80 font-light">{feature.label}</span>
               </motion.div>
             ))}
+            <p className="text-lg text-muted-foreground font-light pt-4">
+              This is infrastructure, not a platform.
+            </p>
           </motion.div>
 
           {/* Right - Diagram */}
