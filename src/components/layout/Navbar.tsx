@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import Logo from '@/components/Logo';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -38,11 +39,8 @@ const Navbar = () => {
         <div className="container">
           <nav className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-2">
-              <span className="text-lg font-bold tracking-tight">
-                <span className="text-foreground">Int</span>
-                <span className="text-primary">inuous</span>
-              </span>
+            <Link to="/">
+              <Logo size="sm" />
             </Link>
 
             {/* Desktop nav */}
