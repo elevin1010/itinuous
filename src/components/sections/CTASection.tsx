@@ -1,26 +1,7 @@
 import { motion } from 'framer-motion';
-import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { ArrowRight, Check } from 'lucide-react';
-import { toast } from 'sonner';
 
 const CTASection = () => {
-  const [email, setEmail] = useState('');
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email) {
-      setIsSubmitted(true);
-      toast.success('Welcome to the waitlist!', {
-        description: "We'll be in touch soon with early access updates."
-      });
-      setEmail('');
-      setTimeout(() => setIsSubmitted(false), 3000);
-    }
-  };
-
   return (
     <section className="relative py-32 overflow-hidden">
       {/* Background */}
@@ -57,53 +38,35 @@ const CTASection = () => {
         >
           {/* Heading */}
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            Reserve Your <span className="text-gradient-gold">Identity</span>
+            Private Previews <span className="text-gradient-gold">Underway</span>
           </h2>
-          <p className="text-xl text-muted-foreground mb-12">
-            Join the waitlist for early access to LikenessVault. 
-            Be among the first to secure your digital likeness.
+          <p className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto">
+            Intinuous is currently in discussion with early partners. If you represent an organization with meaningful identity surface area, we'd welcome a conversation.
           </p>
 
-          {/* Email form */}
-          <form onSubmit={handleSubmit} className="max-w-md mx-auto mb-8">
-            <div className="flex gap-3">
-              <Input
-                type="email"
-                placeholder="Enter your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="flex-1 bg-card/60 border-border/50 text-foreground placeholder:text-muted-foreground focus:border-primary"
-                required
-              />
-              <Button 
-                type="submit"
-                className="bg-primary text-primary-foreground hover:bg-primary/90 glow-gold px-6"
-                disabled={isSubmitted}
-              >
-                {isSubmitted ? (
-                  <Check className="w-5 h-5" />
-                ) : (
-                  <>
-                    Join <ArrowRight className="w-4 h-4 ml-2" />
-                  </>
-                )}
-              </Button>
-            </div>
-          </form>
+          {/* CTA */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <Button 
+              size="lg"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 glow-gold px-10 py-7 text-lg"
+            >
+              Reach Out to Learn More
+            </Button>
+          </div>
 
           {/* Trust indicators */}
           <div className="flex flex-wrap justify-center gap-8 text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-primary rounded-full" />
-              Early access priority
+              In discussion with early partners
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-primary/70 rounded-full" />
-              Founding member benefits
+              Private previews available
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-foreground/50 rounded-full" />
-              No spam, ever
+              Confidential inquiries welcome
             </div>
           </div>
         </motion.div>

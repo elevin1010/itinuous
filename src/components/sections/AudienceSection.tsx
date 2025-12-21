@@ -1,50 +1,44 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { User, Video, Building2, Palette, Scale, LucideIcon } from 'lucide-react';
+import { User, Briefcase, Building2, Mic, Scale, LucideIcon } from 'lucide-react';
 
 interface Audience {
   icon: LucideIcon;
   title: string;
   subtitle: string;
   description: string;
-  benefits: string[];
 }
 
 const audiences: Audience[] = [
   {
     icon: User,
-    title: "Actors & Influencers",
-    subtitle: "Protect your personal brand",
-    description: "Your face is your livelihood. Secure it against unauthorized AI reproductions and deepfakes.",
-    benefits: ["Digital likeness registration", "Usage monitoring", "Automated takedowns"]
+    title: "Professionals",
+    subtitle: "Executives, consultants, public figures",
+    description: "Individuals with reputational or economic surface area who need to maintain verifiable continuity across their professional identity."
   },
   {
-    icon: Video,
-    title: "AI Studios",
-    subtitle: "Build with confidence",
-    description: "License synthetic actors and digital doubles with verified rights and clear permissions.",
-    benefits: ["Cleared rights library", "API integration", "Compliance assurance"]
+    icon: Mic,
+    title: "Creators & Performers",
+    subtitle: "Artists, musicians, actors, influencers",
+    description: "Those whose voice, image, and likeness form the basis of their economic value and creative expression."
+  },
+  {
+    icon: Briefcase,
+    title: "Organizations",
+    subtitle: "Enterprises managing identity at scale",
+    description: "Companies and institutions that need to establish and maintain authoritative identity for employees, representatives, and brand assets."
   },
   {
     icon: Building2,
-    title: "Brands & Products",
-    subtitle: "Protect your IP",
-    description: "Register product designs, packaging, and brand assets before AI recreates them.",
-    benefits: ["Brand asset registry", "Counterfeit detection", "Global enforcement"]
-  },
-  {
-    icon: Palette,
-    title: "Creators & Designers",
-    subtitle: "Own your creations",
-    description: "Secure avatars, characters, and digital art with provable ownership records.",
-    benefits: ["NFT integration", "Rights management", "Licensing marketplace"]
+    title: "Platforms & Studios",
+    subtitle: "AI studios, content platforms, agencies",
+    description: "Organizations that need to verify rights and authority before generating, distributing, or licensing identity-based content."
   },
   {
     icon: Scale,
-    title: "Legal Teams",
-    subtitle: "Enforce with evidence",
-    description: "Access documentation, timestamps, and audit trails for intellectual property cases.",
-    benefits: ["Legal-grade evidence", "Chain of custody", "Expert reports"]
+    title: "Legal & Compliance",
+    subtitle: "Attorneys, regulators, compliance teams",
+    description: "Professionals who need access to verifiable evidence and authority records when questions of identity arise."
   }
 ];
 
@@ -52,7 +46,7 @@ const AudienceSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="relative py-32 overflow-hidden">
+    <section id="audience" className="relative py-32 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-background" />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-card/20 to-transparent" />
@@ -73,7 +67,7 @@ const AudienceSection = () => {
             Who It's <span className="text-gradient-gold">For</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            From individual creators to enterprise legal teams
+            People and organizations with reputational or economic surface area
           </p>
         </motion.div>
 
@@ -97,15 +91,7 @@ const AudienceSection = () => {
                   <p className="text-sm text-muted-foreground">{audience.subtitle}</p>
                 </div>
               </div>
-              <p className="text-muted-foreground text-sm mb-4">{audience.description}</p>
-              <ul className="space-y-2">
-                {audience.benefits.map((benefit) => (
-                  <li key={benefit} className="flex items-center gap-2 text-sm text-foreground/80">
-                    <div className="w-1 h-1 bg-primary rounded-full" />
-                    {benefit}
-                  </li>
-                ))}
-              </ul>
+              <p className="text-muted-foreground text-sm">{audience.description}</p>
             </motion.div>
           ))}
         </div>
@@ -154,7 +140,7 @@ const AudienceSection = () => {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.4 }}
-              className="h-full p-8 bg-card/60 backdrop-blur-sm border border-border/50 rounded-lg"
+              className="h-full p-8 bg-card/60 backdrop-blur-sm border border-border/50 rounded-lg flex flex-col justify-center"
             >
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-16 h-16 rounded-lg bg-primary/10 flex items-center justify-center">
@@ -169,23 +155,9 @@ const AudienceSection = () => {
                 </div>
               </div>
 
-              <p className="text-lg text-foreground/80 mb-8 leading-relaxed">
+              <p className="text-xl text-foreground/80 leading-relaxed">
                 {audiences[activeIndex].description}
               </p>
-
-              <div className="grid grid-cols-3 gap-4">
-                {audiences[activeIndex].benefits.map((benefit, i) => (
-                  <div 
-                    key={benefit}
-                    className="p-4 bg-background/50 border border-border/30 rounded-lg"
-                  >
-                    <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center mb-3">
-                      <span className="text-primary font-mono text-sm">{i + 1}</span>
-                    </div>
-                    <p className="text-sm text-foreground">{benefit}</p>
-                  </div>
-                ))}
-              </div>
             </motion.div>
           </div>
         </div>

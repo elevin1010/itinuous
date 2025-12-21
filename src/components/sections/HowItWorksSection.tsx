@@ -1,28 +1,35 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
-import { Upload, Settings, Link } from 'lucide-react';
+import { UserPlus, Clock, Eye, FileSearch } from 'lucide-react';
 
 const steps = [
   {
     number: "01",
-    icon: Upload,
-    title: "Register Your Likeness",
-    description: "Upload your biometric data securely. Our AI creates a unique cryptographic signature of your identity.",
-    details: "Face, voice, body motion capture"
+    icon: UserPlus,
+    title: "Registration under Authority",
+    description: "Identity assets are registered under clear, defined authority with verified provenance.",
+    details: "Established origin and ownership"
   },
   {
     number: "02",
-    icon: Settings,
-    title: "Set Rights & Permissions",
-    description: "Define who can use your likeness, for what purposes, and under what terms.",
-    details: "Granular permission controls"
+    icon: Clock,
+    title: "Continuity over Time",
+    description: "Persistent identity is maintained and anchored across time, creating an accountable history.",
+    details: "Verifiable persistence"
   },
   {
     number: "03",
-    icon: Link,
-    title: "Integrate & Enforce",
-    description: "Connect with AI platforms. Every generation request is checked against your vault.",
-    details: "Real-time API enforcement"
+    icon: Eye,
+    title: "Attribution and Observation",
+    description: "Usage and representation are observed and attributed to authorized parties.",
+    details: "Ongoing monitoring"
+  },
+  {
+    number: "04",
+    icon: FileSearch,
+    title: "Evidence when Questions Arise",
+    description: "When disputes occur, evidence is produced to support evaluation and resolution.",
+    details: "Escalation support"
   }
 ];
 
@@ -57,7 +64,7 @@ const HowItWorksSection = () => {
             How It <span className="text-gradient-gold">Works</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Three simple steps to protect your digital identity
+            A conceptual framework for identity continuity
           </p>
         </motion.div>
 

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Shield, Lock, Eye, EyeOff, ArrowLeft } from 'lucide-react';
+import { Lock, Eye, EyeOff, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -16,7 +16,6 @@ const Investors = () => {
     e.preventDefault();
     setIsLoading(true);
     
-    // Simulate login - will be replaced with actual auth later
     await new Promise(resolve => setTimeout(resolve, 1000));
     
     toast.info('Investor portal coming soon', {
@@ -33,15 +32,14 @@ const Investors = () => {
       
       {/* Ambient orbs */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-radial from-primary/15 via-transparent to-transparent rounded-full blur-[100px]" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gradient-radial from-accent/10 via-transparent to-transparent rounded-full blur-[100px]" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gradient-radial from-primary/10 via-transparent to-transparent rounded-full blur-[100px]" />
       
       {/* Header with back button */}
       <header className="relative z-10 p-6 flex items-center justify-between">
         <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
-          <Shield className="w-5 h-5 text-primary" />
-          <span className="font-semibold">
-            <span className="text-foreground">Likeness</span>
-            <span className="text-primary">Vault</span>
+          <span className="font-semibold tracking-tight">
+            <span className="text-foreground">Int</span>
+            <span className="text-primary">inuous</span>
           </span>
         </Link>
         <Link to="/">
@@ -60,9 +58,7 @@ const Investors = () => {
           transition={{ duration: 0.6 }}
           className="w-full max-w-md"
         >
-          {/* Login card */}
           <div className="p-8 bg-card/70 backdrop-blur-sm border border-border/50 rounded-lg">
-            {/* Icon */}
             <div className="flex justify-center mb-8">
               <div className="relative">
                 <div className="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center">
@@ -76,26 +72,22 @@ const Investors = () => {
               </div>
             </div>
 
-            {/* Title */}
             <div className="text-center mb-8">
               <h1 className="text-2xl font-bold text-foreground mb-2">Investor Portal</h1>
               <p className="text-muted-foreground">
-                Access exclusive pitch materials and updates
+                Access confidential materials and updates
               </p>
             </div>
 
-            {/* Login form */}
             <form onSubmit={handleLogin} className="space-y-4">
-              <div>
-                <Input
-                  type="email"
-                  placeholder="Email address"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="bg-background/50 border-border/50 text-foreground placeholder:text-muted-foreground focus:border-primary"
-                  required
-                />
-              </div>
+              <Input
+                type="email"
+                placeholder="Email address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="bg-background/50 border-border/50 text-foreground placeholder:text-muted-foreground focus:border-primary"
+                required
+              />
               
               <div className="relative">
                 <Input
@@ -124,14 +116,12 @@ const Investors = () => {
               </Button>
             </form>
 
-            {/* Divider */}
             <div className="flex items-center gap-4 my-6">
               <div className="flex-1 h-px bg-border/50" />
               <span className="text-xs text-muted-foreground">OR</span>
               <div className="flex-1 h-px bg-border/50" />
             </div>
 
-            {/* Request access */}
             <div className="text-center">
               <p className="text-sm text-muted-foreground mb-3">
                 Don't have access yet?
@@ -148,10 +138,9 @@ const Investors = () => {
         </motion.div>
       </main>
 
-      {/* Footer */}
       <footer className="relative z-10 p-6 text-center">
         <p className="text-xs text-muted-foreground">
-          © 2025 LikenessVault. Confidential.
+          © 2025 Intinuous. Confidential.
         </p>
       </footer>
     </div>

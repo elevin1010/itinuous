@@ -1,78 +1,8 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef, useState } from 'react';
-import { Shield, CheckCircle, Gavel, LucideIcon } from 'lucide-react';
-
-interface Pillar {
-  icon: LucideIcon;
-  title: string;
-  description: string;
-  details: string[];
-  color: 'gold' | 'gold-light' | 'titanium';
-}
-
-const pillars: Pillar[] = [
-  {
-    icon: Shield,
-    title: "Secure",
-    description: "Cryptographically encode your likeness with immutable proof of ownership",
-    details: [
-      "Multi-modal biometric encoding",
-      "Blockchain-anchored timestamps",
-      "Tamper-proof identity vault"
-    ],
-    color: 'gold'
-  },
-  {
-    icon: CheckCircle,
-    title: "Verify",
-    description: "Real-time authentication against global AI generation requests",
-    details: [
-      "AI platform integrations",
-      "Instant permission checks",
-      "Cross-platform identity graph"
-    ],
-    color: 'gold-light'
-  },
-  {
-    icon: Gavel,
-    title: "Enforce",
-    description: "Automated takedowns and legal frameworks for unauthorized usage",
-    details: [
-      "DMCA-style automation",
-      "Legal documentation suite",
-      "Usage violation alerts"
-    ],
-    color: 'titanium'
-  }
-];
-
-const colorClasses = {
-  gold: {
-    border: 'hover:border-primary/50',
-    glow: 'group-hover:shadow-[0_0_60px_hsl(43_74%_60%/0.2)]',
-    icon: 'text-primary',
-    accent: 'bg-primary/10',
-    gradient: 'text-gradient-gold'
-  },
-  'gold-light': {
-    border: 'hover:border-accent/50',
-    glow: 'group-hover:shadow-[0_0_60px_hsl(43_60%_50%/0.2)]',
-    icon: 'text-accent',
-    accent: 'bg-accent/10',
-    gradient: 'text-gradient-gold-light'
-  },
-  titanium: {
-    border: 'hover:border-foreground/30',
-    glow: 'group-hover:shadow-[0_0_60px_hsl(0_0%_100%/0.05)]',
-    icon: 'text-foreground',
-    accent: 'bg-foreground/10',
-    gradient: 'text-foreground'
-  }
-};
+import { useRef } from 'react';
 
 const PillarsSection = () => {
   const ref = useRef<HTMLDivElement>(null);
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -82,7 +12,7 @@ const PillarsSection = () => {
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
 
   return (
-    <section ref={ref} className="relative py-32 overflow-hidden">
+    <section id="insight" ref={ref} className="relative py-32 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-background" />
       
@@ -104,92 +34,41 @@ const PillarsSection = () => {
           className="text-center mb-20"
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            <span className="text-gradient-gold">Secure.</span>{' '}
-            <span className="text-gradient-gold-light">Verify.</span>{' '}
-            <span className="text-foreground">Enforce.</span>
+            Identity is no longer about <span className="text-gradient-gold">likeness</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Three pillars of protection for the AI age
+            It is about continuity
           </p>
         </motion.div>
 
-        {/* Pillars grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {pillars.map((pillar, index) => {
-            const colors = colorClasses[pillar.color];
-            return (
-              <motion.div
-                key={pillar.title}
-                initial={{ opacity: 0, y: 60 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.15 }}
-                viewport={{ once: true, margin: "-50px" }}
-                onMouseEnter={() => setHoveredIndex(index)}
-                onMouseLeave={() => setHoveredIndex(null)}
-                className="group relative"
-              >
-                <motion.div
-                  animate={{
-                    y: hoveredIndex === index ? -10 : 0,
-                  }}
-                  transition={{ duration: 0.3 }}
-                  className={`
-                    relative h-full p-8 lg:p-10 
-                    bg-card/70 backdrop-blur-sm 
-                    border border-border/50 rounded-lg
-                    ${colors.border} ${colors.glow}
-                    transition-all duration-500
-                  `}
-                >
-                  {/* Icon */}
-                  <div className={`
-                    inline-flex items-center justify-center 
-                    w-16 h-16 rounded-lg mb-6
-                    ${colors.accent}
-                  `}>
-                    <pillar.icon className={`w-8 h-8 ${colors.icon}`} />
-                  </div>
+        {/* Core insight card */}
+        <motion.div
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: "-50px" }}
+          className="max-w-4xl mx-auto"
+        >
+          <div className="relative p-10 lg:p-14 bg-card/70 backdrop-blur-sm border border-border/50 rounded-lg">
+            <blockquote className="text-2xl md:text-3xl lg:text-4xl font-light text-foreground leading-relaxed text-center mb-8">
+              "What remains scarce is a <span className="text-gradient-gold font-medium">persistent identity</span> with verifiable origin, accountable history, and recognized authority."
+            </blockquote>
+            
+            <p className="text-lg text-muted-foreground text-center max-w-2xl mx-auto">
+              Appearance, voice, and performance are now infinite. What matters is who persists across time, under recognized authority.
+            </p>
 
-                  {/* Title */}
-                  <h3 className={`text-2xl md:text-3xl font-bold mb-4 ${colors.gradient}`}>
-                    {pillar.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-muted-foreground mb-6">
-                    {pillar.description}
-                  </p>
-
-                  {/* Details */}
-                  <ul className="space-y-3">
-                    {pillar.details.map((detail) => (
-                      <li key={detail} className="flex items-center gap-3 text-sm text-foreground/80">
-                        <div className={`w-1.5 h-1.5 rounded-full ${colors.icon.replace('text-', 'bg-')}`} />
-                        {detail}
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* Decorative corner */}
-                  <div className={`
-                    absolute top-0 right-0 w-20 h-20 
-                    opacity-0 group-hover:opacity-100
-                    transition-opacity duration-500
-                  `}>
-                    <div className={`
-                      absolute top-4 right-4 w-8 h-px 
-                      ${colors.icon.replace('text-', 'bg-')}/50
-                    `} />
-                    <div className={`
-                      absolute top-4 right-4 w-px h-8 
-                      ${colors.icon.replace('text-', 'bg-')}/50
-                    `} />
-                  </div>
-                </motion.div>
-              </motion.div>
-            );
-          })}
-        </div>
+            {/* Decorative corner */}
+            <div className="absolute top-0 right-0 w-20 h-20">
+              <div className="absolute top-4 right-4 w-8 h-px bg-primary/50" />
+              <div className="absolute top-4 right-4 w-px h-8 bg-primary/50" />
+            </div>
+            <div className="absolute bottom-0 left-0 w-20 h-20">
+              <div className="absolute bottom-4 left-4 w-8 h-px bg-primary/50" />
+              <div className="absolute bottom-4 left-4 w-px h-8 bg-primary/50" />
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
