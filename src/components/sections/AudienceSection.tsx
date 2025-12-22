@@ -82,7 +82,7 @@ const AudienceSection = () => {
             Who It's <span className="text-gradient-gold">For</span>
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground font-light">
-            People and organizations with reputational or economic surface area
+            People and organizations with reputational or economic surface area — and who need a way to own and authorize their use across systems.
           </p>
         </motion.div>
 
