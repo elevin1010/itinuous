@@ -45,9 +45,28 @@ const ProblemSection = () => {
             <br />
             <span className="text-muted-foreground">an attack surface</span>
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-light">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-light mb-8">
             AI does not need to recreate a specific person to replace them. "Looking real" is no longer meaningful. The issue is not fakes — it is the absence of continuity.
           </p>
+          
+          <div className="text-left max-w-2xl mx-auto">
+            <p className="text-lg text-foreground/80 font-light mb-4">
+              There is no authoritative way to determine:
+            </p>
+            <ul className="text-lg text-muted-foreground font-light space-y-2 mb-6 pl-6">
+              <li className="flex items-start gap-3">
+                <span className="text-primary/60 mt-2">•</span>
+                <span>who is allowed to stand in for whom, or</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-primary/60 mt-2">•</span>
+                <span>whether an identity today is the same entity as yesterday.</span>
+              </li>
+            </ul>
+            <p className="text-lg text-foreground/70 font-light">
+              That gap breaks trust across labor, platforms, and institutions.
+            </p>
+          </div>
         </motion.div>
 
         {/* Core insight - What remains scarce */}
