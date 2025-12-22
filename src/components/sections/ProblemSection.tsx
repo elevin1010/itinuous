@@ -100,20 +100,17 @@ const ProblemSection = () => {
             <p className="text-xl md:text-2xl text-foreground/80 leading-relaxed text-center font-light mb-8">
               What remains scarce is a <span className="text-gradient-gold">persistent identity</span> with:
             </p>
-            <ul className="flex flex-col md:flex-row justify-center gap-6 md:gap-12 text-lg text-muted-foreground font-light">
-              <li className="flex items-center gap-3">
-                <span className="w-1.5 h-1.5 bg-primary/60 rounded-full" />
-                verifiable origin
-              </li>
-              <li className="flex items-center gap-3">
-                <span className="w-1.5 h-1.5 bg-primary/60 rounded-full" />
-                accountable history
-              </li>
-              <li className="flex items-center gap-3">
-                <span className="w-1.5 h-1.5 bg-primary/60 rounded-full" />
-                recognized authority
-              </li>
-            </ul>
+            <div className="flex flex-col md:flex-row justify-center gap-4 md:gap-6">
+              <div className="flex-1 p-5 bg-primary/5 border border-primary/20 rounded-lg text-center">
+                <span className="text-lg md:text-xl text-foreground font-medium">verifiable origin</span>
+              </div>
+              <div className="flex-1 p-5 bg-primary/5 border border-primary/20 rounded-lg text-center">
+                <span className="text-lg md:text-xl text-foreground font-medium">recognized authority</span>
+              </div>
+              <div className="flex-1 p-5 bg-primary/5 border border-primary/20 rounded-lg text-center">
+                <span className="text-lg md:text-xl text-foreground font-medium">accountable history</span>
+              </div>
+            </div>
           </div>
         </motion.div>
 
