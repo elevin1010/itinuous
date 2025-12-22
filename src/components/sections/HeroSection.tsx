@@ -141,7 +141,7 @@ const HeroSection = () => {
       }} transition={{
         delay: 0.8,
         duration: 0.8
-      }} className="text-lg md:text-xl text-muted-foreground mb-16 max-w-2xl mx-auto leading-relaxed font-light">Generative AI has made identity infinite — and trust fragile. Intinuous functions as a neutral registry and authority layer that records identity continuity across time.</motion.p>
+      }} className="text-lg md:text-xl text-muted-foreground mb-16 max-w-2xl mx-auto leading-relaxed font-light">Generative AI has made identity infinite — and trust fragile. Owning your image, voice, and identity now requires more than looking real. Intinuous functions as a neutral registry and authority layer that records identity continuity across time.</motion.p>
 
         {/* CTAs */}
         <motion.div initial={{
