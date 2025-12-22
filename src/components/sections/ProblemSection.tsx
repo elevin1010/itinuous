@@ -115,21 +115,6 @@ const ProblemSection = () => {
               </li>
             </ul>
           </div>
-
-          {/* Organizational risk callout */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            viewport={{ once: true }}
-            className="mt-8 p-6 md:p-8 bg-gradient-to-br from-destructive/5 via-card/30 to-transparent border border-destructive/20 rounded-lg"
-          >
-            <p className="text-base md:text-lg text-foreground/80 font-light leading-relaxed text-center">
-              Organizations now report identity misuse as one of the{' '}
-              <span className="text-destructive font-medium">fastest-growing operational and security risks</span>, 
-              surpassing traditional identity theft in perceived impact.
-            </p>
-          </motion.div>
         </motion.div>
 
         {/* Dividing line */}
