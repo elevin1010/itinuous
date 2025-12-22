@@ -46,7 +46,7 @@ const AudienceSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section id="audience" className="relative py-20 md:py-32 overflow-hidden">
+    <section id="audience" className="relative pt-5 pb-20 md:pt-8 md:pb-32 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-background" />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-card/15 to-transparent" />
