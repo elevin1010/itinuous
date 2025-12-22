@@ -55,6 +55,21 @@ const AudienceSection = () => {
       <div className="absolute top-1/2 left-1/4 w-[500px] h-[500px] bg-gradient-radial from-primary/6 via-transparent to-transparent rounded-full blur-[120px]" />
 
       <div className="container relative z-10">
+        {/* Organizational risk callout */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="mb-16 max-w-3xl mx-auto p-6 md:p-8 bg-gradient-to-br from-destructive/5 via-card/30 to-transparent border border-destructive/20 rounded-lg"
+        >
+          <p className="text-base md:text-lg text-foreground/80 font-light leading-relaxed text-center">
+            Organizations now report identity misuse as one of the{' '}
+            <span className="text-destructive font-medium">fastest-growing operational and security risks</span>, 
+            surpassing traditional identity theft in perceived impact.
+          </p>
+        </motion.div>
+
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
