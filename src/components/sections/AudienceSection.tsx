@@ -14,31 +14,31 @@ const audiences: Audience[] = [
     icon: User,
     title: "Professionals",
     subtitle: "Executives, consultants, public figures",
-    description: "Individuals with reputational or economic surface area who need to maintain verifiable continuity across their professional identity."
+    description: "Individuals who need to maintain verifiable continuity across their professional identity."
   },
   {
     icon: Mic,
     title: "Creators & Performers",
     subtitle: "Artists, musicians, actors, influencers",
-    description: "Those whose voice, image, and likeness form the basis of their economic value and creative expression."
+    description: "Those whose voice, image, and likeness form the basis of their economic value."
   },
   {
     icon: Briefcase,
     title: "Organizations",
     subtitle: "Enterprises managing identity at scale",
-    description: "Companies and institutions that need to establish and maintain authoritative identity for employees, representatives, and brand assets."
+    description: "Companies that must establish authoritative identity for employees and representatives."
   },
   {
     icon: Building2,
     title: "Platforms & Studios",
     subtitle: "AI studios, content platforms, agencies",
-    description: "Organizations that need to verify rights and authority before generating, distributing, or licensing identity-based content."
+    description: "Organizations that need to verify rights and authority before generating or licensing identity-based content."
   },
   {
     icon: Scale,
     title: "Legal & Compliance",
     subtitle: "Attorneys, regulators, compliance teams",
-    description: "Professionals who need access to verifiable evidence and authority records when questions of identity arise."
+    description: "Professionals who require verifiable evidence when questions of identity arise."
   }
 ];
 
