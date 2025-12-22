@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 const RoadmapSection = () => {
   return (
-    <section id="vision" className="relative py-32 md:py-40 overflow-hidden">
+    <section id="vision" className="relative py-20 md:py-32 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-background" />
       <div className="absolute inset-0 bg-gradient-to-b from-card/20 via-transparent to-transparent" />

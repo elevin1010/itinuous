@@ -11,7 +11,7 @@ const ProblemSection = () => {
   const y = useTransform(scrollYProgress, [0, 1], ["80px", "-80px"]);
 
   return (
-    <section ref={ref} className="relative py-40 overflow-hidden">
+    <section ref={ref} className="relative py-20 md:py-32 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-background" />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-card/20 to-transparent" />
