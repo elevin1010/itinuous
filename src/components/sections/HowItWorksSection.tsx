@@ -39,7 +39,7 @@ const HowItWorksSection = () => {
   const lineProgress = useTransform(scrollYProgress, [0.2, 0.8], [0, 1]);
 
   return (
-    <section ref={ref} className="relative py-40 overflow-hidden">
+    <section ref={ref} className="relative py-20 md:py-32 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-background" />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-card/15 to-transparent" />

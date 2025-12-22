@@ -8,6 +8,7 @@ import AudienceSection from '@/components/sections/AudienceSection';
 import RoadmapSection from '@/components/sections/RoadmapSection';
 import CTASection from '@/components/sections/CTASection';
 import Footer from '@/components/sections/Footer';
+import SectionDivider from '@/components/SectionDivider';
 
 const Index = () => {
   return (
@@ -15,17 +16,23 @@ const Index = () => {
       <Navbar />
       <main>
         <HeroSection />
+        <SectionDivider showChevron />
         <ProblemSection />
+        <SectionDivider />
         <section id="solution">
           <SolutionSection />
         </section>
+        <SectionDivider />
         <section id="audience">
           <AudienceSection />
         </section>
+        <SectionDivider />
         <section id="how-it-works">
           <HowItWorksSection />
         </section>
+        <SectionDivider />
         <ProductModulesSection />
+        <SectionDivider />
         <section id="roadmap">
           <RoadmapSection />
         </section>

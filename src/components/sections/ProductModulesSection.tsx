@@ -36,7 +36,7 @@ const modules = [
 
 const ProductModulesSection = () => {
   return (
-    <section className="relative py-40 overflow-hidden">
+    <section className="relative py-20 md:py-32 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-background" />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-card/20" />
