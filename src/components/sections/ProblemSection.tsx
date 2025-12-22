@@ -67,6 +67,26 @@ const ProblemSection = () => {
               That gap breaks trust across labor, platforms, and institutions.
             </p>
           </div>
+
+          {/* Stats callout */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="mt-10 p-6 md:p-8 bg-gradient-to-br from-destructive/5 via-card/30 to-transparent border border-destructive/20 rounded-lg"
+          >
+            <p className="text-sm uppercase tracking-widest text-destructive/70 mb-3 font-medium">
+              The shift is already measurable
+            </p>
+            <p className="text-base md:text-lg text-foreground/80 font-light leading-relaxed">
+              Deepfake-enabled impersonation and identity fraud have increased by{' '}
+              <span className="text-destructive font-medium">thousands of percent</span>{' '}
+              in recent years, with losses projected in the{' '}
+              <span className="text-destructive font-medium">tens of billions of dollars</span>{' '}
+              globally.
+            </p>
+          </motion.div>
         </motion.div>
 
         {/* Core insight - What remains scarce */}
