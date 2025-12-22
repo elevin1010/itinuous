@@ -129,7 +129,7 @@ const HeroSection = () => {
       }} transition={{
         delay: 0.6,
         duration: 0.8
-      }} className="text-2xl md:text-3xl lg:text-4xl text-foreground/90 mb-8 font-light tracking-wide leading-snug">Verifiable identity in a generative world</motion.p>
+      }} className="text-2xl md:text-3xl lg:text-4xl text-foreground/90 mb-8 font-light tracking-wide leading-snug">Verifiable continuity in a generative world</motion.p>
         
         {/* Secondary description */}
         <motion.p initial={{
