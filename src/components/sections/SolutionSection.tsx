@@ -60,7 +60,7 @@ const SolutionSection = () => {
         scale: centerScale,
         opacity: centerOpacity
       }} className="text-center mb-20 max-w-4xl mx-auto">
-          <blockquote className="text-xl md:text-2xl font-light text-muted-foreground leading-relaxed">Intinuous provides the foundational primitives required for identity continuity at scale:</blockquote>
+          <blockquote className="text-xl md:text-2xl font-light text-muted-foreground leading-relaxed">These primitives are designed to operate independently of any single platform, model, or media format.</blockquote>
         </motion.div>
 
         {/* Split layout */}
