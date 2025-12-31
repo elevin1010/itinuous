@@ -54,6 +54,7 @@ const CreatorsCTASection = () => {
             <Button
               size="lg"
               className="bg-primary text-primary-foreground hover:bg-primary/90 px-12 py-6 text-base font-medium tracking-wide"
+              onClick={() => window.location.href = 'mailto:hello@intinuous.com?subject=Conversation%20Request%20-%20Creator'}
             >
               Request a conversation
             </Button>
