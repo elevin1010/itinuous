@@ -3,7 +3,7 @@ import { useRef, useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ChevronDown } from 'lucide-react';
 const HeroSection = () => {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLElement>(null);
   const [mousePosition, setMousePosition] = useState({
     x: 0,
     y: 0
@@ -18,14 +18,25 @@ const HeroSection = () => {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
   useEffect(() => {
+    const canTrackPointer = window.matchMedia?.('(pointer:fine)')?.matches;
+    if (!canTrackPointer) return;
+
+    let raf = 0;
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({
-        x: (e.clientX / window.innerWidth - 0.5) * 2,
-        y: (e.clientY / window.innerHeight - 0.5) * 2
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        setMousePosition({
+          x: (e.clientX / window.innerWidth - 0.5) * 2,
+          y: (e.clientY / window.innerHeight - 0.5) * 2
+        });
       });
     };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
   }, []);
   return <section ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Base dark background */}
@@ -44,7 +55,7 @@ const HeroSection = () => {
       duration: 10,
       repeat: Infinity,
       ease: "easeInOut"
-    }} className="absolute top-1/4 -left-32 w-[600px] h-[600px] bg-gradient-radial from-primary/15 via-primary/5 to-transparent rounded-full blur-[120px]" />
+    }} className="absolute top-1/4 -left-32 w-[420px] h-[420px] md:w-[600px] md:h-[600px] bg-gradient-radial from-primary/15 via-primary/5 to-transparent rounded-full blur-[96px] md:blur-[120px]" />
       
       {/* Animated secondary gold orb - bottom right */}
       <motion.div style={{
@@ -56,7 +67,7 @@ const HeroSection = () => {
       duration: 12,
       repeat: Infinity,
       ease: "easeInOut"
-    }} className="absolute bottom-1/4 -right-32 w-[700px] h-[700px] bg-gradient-radial from-primary/10 via-primary/3 to-transparent rounded-full blur-[140px]" />
+    }} className="absolute bottom-1/4 -right-32 w-[460px] h-[460px] md:w-[700px] md:h-[700px] bg-gradient-radial from-primary/10 via-primary/3 to-transparent rounded-full blur-[112px] md:blur-[140px]" />
 
       {/* Interactive mouse-following glow */}
       <motion.div animate={{
@@ -66,7 +77,7 @@ const HeroSection = () => {
       type: "spring",
       stiffness: 20,
       damping: 40
-    }} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-gradient-radial from-primary/8 via-transparent to-transparent rounded-full blur-[80px] pointer-events-none" />
+    }} className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:w-[400px] md:h-[400px] bg-gradient-radial from-primary/8 via-transparent to-transparent rounded-full blur-[80px] pointer-events-none" />
 
       {/* Subtle grid pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(0_0%_100%/0.015)_1px,transparent_1px),linear-gradient(to_bottom,hsl(0_0%_100%/0.015)_1px,transparent_1px)] bg-[size:100px_100px]" />
@@ -81,14 +92,14 @@ const HeroSection = () => {
       duration: 90,
       repeat: Infinity,
       ease: "linear"
-    }} className="absolute top-24 right-24 w-32 h-32 border border-primary/5 rounded-full" />
+    }} className="hidden md:block absolute top-24 right-24 w-32 h-32 border border-primary/5 rounded-full" />
       <motion.div animate={{
       rotate: -360
     }} transition={{
       duration: 70,
       repeat: Infinity,
       ease: "linear"
-    }} className="absolute bottom-40 left-24 w-48 h-48 border border-primary/5" style={{
+    }} className="hidden md:block absolute bottom-40 left-24 w-48 h-48 border border-primary/5" style={{
       clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)'
     }} />
 

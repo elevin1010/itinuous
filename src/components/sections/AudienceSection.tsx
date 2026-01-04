@@ -52,7 +52,7 @@ const AudienceSection = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-card/15 to-transparent" />
       
       {/* Ambient orb */}
-      <div className="absolute top-1/2 left-1/4 w-[500px] h-[500px] bg-gradient-radial from-primary/6 via-transparent to-transparent rounded-full blur-[120px]" />
+      <div className="absolute top-1/2 left-1/4 hidden md:block w-[500px] h-[500px] bg-gradient-radial from-primary/6 via-transparent to-transparent rounded-full blur-[120px]" />
 
       <div className="container relative z-10">
         {/* Organizational risk callout */}

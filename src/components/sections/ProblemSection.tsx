@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 const ProblemSection = () => {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLElement>(null);
   const {
     scrollYProgress
   } = useScroll({
@@ -20,7 +20,7 @@ const ProblemSection = () => {
     }} transition={{
       duration: 8,
       repeat: Infinity
-    }} className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gradient-radial from-muted/15 via-transparent to-transparent rounded-full blur-[120px]" />
+    }} className="absolute bottom-0 right-0 hidden md:block w-[600px] h-[600px] bg-gradient-radial from-muted/15 via-transparent to-transparent rounded-full blur-[120px]" />
       
       {/* Decorative geometric elements */}
       <motion.div style={{
