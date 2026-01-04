@@ -15,7 +15,7 @@ const features = [{
   label: "Evidence and escalation support when disputes arise"
 }];
 const SolutionSection = () => {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLElement>(null);
   const {
     scrollYProgress
   } = useScroll({
@@ -32,8 +32,8 @@ const SolutionSection = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-card/15 to-transparent" />
       
       {/* Ambient orbs */}
-      <div className="absolute top-1/4 -left-48 w-[500px] h-[500px] bg-gradient-radial from-primary/8 via-transparent to-transparent rounded-full blur-[120px]" />
-      <div className="absolute bottom-1/4 -right-48 w-[400px] h-[400px] bg-gradient-radial from-primary/5 via-transparent to-transparent rounded-full blur-[120px]" />
+      <div className="absolute top-1/4 -left-48 hidden md:block w-[500px] h-[500px] bg-gradient-radial from-primary/8 via-transparent to-transparent rounded-full blur-[120px]" />
+      <div className="absolute bottom-1/4 -right-48 hidden md:block w-[400px] h-[400px] bg-gradient-radial from-primary/5 via-transparent to-transparent rounded-full blur-[120px]" />
 
       <div className="container relative z-10">
         {/* Section header */}

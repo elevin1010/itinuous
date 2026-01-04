@@ -30,7 +30,7 @@ const steps = [
 ];
 
 const HowItWorksSection = () => {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"]
@@ -45,7 +45,7 @@ const HowItWorksSection = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-card/15 to-transparent" />
       
       {/* Ambient orb */}
-      <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-gradient-radial from-primary/5 via-transparent to-transparent rounded-full blur-[120px]" />
+      <div className="absolute top-1/2 right-0 hidden md:block w-[500px] h-[500px] bg-gradient-radial from-primary/5 via-transparent to-transparent rounded-full blur-[120px]" />
 
       <div className="container relative z-10 max-w-4xl mx-auto">
         {/* Section header */}
