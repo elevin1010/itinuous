@@ -50,10 +50,10 @@ const HowItWorksSection = () => {
       <div className="container relative z-10 max-w-4xl mx-auto">
         {/* Section header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0.3, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-20%" }}
           className="text-center mb-20"
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-light mb-6">
@@ -79,19 +79,19 @@ const HowItWorksSection = () => {
             {steps.map((step, index) => (
               <motion.div
                 key={step.number}
-                initial={{ opacity: 0, x: -30 }}
+                initial={{ opacity: 0.3, x: -15 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.7, delay: index * 0.1 }}
-                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                viewport={{ once: true, margin: "-20%" }}
                 className="relative flex gap-8"
               >
                 {/* Step indicator */}
                 <div className="relative z-10 flex-shrink-0">
                   <motion.div
-                    initial={{ scale: 0.8, opacity: 0 }}
+                    initial={{ scale: 0.9, opacity: 0.3 }}
                     whileInView={{ scale: 1, opacity: 1 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 + 0.2 }}
-                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: index * 0.05 }}
+                    viewport={{ once: true, margin: "-20%" }}
                     className="w-14 h-14 rounded-xl bg-card/70 border border-primary/20 flex items-center justify-center"
                   >
                     <step.icon className="w-6 h-6 text-primary" />

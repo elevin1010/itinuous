@@ -32,17 +32,17 @@ const ProblemSection = () => {
       <div className="container relative z-10 max-w-4xl mx-auto">
         {/* Section header */}
         <motion.div initial={{
-        opacity: 0,
-        y: 30
+        opacity: 0.3,
+        y: 20
       }} whileInView={{
         opacity: 1,
         y: 0
       }} transition={{
-        duration: 1,
+        duration: 0.5,
         ease: "easeOut"
       }} viewport={{
         once: true,
-        margin: "-100px"
+        margin: "-20%"
       }} className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-light mb-8 leading-tight">
             Identity has become
@@ -72,16 +72,17 @@ const ProblemSection = () => {
 
           {/* Stats callout */}
           <motion.div initial={{
-          opacity: 0,
-          scale: 0.95
+          opacity: 0.3,
+          scale: 0.98
         }} whileInView={{
           opacity: 1,
           scale: 1
         }} transition={{
-          duration: 0.6,
-          delay: 0.2
+          duration: 0.4,
+          delay: 0.1
         }} viewport={{
-          once: true
+          once: true,
+          margin: "-20%"
         }} className="mt-10 p-6 md:p-8 bg-gradient-to-br from-destructive/5 via-card/30 to-transparent border border-destructive/20 rounded-lg">
             <p className="text-sm uppercase tracking-widest text-destructive/70 mb-3 font-medium">
               The shift is already measurable
@@ -98,16 +99,16 @@ const ProblemSection = () => {
 
         {/* Core insight - What remains scarce */}
         <motion.div initial={{
-        opacity: 0,
-        y: 30
+        opacity: 0.3,
+        y: 20
       }} whileInView={{
         opacity: 1,
         y: 0
       }} transition={{
-        duration: 0.8
+        duration: 0.5
       }} viewport={{
         once: true,
-        margin: "-50px"
+        margin: "-20%"
       }}>
           <div className="relative p-12 md:p-16 bg-card/50 backdrop-blur-sm border border-border/30 rounded-xl">
             <p className="text-xl md:text-2xl text-foreground/80 leading-relaxed text-center font-light mb-8">
@@ -130,15 +131,16 @@ const ProblemSection = () => {
         {/* Dividing line */}
         <motion.div initial={{
         scaleX: 0,
-        opacity: 0
+        opacity: 0.3
       }} whileInView={{
         scaleX: 1,
         opacity: 1
       }} transition={{
-        duration: 1.2,
-        delay: 0.3
+        duration: 0.6,
+        delay: 0.1
       }} viewport={{
-        once: true
+        once: true,
+        margin: "-20%"
       }} className="mt-20 flex items-center gap-10">
           <div className="flex-1 h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
           <p className="text-muted-foreground/70 text-sm tracking-wide">
