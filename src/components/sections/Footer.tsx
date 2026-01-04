@@ -8,23 +8,12 @@ const Footer = () => {
       <div className="container">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Logo */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
+          <div>
             <Logo size="sm" />
-          </motion.div>
+          </div>
 
           {/* Links */}
-          <motion.nav
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: true }}
-            className="flex flex-wrap justify-center gap-8"
-          >
+          <nav className="flex flex-wrap justify-center gap-8">
             <Link to="/investors" className="text-muted-foreground hover:text-foreground transition-colors">
               Investors
             </Link>
@@ -40,18 +29,12 @@ const Footer = () => {
             <Link to="/privacy" className="text-muted-foreground hover:text-foreground transition-colors">
               Privacy
             </Link>
-          </motion.nav>
+          </nav>
 
           {/* Copyright */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="text-sm text-muted-foreground"
-          >
+          <div className="text-sm text-muted-foreground">
             © 2025 Intinuous. All rights reserved.
-          </motion.div>
+          </div>
         </div>
       </div>
     </footer>

@@ -38,17 +38,17 @@ const SolutionSection = () => {
       <div className="container relative z-10">
         {/* Section header */}
         <motion.div initial={{
-        opacity: 0,
-        y: 30
+        opacity: 0.3,
+        y: 20
       }} whileInView={{
         opacity: 1,
         y: 0
       }} transition={{
-        duration: 1,
+        duration: 0.5,
         ease: "easeOut"
       }} viewport={{
         once: true,
-        margin: "-100px"
+        margin: "-20%"
       }} className="text-center mb-8">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-light leading-tight">
             What Intinuous <span className="text-gradient-gold">provides</span>
@@ -71,16 +71,17 @@ const SolutionSection = () => {
         }} className="space-y-5">
             <p className="text-sm text-muted-foreground/70 uppercase tracking-[0.2em] mb-6 font-light">Core system primitives</p>
             {features.map((feature, index) => <motion.div key={feature.label} initial={{
-            opacity: 0,
-            x: -30
+            opacity: 0.3,
+            x: -15
           }} whileInView={{
             opacity: 1,
             x: 0
           }} transition={{
-            duration: 0.6,
-            delay: index * 0.1
+            duration: 0.4,
+            delay: index * 0.05
           }} viewport={{
-            once: true
+            once: true,
+            margin: "-20%"
           }} className="flex items-center gap-5 p-5 bg-card/50 backdrop-blur-sm border border-border/30 rounded-lg hover:border-primary/20 transition-colors group">
                 <div className="flex-shrink-0 w-11 h-11 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/15 transition-colors">
                   <feature.icon className="w-5 h-5 text-primary" />
@@ -99,16 +100,17 @@ const SolutionSection = () => {
             <div className="relative aspect-square max-w-sm mx-auto">
               {/* Central icon */}
               <motion.div initial={{
-              scale: 0.9,
-              opacity: 0
+              scale: 0.95,
+              opacity: 0.3
             }} whileInView={{
               scale: 1,
               opacity: 1
             }} transition={{
-              duration: 1,
+              duration: 0.5,
               ease: "easeOut"
             }} viewport={{
-              once: true
+              once: true,
+              margin: "-20%"
             }} className="absolute inset-1/4 bg-card/70 border border-primary/20 rounded-2xl flex items-center justify-center">
                 <div className="text-center">
                   <div className="text-4xl font-light text-gradient-gold mb-2">∞</div>

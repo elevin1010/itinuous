@@ -57,10 +57,10 @@ const AudienceSection = () => {
       <div className="container relative z-10">
         {/* Organizational risk callout */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
+          initial={{ opacity: 0.3, scale: 0.98 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.4 }}
+          viewport={{ once: true, margin: "-20%" }}
           className="mb-16 max-w-3xl mx-auto p-6 md:p-8 bg-gradient-to-br from-destructive/5 via-card/30 to-transparent border border-destructive/20 rounded-lg"
         >
           <p className="text-base md:text-lg text-foreground/80 font-light leading-relaxed text-center">
@@ -72,10 +72,10 @@ const AudienceSection = () => {
 
         {/* Section header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0.3, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-20%" }}
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-light mb-6">
@@ -91,10 +91,10 @@ const AudienceSection = () => {
           {audiences.map((audience, index) => (
             <motion.div
               key={audience.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0.3, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.08 }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: index * 0.04 }}
+              viewport={{ once: true, margin: "-20%" }}
               className="p-6 bg-card/50 backdrop-blur-sm border border-border/30 rounded-xl"
             >
               <div className="flex items-center gap-4 mb-4">
@@ -118,10 +118,10 @@ const AudienceSection = () => {
             {audiences.map((audience, index) => (
               <motion.button
                 key={audience.title}
-                initial={{ opacity: 0, x: -20 }}
+                initial={{ opacity: 0.3, x: -10 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.08 }}
-                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: index * 0.04 }}
+                viewport={{ once: true, margin: "-20%" }}
                 onClick={() => setActiveIndex(index)}
                 className={`
                   w-full p-4 text-left rounded-xl transition-all duration-300

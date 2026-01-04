@@ -9,10 +9,10 @@ const RoadmapSection = () => {
 
       <div className="container relative z-10 max-w-3xl mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0.3, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-20%" }}
           className="text-center space-y-12"
         >
           {/* Section header */}
@@ -38,10 +38,10 @@ const RoadmapSection = () => {
 
             {/* Market callout */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
+              initial={{ opacity: 0.3, scale: 0.98 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.1 }}
+              viewport={{ once: true, margin: "-20%" }}
               className="mt-8 p-6 md:p-8 bg-gradient-to-br from-primary/5 via-card/30 to-transparent border border-primary/20 rounded-lg"
             >
               <p className="text-base md:text-lg text-foreground/80 font-light leading-relaxed">
