@@ -25,21 +25,21 @@ const Footer = () => {
             viewport={{ once: true }}
             className="flex flex-wrap justify-center gap-8"
           >
-            <a href="#about" className="text-muted-foreground hover:text-foreground transition-colors">
-              About
-            </a>
             <Link to="/investors" className="text-muted-foreground hover:text-foreground transition-colors">
               Investors
             </Link>
-            <a href="#contact" className="text-muted-foreground hover:text-foreground transition-colors">
+            <a 
+              href="mailto:hello@intinuous.com?subject=Contact%20Inquiry" 
+              className="text-muted-foreground hover:text-foreground transition-colors"
+            >
               Contact
             </a>
-            <a href="#legal" className="text-muted-foreground hover:text-foreground transition-colors">
+            <Link to="/legal" className="text-muted-foreground hover:text-foreground transition-colors">
               Legal
-            </a>
-            <a href="#privacy" className="text-muted-foreground hover:text-foreground transition-colors">
+            </Link>
+            <Link to="/privacy" className="text-muted-foreground hover:text-foreground transition-colors">
               Privacy
-            </a>
+            </Link>
           </motion.nav>
 
           {/* Copyright */}

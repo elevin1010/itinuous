@@ -18,10 +18,10 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { label: 'The Shift', href: '#insight' },
+    { label: 'The Shift', href: '#the-shift' },
     { label: 'Approach', href: '#solution' },
     { label: 'Who It\'s For', href: '#audience' },
-    { label: 'Vision', href: '#vision' },
+    { label: 'Vision', href: '#roadmap' },
   ];
 
   return (

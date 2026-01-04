@@ -17,7 +17,9 @@ const Index = () => {
       <main>
         <HeroSection />
         <SectionDivider showChevron />
-        <ProblemSection />
+        <section id="the-shift">
+          <ProblemSection />
+        </section>
         <SectionDivider />
         <section id="solution">
           <SolutionSection />
