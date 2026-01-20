@@ -39,9 +39,9 @@ const CTASection = () => {
             <Button 
               size="lg"
               className="bg-primary text-primary-foreground hover:bg-primary/90 px-12 py-6 text-base font-medium tracking-wide"
-              onClick={() => window.location.href = 'mailto:hello@intinuous.com?subject=Partnership%20Inquiry'}
+              asChild
             >
-              Reach Out to Learn More
+              <a href="mailto:hello@intinuous.com?subject=Partnership%20Inquiry">Reach Out to Learn More</a>
             </Button>
           </div>
 

@@ -129,9 +129,9 @@ const Investors = () => {
               <Button
                 variant="outline"
                 className="border-border hover:border-foreground/30 text-foreground hover:bg-foreground/5"
-                onClick={() => window.location.href = 'mailto:hello@intinuous.com?subject=Investor%20Access%20Request'}
+                asChild
               >
-                Request Investor Access
+                <a href="mailto:hello@intinuous.com?subject=Investor%20Access%20Request">Request Investor Access</a>
               </Button>
             </div>
           </div>
