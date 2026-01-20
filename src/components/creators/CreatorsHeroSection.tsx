@@ -148,17 +148,17 @@ const CreatorsHeroSection = () => {
           <Button
             size="lg"
             className="bg-primary text-primary-foreground hover:bg-primary/90 px-12 py-6 text-base font-medium tracking-wide"
-            onClick={() => window.location.href = 'mailto:hello@intinuous.com?subject=Early%20Access%20Request%20-%20Creator'}
+            asChild
           >
-            Get early access
+            <a href="mailto:hello@intinuous.com?subject=Early%20Access%20Request%20-%20Creator">Get early access</a>
           </Button>
           <Button
             size="lg"
             variant="outline"
             className="border-border/50 hover:border-foreground/20 text-foreground/80 hover:text-foreground hover:bg-foreground/5 px-12 py-6 text-base font-light tracking-wide"
-            onClick={() => window.location.href = 'mailto:hello@intinuous.com?subject=Creator%20Feedback'}
+            asChild
           >
-            Share feedback
+            <a href="mailto:hello@intinuous.com?subject=Creator%20Feedback">Share feedback</a>
           </Button>
         </motion.div>
       </motion.div>

@@ -104,9 +104,9 @@ const Navbar = () => {
               <Button 
                 size="sm" 
                 className="bg-primary text-primary-foreground hover:bg-primary/90 glow-gold"
-                onClick={() => window.location.href = 'mailto:hello@intinuous.com?subject=General%20Inquiry'}
+                asChild
               >
-                Get in Touch
+                <a href="mailto:hello@intinuous.com?subject=General%20Inquiry">Get in Touch</a>
               </Button>
             </div>
 
@@ -155,9 +155,14 @@ const Navbar = () => {
                 </Link>
                 <Button 
                   className="mt-4 bg-primary text-primary-foreground hover:bg-primary/90 glow-gold w-full"
-                  onClick={() => window.location.href = 'mailto:hello@intinuous.com?subject=General%20Inquiry'}
+                  asChild
                 >
-                  Get in Touch
+                  <a
+                    href="mailto:hello@intinuous.com?subject=General%20Inquiry"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Get in Touch
+                  </a>
                 </Button>
               </div>
             </div>
