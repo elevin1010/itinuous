@@ -2,7 +2,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ChevronDown } from 'lucide-react';
-import '@fontsource/montserrat/300.css';
+// Montserrat is preloaded in index.html to prevent FOUT
 
 const HeroSection = () => {
   const ref = useRef<HTMLElement>(null);
