@@ -2,6 +2,8 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ChevronDown } from 'lucide-react';
+import '@fontsource/montserrat/300.css';
+
 const HeroSection = () => {
   const ref = useRef<HTMLElement>(null);
   const [mousePosition, setMousePosition] = useState({
@@ -124,9 +126,9 @@ const HeroSection = () => {
         duration: 1,
         ease: "easeOut"
       }} className="mb-12">
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tight">
-            <span className="text-foreground">Int</span>
-            <span className="text-gradient-gold">inuous</span>
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-['Montserrat'] font-light tracking-widest uppercase">
+            <span className="text-foreground">INT</span>
+            <span className="text-gradient-gold">INUOUS</span>
           </h1>
         </motion.div>
 
