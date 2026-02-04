@@ -1,28 +1,37 @@
 import { motion } from 'framer-motion';
-import '@fontsource/montserrat/300.css';
+import logoImage from '@/assets/intinuous-logo.png';
 
 interface LogoProps {
   size?: 'sm' | 'md' | 'lg';
   className?: string;
+  showText?: boolean;
 }
 
-const Logo = ({ size = 'md', className = '' }: LogoProps) => {
+const Logo = ({ size = 'md', className = '', showText = true }: LogoProps) => {
   const sizeConfig = {
-    sm: 'text-lg',
-    md: 'text-xl',
-    lg: 'text-2xl',
+    sm: { image: 'h-8', text: 'text-lg' },
+    md: { image: 'h-10', text: 'text-xl' },
+    lg: { image: 'h-14', text: 'text-2xl' },
   };
 
   return (
-    <motion.span
-      className={`font-['Montserrat'] font-light tracking-widest uppercase ${sizeConfig[size]} ${className}`}
+    <motion.div
+      className={`flex items-center gap-3 ${className}`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <span className="text-foreground">INT</span>
-      <span className="text-primary">INUOUS</span>
-    </motion.span>
+      <img 
+        src={logoImage} 
+        alt="Intinuous" 
+        className={`${sizeConfig[size].image} w-auto object-contain`}
+      />
+      {showText && (
+        <span className={`font-['Montserrat'] font-light tracking-widest uppercase ${sizeConfig[size].text} text-primary`}>
+          INUOUS
+        </span>
+      )}
+    </motion.div>
   );
 };
 
