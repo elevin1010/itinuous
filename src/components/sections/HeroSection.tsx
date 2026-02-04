@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ChevronDown } from 'lucide-react';
+import Logo from '@/components/Logo';
 // Montserrat is preloaded in index.html to prevent FOUT
 
 const HeroSection = () => {
@@ -114,7 +115,7 @@ const HeroSection = () => {
       opacity,
       scale
     }} className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-        {/* Wordmark */}
+        {/* Logo */}
         <motion.div initial={{
         opacity: 0,
         y: 20
@@ -126,10 +127,7 @@ const HeroSection = () => {
         duration: 1,
         ease: "easeOut"
       }} className="mb-12">
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-['Montserrat'] font-light tracking-widest uppercase">
-            <span className="text-foreground">INT</span>
-            <span className="text-gradient-gold">INUOUS</span>
-          </h1>
+          <Logo variant="rough" size="hero" />
         </motion.div>
 
         {/* Primary tagline */}
