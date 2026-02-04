@@ -31,10 +31,9 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { label: 'The Shift', href: '#the-shift' },
-    { label: 'Approach', href: '#solution' },
-    { label: 'Who It\'s For', href: '#audience' },
-    { label: 'Vision', href: '#roadmap' },
+    { label: 'How It Works', href: '#how-it-works' },
+    { label: 'Pricing', href: '#pricing' },
+    { label: 'Roadmap', href: '#roadmap' },
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -106,7 +105,7 @@ const Navbar = () => {
                 className="bg-primary text-primary-foreground hover:bg-primary/90 glow-gold"
                 asChild
               >
-                <a href="mailto:hello@intinuous.com?subject=General%20Inquiry">Get in Touch</a>
+                <a href="mailto:hello@intinuous.com?subject=Start%20Verification">Start Verification</a>
               </Button>
             </div>
 
@@ -158,10 +157,10 @@ const Navbar = () => {
                   asChild
                 >
                   <a
-                    href="mailto:hello@intinuous.com?subject=General%20Inquiry"
+                    href="mailto:hello@intinuous.com?subject=Start%20Verification"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    Get in Touch
+                    Start Verification
                   </a>
                 </Button>
               </div>
