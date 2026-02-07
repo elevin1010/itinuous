@@ -156,6 +156,37 @@
     background-image: linear-gradient(135deg, hsl(43 60% 55%), hsl(43 74% 70%), hsl(43 60% 55%));
   }
 
+  /* Landio-style card */
+  .landio-card {
+    background: hsl(0 0% 7%);
+    border: 1px solid hsl(0 0% 15%);
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .landio-card:hover {
+    border-color: hsl(43 74% 60% / 0.3);
+    box-shadow: 0 0 40px hsl(43 74% 60% / 0.1);
+  }
+
+  /* Badge pill for section labels */
+  .badge-pill {
+    background: hsl(0 0% 10%);
+    border: 1px solid hsl(0 0% 20%);
+    border-radius: 9999px;
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: hsl(0 0% 70%);
+  }
+
+  /* Italic emphasis with gold */
+  .text-emphasis-italic {
+    font-style: italic;
+    color: hsl(43 74% 60%);
+  }
+
   /* Gold glow effect */
   .glow-gold {
     box-shadow: 0 0 30px hsl(43 74% 60% / 0.25),
@@ -175,33 +206,12 @@
     box-shadow: 0 0 40px hsl(0 0% 100% / 0.03);
   }
 
-  /* Noise texture overlay */
-  .noise-texture {
-    position: relative;
-  }
-  
-  .noise-texture::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-    opacity: 0.03;
-    pointer-events: none;
-    z-index: 1;
-  }
-
-  /* Vignette effect */
-  .vignette {
-    position: relative;
-  }
-  
-  .vignette::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at center, transparent 0%, hsl(0 0% 0% / 0.4) 100%);
-    pointer-events: none;
-    z-index: 1;
+  /* Subtle grid pattern background */
+  .grid-pattern {
+    background-image: 
+      linear-gradient(hsl(0 0% 15% / 0.3) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(0 0% 15% / 0.3) 1px, transparent 1px);
+    background-size: 60px 60px;
   }
 
   /* Gradient mesh backgrounds - Gold and black only */
@@ -215,5 +225,15 @@
   /* Radial gradient helper */
   .bg-gradient-radial {
     background: radial-gradient(var(--tw-gradient-stops));
+  }
+
+  /* Scroll indicator animation */
+  @keyframes scroll-indicator {
+    0%, 100% { transform: translateY(0); opacity: 0.6; }
+    50% { transform: translateY(8px); opacity: 1; }
+  }
+
+  .animate-scroll-indicator {
+    animation: scroll-indicator 2s ease-in-out infinite;
   }
 }

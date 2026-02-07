@@ -1,123 +1,130 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { motion } from 'framer-motion';
+import { ArrowRight, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import facesTopographic from '@/assets/faces-topographic.png';
+import intinuousMark from '@/assets/intinuous-mark.png';
 
 const HomeHeroSection = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollY } = useScroll();
-  
-  const faceY = useTransform(scrollY, [0, 500], [0, -30]);
-  const faceScale = useTransform(scrollY, [0, 500], [1, 1.05]);
-  const faceOpacity = useTransform(scrollY, [0, 300], [0.18, 0.08]);
-
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <section 
-      ref={containerRef}
-      className="relative min-h-screen flex flex-col justify-center overflow-hidden"
-    >
-      {/* Background gradient mesh */}
-      <div className="absolute inset-0 gradient-mesh" />
+    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden">
+      {/* Background layers */}
+      <div className="absolute inset-0 bg-background" />
       
-      {/* Ambient orbs */}
-      <div className="absolute top-1/4 right-1/4 w-[600px] h-[600px] bg-gradient-radial from-primary/10 via-transparent to-transparent rounded-full blur-[120px]" />
-      <div className="absolute bottom-1/4 left-1/4 w-[500px] h-[500px] bg-gradient-radial from-primary/8 via-transparent to-transparent rounded-full blur-[100px]" />
+      {/* Subtle grid pattern */}
+      <div className="absolute inset-0 grid-pattern opacity-40" />
       
-      {/* Topographic faces - atmospheric background */}
-      <motion.div 
-        className="absolute inset-0 flex items-center justify-center pointer-events-none"
-        style={{ 
-          y: faceY, 
-          scale: faceScale,
-          opacity: faceOpacity 
-        }}
-      >
-        <img 
-          src={facesTopographic} 
-          alt="" 
-          className="w-full max-w-4xl h-auto object-contain mix-blend-screen"
-          aria-hidden="true"
-        />
-      </motion.div>
-
+      {/* Atmospheric gold glows */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-primary/15 via-primary/5 to-transparent rounded-full blur-[100px]" />
+      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-gradient-radial from-primary/10 via-transparent to-transparent rounded-full blur-[80px]" />
+      
       {/* Content */}
-      <div className="container relative z-10 pt-24 pb-32">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="max-w-4xl"
-        >
-          {/* Primary headline */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
-            <span className="text-gradient-gold">Verify once.</span>
+      <div className="container relative z-10 pt-32 pb-24">
+        <div className="max-w-4xl mx-auto text-center">
+          {/* Logo mark */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="mb-8"
+          >
+            <img 
+              src={intinuousMark} 
+              alt="Intinuous" 
+              className="w-12 h-12 mx-auto"
+            />
+          </motion.div>
+
+          {/* Badge pill */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="mb-8"
+          >
+            <span className="badge-pill inline-block">
+              Identity Continuity Layer
+            </span>
+          </motion.div>
+
+          {/* Headline */}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-8"
+          >
+            <span className="text-foreground">Verify once.</span>
             <br />
-            <span className="text-foreground">Prove forever.</span>
-          </h1>
+            <span className="text-emphasis-italic">Prove forever.</span>
+          </motion.h1>
 
           {/* Subhead */}
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-4">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10"
+          >
             Intinuous Proof creates a private identity certificate and a public proof page — without exposing your personal data.
-          </p>
+          </motion.p>
 
-          {/* Qualifier */}
-          <p className="text-base text-muted-foreground/80 max-w-2xl mb-8">
-            This isn't about looking real. It's about being verifiably the same person over time.
-          </p>
-
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-4 mb-6">
+          {/* CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6"
+          >
             <Button 
               size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 glow-gold"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full gap-2 glow-gold px-8"
               asChild
             >
               <a href="mailto:hello@intinuous.com?subject=Start%20Verification">
                 Start Verification
+                <ArrowRight className="w-4 h-4" />
               </a>
             </Button>
             <Button 
               variant="ghost" 
               size="lg"
-              className="text-muted-foreground hover:text-foreground"
+              className="text-muted-foreground hover:text-foreground rounded-full"
               onClick={() => scrollToSection('how-it-works')}
             >
               See how it works
             </Button>
-          </div>
+          </motion.div>
 
-          {/* Reassurance + Process clarity */}
-          <div className="space-y-2 text-sm text-muted-foreground/70">
-            <p>Your personal data stays private by default.</p>
-            <p>You'll be guided through a one-time identity check, then receive your private certificate.</p>
-          </div>
-        </motion.div>
-      </div>
-
-      {/* Anchored brand name */}
-      <div className="absolute bottom-8 left-0 right-0 overflow-hidden pointer-events-none">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.04 }}
-          transition={{ duration: 1.5, delay: 0.5 }}
-          className="text-center"
-        >
-          <span 
-            className="text-foreground font-bold tracking-tighter"
-            style={{ 
-              fontSize: 'clamp(4rem, 15vw, 12rem)',
-              lineHeight: 0.85,
-              letterSpacing: '-0.03em'
-            }}
+          {/* Reassurance */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="text-sm text-muted-foreground/60"
           >
-            INTINUOUS PROOF
-          </span>
-        </motion.div>
+            Your personal data stays private by default.
+          </motion.p>
+        </div>
       </div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.8 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+      >
+        <button 
+          onClick={() => scrollToSection('what-is')}
+          className="flex flex-col items-center gap-2 text-muted-foreground/50 hover:text-muted-foreground transition-colors"
+        >
+          <span className="text-xs uppercase tracking-widest">Scroll</span>
+          <ChevronDown className="w-5 h-5 animate-scroll-indicator" />
+        </button>
+      </motion.div>
     </section>
   );
 };
