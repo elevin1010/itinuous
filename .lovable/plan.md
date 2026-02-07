@@ -1,360 +1,266 @@
 
-
-# Homepage Transformation: Consumer Sales Funnel
-
-This plan transforms the Intinuous website from an investor-focused explainer into a consumer-facing sales funnel for the $40/year Intinuous Proof product. It includes migrating current content to `/investors`, creating a bold new homepage with offground.solutions-inspired effects, and preparing for Stripe integration.
-
----
+# Complete Homepage Redesign: Landio Style
 
 ## Overview
 
-```text
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                           CURRENT STATE                                     │
-├─────────────────────────────────────────────────────────────────────────────┤
-│  Homepage (/)           │  /investors                                       │
-│  - Hero                 │  - Login placeholder                              │
-│  - Problem/Shift        │  - Request access form                            │
-│  - Solution             │                                                   │
-│  - Audience             │                                                   │
-│  - How It Works         │                                                   │
-│  - Product Modules      │                                                   │
-│  - Roadmap/Vision       │                                                   │
-│  - CTA                  │                                                   │
-└─────────────────────────────────────────────────────────────────────────────┘
+This plan recreates the Landio visual language exactly while preserving your Intinuous content. The Landio template has a clean, modern SaaS aesthetic that will work well for Intinuous.
 
-                                    ↓
+## Visual Language Analysis (Landio)
 
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                            NEW STATE                                        │
-├─────────────────────────────────────────────────────────────────────────────┤
-│  Homepage (/)                     │  /investors                             │
-│  - Hero (massive typography)      │  - Full explainer content:              │
-│  - What Intinuous Proof Is        │    • Problem/Shift                      │
-│  - Who It's For                   │    • Solution                           │
-│  - Core Benefits                  │    • Audience                           │
-│  - How It Works (V1)              │    • How It Works                       │
-│  - Why This Exists                │    • Product Modules                    │
-│  - Pricing ($40/year)             │    • Vision/Roadmap                     │
-│  - What This Is/Isn't             │    • CTA                                │
-│  - Roadmap Transparency           │  - Login portal (preserved)             │
-│  - Final CTA                      │                                         │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
+### Design Characteristics
 
----
+1. **Color Palette**
+   - Near-black background (#0a0a0a)
+   - Soft blue/teal accent color for highlights and glows
+   - White text with muted gray secondary text
+   - Subtle blue glow effects on cards and CTAs
 
-## Phase 1: Create New Homepage Components
+2. **Typography**
+   - Large, bold sans-serif headlines (mix of regular and italic for emphasis)
+   - Clean hierarchy with generous spacing
+   - Centered layout for hero and section headers
 
-### 1.1 New Hero Section with Massive Typography
+3. **Layout Patterns**
+   - Centered hero with logo icon above headline
+   - Pill-shaped badge above headline ("NEW GEN AI AUTOMATION PARTNER")
+   - Mixed italic/regular in headlines for emphasis ("Automate Smarter. *Grow Faster. With AI.*")
+   - Social icons below CTA
+   - Scroll indicator at bottom of hero
+   - Cards with subtle borders and rounded corners
+   - Floating UI element mockups in content sections
 
-Inspired by offground.solutions, the new hero will feature:
-- Massive bottom-anchored typography effect ("INTINUOUS PROOF")
-- Atmospheric gold gradient glow (adapted from current palette)
-- "Verify once. Prove forever." as the primary headline
-- Scroll-triggered text reveal animations
-- Two CTAs: "Start Verification" (primary) + "See how it works" (secondary)
+4. **Cards and Sections**
+   - Dark cards (#111) with subtle borders
+   - Rounded corners (16-24px)
+   - Subtle blue glow on hover
+   - Bento-grid layouts for features
+   - Step indicators with numbers in badges
 
-Create new file: `src/components/home/HomeHeroSection.tsx`
+5. **Special Components**
+   - Testimonial carousel with photos and stats
+   - Logo marquee
+   - Pricing cards with toggle (monthly/yearly)
+   - FAQ accordion
+   - Comparison table (us vs others)
+   - Team section with photos
 
-### 1.2 What Is Section
-
-- "Intinuous Proof is an identity continuity layer" messaging
-- Four "No" statements styled as quiet anti-features
-- "Just proof." as the closer
-
-Create new file: `src/components/home/WhatIsSection.tsx`
-
-### 1.3 Who It's For Section
-
-Adapt the existing `AudienceSection.tsx` with the new copy:
-- Same 5 audience segments with updated descriptions
-- Remove the organizational risk callout (investor-focused)
-- Keep the tabbed desktop / card mobile pattern
-
-Create new file: `src/components/home/AudienceSection.tsx`
-
-### 1.4 Core Benefits Section
-
-Four benefit cards in a 2x2 grid:
-- Private Certificate
-- Public Proof Page
-- Continuity Over Time
-- You Control Exposure
-
-Create new file: `src/components/home/BenefitsSection.tsx`
-
-### 1.5 How It Works Section (V1)
-
-Simplified 3-step flow:
-1. Verify once
-2. Receive your private certificate
-3. Share proof when needed
-
-With the confident closer: "That's it. No recurring re-verification. No screenshots. No 'trust me bro.'"
-
-Create new file: `src/components/home/HowItWorksSection.tsx`
-
-### 1.6 Why This Exists Section
-
-Trust framing with:
-- "Looking real isn't proof. Continuity is."
-- Context about AI/deepfakes making appearance meaningless
-- Problem definition
-
-Create new file: `src/components/home/WhyExistsSection.tsx`
-
-### 1.7 Pricing Section
-
-Bold, unapologetic pricing:
-- "$40 / year" as massive typography
-- Feature bullets
-- "No free tier. If you care about your identity, you secure it."
-- Primary CTA: "Start Verification"
-
-Create new file: `src/components/home/PricingSection.tsx`
-
-### 1.8 What This Is / Isn't Section
-
-Four "not" items with checkmarks/X:
-- Not a social profile
-- Not a KYC resale business
-- Not biometric surveillance
-- A user-owned proof layer
-
-Create new file: `src/components/home/ClarificationSection.tsx`
-
-### 1.9 Roadmap Transparency Section
-
-Two-column layout:
-- Version 1 (now): current features
-- What's coming: future features
-
-Create new file: `src/components/home/RoadmapSection.tsx`
-
-### 1.10 Final CTA Section
-
-- "There's only ONE you. Prove it."
-- Two CTAs: Start Verification + Learn more about Intinuous
-
-Create new file: `src/components/home/FinalCTASection.tsx`
+6. **Background Effects**
+   - Subtle grid pattern overlay
+   - Atmospheric 3D-style background in hero (appears to be rendered/abstract)
+   - Vignette effects
+   - No literal images in backgrounds
 
 ---
 
-## Phase 2: Visual Effects (Offground-Inspired)
+## Adaptation for Intinuous
 
-### 2.1 Massive Typography Animation
+### Color Mapping
+- Keep your Vault Gold (#D7B25A) as the accent color (replacing Landio's blue)
+- Maintain the dark background
+- Gold glows instead of blue glows
 
-Add CSS keyframes and utility classes for:
-- Full-viewport-width text that scales with the container
-- Text that appears to rise from the bottom of the viewport
-- Gold gradient fill with subtle animation
+### Content Mapping (Landio -> Intinuous)
 
-Update: `src/index.css`
-
-### 2.2 Scroll-Triggered Text Reveals
-
-Use Framer Motion's `useInView` and staggered animations:
-- Words animate in sequence (like "Patternbreakers..." on offground)
-- Opacity + subtle Y translation
-
-Applied throughout new sections.
-
-### 2.3 Atmospheric Glow Enhancement
-
-Enhance the existing gradient mesh with:
-- Larger, more diffuse gold orbs
-- Subtle pulsing animation on scroll
-- Mouse-following glow (already exists, will be enhanced)
-
-Update: `src/index.css` + component styles
-
----
-
-## Phase 3: Migrate Investor Content
-
-### 3.1 Update Investors Page
-
-Transform `/investors` from a login-only page to a full content portal:
-- Keep the login form at the top
-- Add all current homepage sections below
-- Sections: Problem, Solution, Audience, How It Works, Product Modules, Vision/Roadmap, CTA
-
-Update: `src/pages/Investors.tsx`
-
-### 3.2 Import Existing Section Components
-
-The investor page will import and render:
-- `ProblemSection` (The Shift)
-- `SolutionSection`
-- `AudienceSection` (original version)
-- `HowItWorksSection` (original version)
-- `ProductModulesSection`
-- `RoadmapSection`
-- `CTASection`
-
-These components remain unchanged.
+| Landio Section | Intinuous Equivalent |
+|----------------|---------------------|
+| Hero | Hero with "Verify once. Prove forever." |
+| Quote/intro | What Is section |
+| Benefits (Why Choose Us) | Core Benefits |
+| Services | Audience section (Who It's For) |
+| Features | How It Works |
+| Process (3 steps) | How It Works (already 3 steps) |
+| Client Success Stories | Skip (no testimonials yet) |
+| Integrations | Skip (not applicable) |
+| Reviews | Skip (no reviews yet) |
+| Pricing | Pricing ($40/year) |
+| FAQ | Skip for now (can add later) |
+| Comparison | Clarification (Is/Isn't) |
+| Team | Skip (not applicable) |
+| Final CTA | Final CTA |
+| Footer | Footer |
 
 ---
 
-## Phase 4: Update Navigation
+## Implementation Plan
 
-### 4.1 Update Navbar Links
+### Phase 1: Core Styling Updates
 
-Change navigation from section anchors to new homepage structure:
-- Remove: The Shift, Approach, Who It's For, Vision
-- Add: How It Works, Pricing
-- Keep: Investors link
-- Change CTA: "Get in Touch" → "Start Verification"
+**File: `src/index.css`**
+- Add new utility classes matching Landio aesthetics
+- `.landio-card` - dark cards with subtle borders and gold glow on hover
+- `.badge-pill` - pill-shaped badges for section labels
+- Update gradient effects to use gold tints
+- Add subtle grid pattern background
 
-Update: `src/components/layout/Navbar.tsx`
+**File: `tailwind.config.ts`**
+- No major changes needed (existing gold palette works)
 
-### 4.2 Create Consumer-Focused Navbar
+### Phase 2: Navbar Redesign
 
-Option to create a simpler navbar for the homepage:
-- Logo (left)
-- Minimal links (center): How It Works, Pricing
-- CTA (right): Start Verification
+**File: `src/components/layout/Navbar.tsx`**
+- Centered pill-shaped nav container (Landio style)
+- Logo on left, nav links in center pill, CTA on right
+- Transparent background with glass effect on scroll
 
----
+### Phase 3: Hero Section Redesign
 
-## Phase 5: Stripe Integration Preparation
+**File: `src/components/home/HomeHeroSection.tsx`**
+- Remove topographic faces background
+- Add abstract atmospheric background (CSS gradients, no literal imagery)
+- Centered layout with logo icon above headline
+- Gold pill badge: "IDENTITY CONTINUITY LAYER"
+- Mixed-weight headline: "Verify once. *Prove forever.*" (italic on key words)
+- Subhead and CTA button with arrow icon
+- Social icons row (or skip if not applicable)
+- Scroll indicator at bottom
 
-### 5.1 Enable Stripe
+### Phase 4: Section Redesigns
 
-Use the Stripe connector to set up:
-- $40/year subscription product
-- Checkout flow
+**File: `src/components/home/WhatIsSection.tsx`**
+- Quote-style layout with avatar/person attribution
+- Large quote text with gold accent on key phrase
+- Cleaner, more minimal presentation
 
-Note: This requires enabling Stripe through the Lovable integration.
+**File: `src/components/home/BenefitsSection.tsx`**
+- Bento grid layout (2x2 or 3-column)
+- Dark cards with gold icon treatments
+- Icon in colored rounded square, title, description
+- Hover glow effect
 
-### 5.2 Create Checkout Flow
+**File: `src/components/home/HomeAudienceSection.tsx`**
+- Tab-style or card grid layout
+- Interactive pill selectors or vertical list
+- Cleaner card presentation
 
-- "Start Verification" button triggers Stripe checkout
-- Success/cancel redirect pages
-- Payment confirmation state
+**File: `src/components/home/HomeHowItWorksSection.tsx`**
+- Horizontal stepper with numbered badges
+- STEP 1, STEP 2, STEP 3 pills above each
+- Clean cards or vertical timeline
+- Optional: add mock UI illustration (CSS-only)
 
-Create new files:
-- `src/pages/Checkout.tsx`
-- `src/pages/CheckoutSuccess.tsx`
+**File: `src/components/home/PricingSection.tsx`**
+- Single centered pricing card (since one tier)
+- Large $40 with /year suffix
+- Feature checklist with gold checkmarks
+- "Less than $4/month" reframe
+- CTA button with glow
 
----
+**File: `src/components/home/ClarificationSection.tsx`**
+- Comparison table style (Landio's "Why Choose Us Over Others")
+- Two columns: "What Intinuous IS" vs "What It ISN'T"
+- Checkmarks for IS, X marks for ISN'T
+- Clean table or card layout
 
-## Phase 6: New Homepage Assembly
+**File: `src/components/home/HomeRoadmapSection.tsx`**
+- Two-column layout maintained
+- Cleaner card styling matching Landio aesthetic
+- Gold accents for current features
 
-### 6.1 Update Index Page
+**File: `src/components/home/FinalCTASection.tsx`**
+- Larger, more prominent treatment
+- Italic emphasis on key words
+- Gold glow on CTA button
+- Minimal background (no complex gradients)
 
-Replace the current homepage with the new consumer-focused structure:
+### Phase 5: Footer Redesign
 
-```text
-HomeHeroSection
-   ↓
-WhatIsSection
-   ↓
-AudienceSection (new)
-   ↓
-BenefitsSection
-   ↓
-HowItWorksSection (new)
-   ↓
-WhyExistsSection
-   ↓
-PricingSection
-   ↓
-ClarificationSection
-   ↓
-RoadmapSection (new)
-   ↓
-FinalCTASection
-   ↓
-Footer
-```
+**File: `src/components/sections/Footer.tsx`**
+- Simpler, cleaner layout
+- Logo centered or left-aligned
+- Links in horizontal row
+- Contact email prominent
+- Copyright at bottom
 
-Update: `src/pages/Index.tsx`
+### Phase 6: Remove SectionDivider
 
----
-
-## File Changes Summary
-
-### New Files (10)
-```text
-src/components/home/HomeHeroSection.tsx
-src/components/home/WhatIsSection.tsx
-src/components/home/AudienceSection.tsx
-src/components/home/BenefitsSection.tsx
-src/components/home/HowItWorksSection.tsx
-src/components/home/WhyExistsSection.tsx
-src/components/home/PricingSection.tsx
-src/components/home/ClarificationSection.tsx
-src/components/home/RoadmapSection.tsx
-src/components/home/FinalCTASection.tsx
-```
-
-### Modified Files (4)
-```text
-src/pages/Index.tsx          - New homepage structure
-src/pages/Investors.tsx      - Add migrated content sections
-src/components/layout/Navbar.tsx  - Updated navigation
-src/index.css                - New animation utilities
-```
+**File: `src/pages/Index.tsx`**
+- Remove `SectionDivider` components between sections
+- Sections will flow with natural padding (Landio style)
 
 ---
 
 ## Technical Details
 
-### Animation Utilities to Add
+### New CSS Utilities to Add
 
-```css
-/* Massive typography scaling */
-.text-massive {
-  font-size: clamp(4rem, 15vw, 12rem);
-  line-height: 0.85;
-  letter-spacing: -0.03em;
+```text
+.landio-card {
+  background: hsl(0 0% 7%);
+  border: 1px solid hsl(0 0% 15%);
+  border-radius: 16px;
+  transition: all 0.3s ease;
 }
 
-/* Text reveal animation */
-@keyframes text-reveal {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.landio-card:hover {
+  border-color: hsl(43 74% 60% / 0.3);
+  box-shadow: 0 0 40px hsl(43 74% 60% / 0.1);
 }
 
-.animate-text-reveal {
-  animation: text-reveal 0.8s ease-out forwards;
+.badge-pill {
+  background: hsl(0 0% 10%);
+  border: 1px solid hsl(0 0% 20%);
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.text-emphasis-italic {
+  font-style: italic;
+  color: hsl(43 74% 60%);
 }
 ```
 
-### Framer Motion Patterns
-
-All new sections will use consistent animation patterns:
-- `initial={{ opacity: 0, y: 30 }}`
-- `whileInView={{ opacity: 1, y: 0 }}`
-- `viewport={{ once: true, margin: "-10%" }}`
-- Staggered children with `transition={{ delay: index * 0.1 }}`
-
-### Mobile Responsiveness
-
-All sections will follow the existing mobile-first approach:
-- Stack layouts on mobile
-- Larger touch targets for CTAs
-- Simplified animations on mobile (respecting `prefers-reduced-motion`)
+### Animation Philosophy
+- Keep Framer Motion for scroll animations
+- Simpler, faster animations (0.3-0.5s)
+- Subtle hover effects on cards
+- No complex parallax effects
 
 ---
 
-## Implementation Order
+## Files to Modify
 
-1. Create new home component directory and base files
-2. Build HomeHeroSection with massive typography effect
-3. Build remaining sections (top to bottom)
-4. Update Index.tsx with new structure
-5. Migrate content to Investors page
-6. Update Navbar
-7. Add CSS utilities for new animations
-8. Enable and integrate Stripe (separate step)
-9. Test responsive behavior and animations
+1. `src/index.css` - New utility classes
+2. `src/components/layout/Navbar.tsx` - Centered pill nav
+3. `src/components/home/HomeHeroSection.tsx` - Complete redesign
+4. `src/components/home/WhatIsSection.tsx` - Quote style
+5. `src/components/home/BenefitsSection.tsx` - Bento grid
+6. `src/components/home/HomeAudienceSection.tsx` - Cleaner cards
+7. `src/components/home/HomeHowItWorksSection.tsx` - Step badges
+8. `src/components/home/PricingSection.tsx` - Centered card
+9. `src/components/home/ClarificationSection.tsx` - Comparison table
+10. `src/components/home/HomeRoadmapSection.tsx` - Cleaner cards
+11. `src/components/home/FinalCTASection.tsx` - Larger treatment
+12. `src/components/sections/Footer.tsx` - Simpler layout
+13. `src/pages/Index.tsx` - Remove SectionDividers
 
+---
+
+## Execution Order
+
+I will implement this section-by-section to ensure quality:
+
+1. **First**: Update CSS utilities and Navbar
+2. **Second**: Hero section (most impactful)
+3. **Third**: WhatIs and WhyExists sections (can combine/streamline)
+4. **Fourth**: Benefits and Audience sections
+5. **Fifth**: HowItWorks section
+6. **Sixth**: Pricing and Clarification sections
+7. **Seventh**: Roadmap and FinalCTA sections
+8. **Eighth**: Footer and cleanup
+
+Each phase will be implemented together to avoid visual inconsistency during the transition.
+
+---
+
+## Note on Imagery
+
+Landio uses abstract 3D renders in the hero background. For Intinuous, we will use:
+- Pure CSS gradients and effects (no generated images)
+- Subtle gold atmospheric glows
+- Grid pattern overlay
+- No literal faces or topographic imagery
+
+This keeps the aesthetic clean and atmospheric without requiring external image assets.
