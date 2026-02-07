@@ -10,7 +10,6 @@ import ClarificationSection from '@/components/home/ClarificationSection';
 import HomeRoadmapSection from '@/components/home/HomeRoadmapSection';
 import FinalCTASection from '@/components/home/FinalCTASection';
 import Footer from '@/components/sections/Footer';
-import SectionDivider from '@/components/SectionDivider';
 
 const Index = () => {
   return (
@@ -18,21 +17,13 @@ const Index = () => {
       <Navbar />
       <main>
         <HomeHeroSection />
-        <SectionDivider showChevron />
         <WhatIsSection />
-        <SectionDivider />
         <WhyExistsSection />
-        <SectionDivider />
         <HomeAudienceSection />
-        <SectionDivider />
         <BenefitsSection />
-        <SectionDivider />
         <HomeHowItWorksSection />
-        <SectionDivider />
         <PricingSection />
-        <SectionDivider />
         <ClarificationSection />
-        <SectionDivider />
         <HomeRoadmapSection />
         <FinalCTASection />
       </main>

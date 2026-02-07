@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { Briefcase, Mic, Building2, Clapperboard, Scale } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
 
 const audiences = [
   {
@@ -37,9 +36,7 @@ const audiences = [
 
 const HomeAudienceSection = () => {
   return (
-    <section id="audience" className="py-20 md:py-32 relative">
-      <div className="absolute inset-0 gradient-mesh opacity-40" />
-      
+    <section id="audience" className="py-24 md:py-32 relative">
       <div className="container relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -48,43 +45,44 @@ const HomeAudienceSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+          <span className="badge-pill inline-block mb-6">
             Who It's For
+          </span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+            People with <span className="text-emphasis-italic">reputational</span> surface area
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            People and organizations with reputational or economic surface area
+            People and organizations with economic or reputational exposure
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Grid layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
           {audiences.map((audience, index) => (
             <motion.div
               key={audience.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.5, delay: index * 0.08 }}
+              className="landio-card p-6"
             >
-              <Card className="bg-card/50 border-border/50 backdrop-blur-sm h-full hover:border-primary/30 transition-colors">
-                <CardContent className="p-6">
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                      <audience.icon className="w-5 h-5 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-semibold text-foreground mb-1">
-                        {audience.title}
-                      </h3>
-                      <p className="text-sm text-muted-foreground mb-3">
-                        {audience.description}
-                      </p>
-                      <p className="text-xs text-primary/80 italic">
-                        {audience.microLine}
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <audience.icon className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-foreground mb-1">
+                    {audience.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    {audience.description}
+                  </p>
+                  <p className="text-xs text-primary/80 italic">
+                    {audience.microLine}
+                  </p>
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ArrowRight } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import Logo from '@/components/Logo';
@@ -41,21 +41,17 @@ const Navbar = () => {
     const sectionId = href.replace('#', '');
     
     if (location.pathname !== '/') {
-      // Navigate to home first, then scroll to section
       navigate('/', { state: { scrollTo: sectionId } });
     } else {
-      // Already on home, just scroll
       document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
-  // Handle scroll after navigation from another page
   useEffect(() => {
     if (location.state?.scrollTo) {
       setTimeout(() => {
         document.getElementById(location.state.scrollTo)?.scrollIntoView({ behavior: 'smooth' });
       }, 100);
-      // Clear the state
       window.history.replaceState({}, document.title);
     }
   }, [location]);
@@ -66,46 +62,50 @@ const Navbar = () => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled 
-            ? 'bg-background/90 backdrop-blur-lg border-b border-border/50' 
-            : 'bg-transparent'
-        }`}
+        className="fixed top-0 left-0 right-0 z-50 py-4"
       >
         <div className="container">
-          <nav className="flex items-center justify-between h-16 md:h-20">
+          <nav className={`flex items-center justify-between h-14 px-4 md:px-6 rounded-full transition-all duration-300 ${
+            isScrolled 
+              ? 'bg-background/80 backdrop-blur-xl border border-border/50' 
+              : 'bg-transparent'
+          }`}>
             {/* Logo */}
-            <Link to="/">
+            <Link to="/" className="flex-shrink-0">
               <Logo size="sm" />
             </Link>
 
-            {/* Desktop nav */}
-            <div className="hidden md:flex items-center gap-8">
+            {/* Desktop nav - centered pill */}
+            <div className="hidden md:flex items-center gap-1 bg-muted/50 backdrop-blur-sm rounded-full px-1 py-1 border border-border/30">
               {navLinks.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors px-4 py-2 rounded-full hover:bg-muted/80"
                 >
                   {link.label}
                 </a>
               ))}
+              <Link
+                to="/investors"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors px-4 py-2 rounded-full hover:bg-muted/80"
+              >
+                Investors
+              </Link>
             </div>
 
             {/* CTA */}
-            <div className="hidden md:flex items-center gap-4">
-              <Link to="/investors">
-                <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
-                  Investors
-                </Button>
-              </Link>
+            <div className="hidden md:flex items-center">
               <Button 
                 size="sm" 
-                className="bg-primary text-primary-foreground hover:bg-primary/90 glow-gold"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full gap-2"
                 asChild
               >
-                <a href="mailto:hello@intinuous.com?subject=Start%20Verification">Start Verification</a>
+                <a href="mailto:hello@intinuous.com?subject=Start%20Verification">
+                  Get Started
+                  <ArrowRight className="w-4 h-4" />
+                </a>
               </Button>
             </div>
 
@@ -128,10 +128,10 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 bg-background/98 backdrop-blur-lg md:hidden pt-20"
+            className="fixed inset-0 z-40 bg-background/98 backdrop-blur-lg md:hidden pt-24"
           >
             <div className="container py-8">
-              <div className="flex flex-col gap-6">
+              <div className="flex flex-col gap-4">
                 {navLinks.map((link) => (
                   <a
                     key={link.label}
@@ -140,7 +140,7 @@ const Navbar = () => {
                       handleNavClick(e, link.href);
                       setIsMobileMenuOpen(false);
                     }}
-                    className="text-xl text-foreground hover:text-primary transition-colors"
+                    className="text-xl text-foreground hover:text-primary transition-colors py-2"
                   >
                     {link.label}
                   </a>
@@ -148,19 +148,20 @@ const Navbar = () => {
                 <Link
                   to="/investors"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-xl text-foreground hover:text-primary transition-colors"
+                  className="text-xl text-foreground hover:text-primary transition-colors py-2"
                 >
                   Investors
                 </Link>
                 <Button 
-                  className="mt-4 bg-primary text-primary-foreground hover:bg-primary/90 glow-gold w-full"
+                  className="mt-6 bg-primary text-primary-foreground hover:bg-primary/90 rounded-full w-full gap-2"
                   asChild
                 >
                   <a
                     href="mailto:hello@intinuous.com?subject=Start%20Verification"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    Start Verification
+                    Get Started
+                    <ArrowRight className="w-4 h-4" />
                   </a>
                 </Button>
               </div>

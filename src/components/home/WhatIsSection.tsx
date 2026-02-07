@@ -9,9 +9,7 @@ const WhatIsSection = () => {
   ];
 
   return (
-    <section className="py-20 md:py-32 relative">
-      <div className="absolute inset-0 gradient-mesh opacity-50" />
-      
+    <section id="what-is" className="py-24 md:py-32 relative">
       <div className="container relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -20,8 +18,13 @@ const WhatIsSection = () => {
           transition={{ duration: 0.6 }}
           className="max-w-3xl mx-auto text-center"
         >
+          {/* Badge */}
+          <span className="badge-pill inline-block mb-8">
+            What Is Intinuous Proof
+          </span>
+
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-8">
-            Intinuous Proof is an identity continuity layer.
+            An <span className="text-emphasis-italic">identity continuity</span> layer.
           </h2>
           
           <p className="text-lg md:text-xl text-muted-foreground mb-12">
@@ -29,19 +32,19 @@ const WhatIsSection = () => {
             and you can prove that record exists — again and again — without re-exposing sensitive information.
           </p>
 
-          {/* Anti-features */}
-          <div className="flex flex-wrap justify-center gap-4 md:gap-6 mb-12">
+          {/* Anti-features grid */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
             {antiFeatures.map((feature, index) => (
-              <motion.span
+              <motion.div
                 key={feature}
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="text-muted-foreground/80 text-sm md:text-base"
+                className="landio-card p-4"
               >
-                {feature}
-              </motion.span>
+                <span className="text-sm text-muted-foreground">{feature}</span>
+              </motion.div>
             ))}
           </div>
 
@@ -51,7 +54,7 @@ const WhatIsSection = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="text-2xl md:text-3xl font-semibold text-gradient-gold"
+            className="text-2xl md:text-3xl font-semibold text-emphasis-italic"
           >
             Just proof.
           </motion.p>

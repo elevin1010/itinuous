@@ -1,14 +1,13 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
+import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const FinalCTASection = () => {
   return (
-    <section className="py-24 md:py-40 relative">
-      <div className="absolute inset-0 gradient-mesh" />
-      
+    <section className="py-32 md:py-40 relative">
       {/* Atmospheric glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-gradient-radial from-primary/10 via-transparent to-transparent rounded-full blur-[150px]" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-gradient-radial from-primary/15 via-primary/5 to-transparent rounded-full blur-[150px]" />
       
       <div className="container relative z-10">
         <motion.div
@@ -16,24 +15,22 @@ const FinalCTASection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.6 }}
-          className="max-w-2xl mx-auto text-center"
+          className="max-w-3xl mx-auto text-center"
         >
           {/* Headline */}
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            There's only <span className="text-gradient-gold">ONE</span> you.
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+            There's only <span className="text-emphasis-italic">ONE</span> you.
             <br />
-            Prove it.
+            <span className="text-gradient-gold">Prove it.</span>
           </h2>
 
           {/* Subhead */}
-          <p className="text-lg md:text-xl text-muted-foreground mb-4">
-            Start verification once —
-            <br />
-            and stop proving yourself from scratch every time.
+          <p className="text-lg md:text-xl text-muted-foreground mb-4 max-w-xl mx-auto">
+            Start verification once — and stop proving yourself from scratch every time.
           </p>
 
           {/* Non-action framing */}
-          <p className="text-sm text-muted-foreground/60 mb-8 italic">
+          <p className="text-sm text-muted-foreground/60 mb-10 italic">
             Without continuity, identity has to be proven from scratch every time.
           </p>
 
@@ -41,11 +38,12 @@ const FinalCTASection = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button 
               size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 glow-gold"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full gap-2 glow-gold px-8"
               asChild
             >
               <a href="mailto:hello@intinuous.com?subject=Start%20Verification">
                 Start Verification
+                <ArrowRight className="w-4 h-4" />
               </a>
             </Button>
             <Link 
