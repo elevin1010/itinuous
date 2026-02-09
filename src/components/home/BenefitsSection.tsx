@@ -1,26 +1,36 @@
 import { motion } from 'framer-motion';
-import { Shield, Globe, Link, Eye } from 'lucide-react';
+import { Shield, Fingerprint, ShieldAlert, Target, Lock, Scan } from 'lucide-react';
 
 const benefits = [
   {
     icon: Shield,
-    title: 'Private Certificate',
-    description: 'Your full identity certificate lives behind login. Optionally includes legal name, birthdate, and a photo — never public by default.',
+    title: 'Create permanent proof of who you are',
+    description: 'Your identity is verified once and registered in a tamper-resistant system that can\'t be quietly changed or erased.',
   },
   {
-    icon: Globe,
-    title: 'Public Proof Page',
-    description: 'A non-PII proof page and QR code you can share anywhere. It confirms that a verified record exists, not who you are.',
+    icon: Fingerprint,
+    title: 'Establish clear ownership of your identity',
+    description: 'Create a trusted reference point that shows you are the original, verified individual — not just someone who looks real online.',
   },
   {
-    icon: Link,
-    title: 'Continuity Over Time',
-    description: 'Identity isn\'t a snapshot. Your proof links back to the same underlying record every time — today, next year, five years from now.',
+    icon: ShieldAlert,
+    title: 'Protect against unauthorized use of your likeness',
+    description: 'Use verifiable proof to challenge or deter fake images, video, or voice created without your consent.',
   },
   {
-    icon: Eye,
-    title: 'You Control Exposure',
-    description: 'You decide what\'s revealed, when, and to whom. Nothing is exposed automatically. Ever.',
+    icon: Target,
+    title: 'One identity, one source of truth',
+    description: 'Your verification is anchored to a single record you can reference whenever proof is requested.',
+  },
+  {
+    icon: Lock,
+    title: 'Private by default, shareable when needed',
+    description: 'Receive a private identity certificate and a public proof page that confirms verification without exposing personal details.',
+  },
+  {
+    icon: Scan,
+    title: 'A unique digital signature you control',
+    description: 'Each verification includes a unique visual signature and ID that others can independently confirm.',
   },
 ];
 

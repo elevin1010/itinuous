@@ -9,10 +9,10 @@ const currentFeatures = [
 ];
 
 const futureFeatures = [
-  { text: 'Opt-in model permissions', highlight: true },
-  { text: 'Revocable proof tokens', highlight: false },
-  { text: 'Higher-exposure tiers', highlight: false },
-  { text: 'API access for platforms', highlight: false },
+  { title: 'Built for permission-based AI systems', description: 'Designed to support a future where AI tools ask before using real people\'s identities — instead of assuming access.', highlight: true },
+  { title: 'Identity keys for streamlined authorization', description: 'A foundation for single-point verification and access as platforms adopt permission-aware workflows.', highlight: false },
+  { title: 'Support for additional credentials over time', description: 'Attach future validations or credentials to the same trusted identity record — without starting over.', highlight: false },
+  { title: 'Long-term identity control', description: 'A path toward setting rules for how your identity is handled over time, including legacy considerations.', highlight: false },
 ];
 
 const HomeRoadmapSection = () => {
@@ -71,29 +71,32 @@ const HomeRoadmapSection = () => {
               <ArrowRight className="w-4 h-4 text-primary" />
               What's coming
             </h3>
-            <ul className="space-y-4">
+            <ul className="space-y-5">
               {futureFeatures.map((feature) => (
                 <li 
-                  key={feature.text} 
-                  className="flex items-center gap-3"
+                  key={feature.title} 
+                  className="flex items-start gap-3"
                 >
-                  <div className={`w-2 h-2 rounded-full flex-shrink-0 ${
+                  <div className={`w-2 h-2 rounded-full flex-shrink-0 mt-1.5 ${
                     feature.highlight ? 'bg-primary' : 'bg-muted-foreground/50'
                   }`} />
-                  <span className={
-                    feature.highlight 
-                      ? 'text-foreground font-medium text-emphasis-italic' 
-                      : 'text-muted-foreground'
-                  }>
-                    {feature.text}
-                  </span>
+                  <div>
+                    <span className={
+                      feature.highlight 
+                        ? 'text-foreground font-medium text-emphasis-italic' 
+                        : 'text-foreground/90 font-medium'
+                    }>
+                      {feature.title}
+                    </span>
+                    <p className="text-xs text-muted-foreground/70 mt-0.5 leading-relaxed">{feature.description}</p>
+                  </div>
                 </li>
               ))}
             </ul>
             
             {/* Highlight explanation */}
             <p className="mt-6 text-xs text-muted-foreground/60 italic">
-              Foundational models can request proof directly from Intinuous, never scrape it.
+              AI systems request permission through Intinuous — your identity is never scraped or assumed.
             </p>
           </motion.div>
         </div>
