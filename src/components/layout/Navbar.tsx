@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence, useMotionValueEvent, useScroll } from 'framer-motion';
 import { Menu, X, ArrowRight } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -7,28 +7,32 @@ import Logo from '@/components/Logo';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const lastScrollY = useRef(0);
 
-  useEffect(() => {
-    let raf = 0;
+  const { scrollY } = useScroll();
 
-    const handleScroll = () => {
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(() => {
-        setIsScrolled(window.scrollY > 50);
-      });
-    };
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const direction = latest > lastScrollY.current ? "down" : "up";
+    lastScrollY.current = latest;
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
+    setIsScrolled(latest > 50);
 
-    return () => {
-      cancelAnimationFrame(raf);
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+    // Don't hide when mobile menu is open or near top
+    if (isMobileMenuOpen || latest < 100) {
+      setIsVisible(true);
+      return;
+    }
+
+    if (direction === "down" && latest > 150) {
+      setIsVisible(false);
+    } else if (direction === "up") {
+      setIsVisible(true);
+    }
+  });
 
   const navLinks = [
     { label: 'How It Works', href: '#how-it-works' },
@@ -60,8 +64,8 @@ const Navbar = () => {
     <>
       <motion.header
         initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6 }}
+        animate={{ y: isVisible ? 0 : -100 }}
+        transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
         className="fixed top-0 left-0 right-0 z-50 py-4"
       >
         <div className="container">

@@ -12,10 +12,10 @@ const WhatIsSection = () => {
     <section id="what-is" className="py-24 md:py-32 relative">
       <div className="container relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0.3, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: '-20%' }}
+          transition={{ duration: 0.5 }}
           className="max-w-3xl mx-auto text-center"
         >
           {/* Badge */}
@@ -32,15 +32,15 @@ const WhatIsSection = () => {
             and you can prove that record exists — again and again — without re-exposing sensitive information.
           </p>
 
-          {/* Anti-features grid */}
+          {/* Anti-features grid with slide-in */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
             {antiFeatures.map((feature, index) => (
               <motion.div
                 key={feature}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
+                initial={{ opacity: 0.3, y: 15, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, margin: '-10%' }}
+                transition={{ duration: 0.35, delay: index * 0.08 }}
                 className="landio-card p-4"
               >
                 <span className="text-sm text-muted-foreground">{feature}</span>
@@ -50,10 +50,10 @@ const WhatIsSection = () => {
 
           {/* Closer */}
           <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.5 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: '-10%' }}
+            transition={{ duration: 0.5, delay: 0.3 }}
             className="text-2xl md:text-3xl font-semibold text-emphasis-italic"
           >
             Just proof.
