@@ -1,36 +1,53 @@
 
 
-# Enhance Problem Section with Atmospheric Graphics and Animation
+# Update Benefits and Roadmap Section Content
 
-## What Changes
+## Analysis
 
-Add visual depth to the Problem Section so it matches the richness of the Hero and other sections, while keeping the content clean and typography-focused.
+After comparing the proposed content against the existing sections, here is the recommended mapping:
 
-### 1. Atmospheric Gold Glow Background
-Add a subtle radial gold glow behind the section (similar to the Hero's atmospheric treatment) to give it visual weight and warmth instead of sitting on a flat black background.
+### Benefits Section — Replace All 4 Cards with 6 New Ones
 
-### 2. Animated Accent Line
-Add a thin, slowly pulsing vertical gold line that runs from above the heading down to the scenario list — a visual thread that subtly reinforces the idea of "continuity" and connects the content beats together.
+The current 4 benefits (Private Certificate, Public Proof Page, Continuity Over Time, You Control Exposure) are feature-descriptive but abstract. The 6 new "Available Now" items are more action-oriented and consumer-friendly. All 6 fit well and should replace the existing set. The grid changes from 2x2 to 2x3.
 
-### 3. Enhanced Bullet Points
-Replace the static gold dots with small animated rings that pulse once as they appear on scroll — drawing the eye to each scenario as it fades in.
+| New Benefit | Replaces / Covers |
+|---|---|
+| Create permanent proof of who you are | New — strongest lead card |
+| Establish clear ownership of your identity | New — addresses impersonation concern |
+| Protect against unauthorized use of your likeness | New — ties directly to Problem Section scenarios |
+| One identity, one source of truth | Continuity Over Time (clearer phrasing) |
+| Private by default, shareable when needed | Private Certificate + You Control Exposure (merged) |
+| A unique digital signature you control | Public Proof Page (reframed around user agency) |
 
-### 4. "Proof does." Glow Treatment
-Add a subtle gold glow effect behind the "Proof does." text (similar to the CTA button's `glow-gold`) so it reads as the emotional peak of the section.
+### Roadmap Section — Replace "What's Coming" List with New Future Items
 
-### 5. Additional Parallax Decorative Elements
-Add a second parallax circle (dashed border, like the Solution section's orbital rings) on the left side to balance the existing right-side circle and add more atmospheric depth.
+The current future features list (Opt-in model permissions, Revocable proof tokens, Higher-exposure tiers, API access for platforms) reads like internal product notes. The 4 new "Designed for the Future" items are written for consumers and explain *why* each matters. Direct replacement.
+
+| New Future Item | Replaces |
+|---|---|
+| Built for permission-based AI systems | Opt-in model permissions |
+| Identity keys for streamlined authorization | API access for platforms |
+| Support for additional credentials over time | Revocable proof tokens / Higher-exposure tiers |
+| Long-term identity control | New — adds emotional weight |
+
+The "Version 1 (now)" checklist in the Roadmap stays as-is — it still accurately describes shipped features and pairs well with the new future items.
 
 ---
 
 ## Technical Details
 
-### File modified: `src/components/home/ProblemSection.tsx`
+### File: `src/components/home/BenefitsSection.tsx`
 
-- Add a `bg-gradient-radial` gold glow div (hidden on mobile for performance, matching the Hero pattern)
-- Add a decorative vertical line element using a thin `div` with `bg-gradient-to-b from-transparent via-primary/20 to-transparent`, centered above the heading
-- Update bullet `span` elements from static dots to animated rings: a small `motion.span` with a scale animation on `whileInView`
-- Wrap "Proof does." paragraph in a container with a soft `glow-gold-light` box-shadow or a radial gold gradient behind it
-- Add a second `motion.div` parallax circle on the left side with `opacity-[0.04]` and dashed border
+- Replace the `benefits` array with 6 new items (new titles, descriptions, and appropriate Lucide icons)
+- Update grid from `md:grid-cols-2` to keep `md:grid-cols-2` but now with 3 rows (6 cards total)
+- Assign icons: `Shield` (permanent proof), `Fingerprint` (ownership), `ShieldAlert` (likeness protection), `Target` (single source), `Lock` (private by default), `Scan` (digital signature)
+- Keep existing animation pattern (alternating lateral slides)
 
-No new files, no new dependencies. All techniques already used elsewhere on the site.
+### File: `src/components/home/HomeRoadmapSection.tsx`
+
+- Replace the `futureFeatures` array with the 4 new items
+- Each item gets a short description subtitle (the explanatory text from the user's input) displayed below the title in smaller, muted text
+- Update the "highlight" flag: "Built for permission-based AI systems" remains the highlighted/primary item
+- Keep existing layout, animations, and "Version 1 (now)" card unchanged
+- Update the italic footnote to match the new permission-based framing
+
