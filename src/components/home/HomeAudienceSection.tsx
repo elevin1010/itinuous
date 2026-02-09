@@ -39,10 +39,10 @@ const HomeAudienceSection = () => {
     <section id="audience" className="py-24 md:py-32 relative">
       <div className="container relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0.3, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: '-20%' }}
+          transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
           <span className="badge-pill inline-block mb-6">
@@ -56,15 +56,15 @@ const HomeAudienceSection = () => {
           </p>
         </motion.div>
 
-        {/* Grid layout */}
+        {/* Grid layout with alternating slide directions */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
           {audiences.map((audience, index) => (
             <motion.div
               key={audience.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.08 }}
+              initial={{ opacity: 0.3, x: index % 2 === 0 ? -20 : 20, y: 10 }}
+              whileInView={{ opacity: 1, x: 0, y: 0 }}
+              viewport={{ once: true, margin: '-10%' }}
+              transition={{ duration: 0.4, delay: index * 0.06 }}
               className="landio-card p-6"
             >
               <div className="flex items-start gap-4">
