@@ -27,16 +27,21 @@ const ProblemSection = () => {
       </motion.div>
 
       <div className="container relative z-10 max-w-3xl mx-auto text-center">
-        {/* Beat 1 — Opening Line */}
-        <motion.h2
+        {/* Badge + Opening Line */}
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-20%' }}
           transition={{ duration: 0.6 }}
-          className="text-3xl md:text-4xl lg:text-5xl font-light text-foreground leading-tight mb-16"
+          className="mb-16"
         >
+          <span className="badge-pill inline-block mb-8">
+            The Problem
+          </span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-foreground leading-tight">
           At some point, identity stops being theoretical.
-        </motion.h2>
+          </h2>
+        </motion.div>
 
         {/* Beat 2 — Scenario List */}
         <ul className="text-left max-w-xl mx-auto space-y-5 mb-16">
