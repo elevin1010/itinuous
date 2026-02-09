@@ -39,7 +39,7 @@ const ProblemSection = () => {
             The Problem
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-foreground leading-tight">
-          At some point, identity stops being theoretical.
+          At some point, identity stops being implicit.
           </h2>
         </motion.div>
 
