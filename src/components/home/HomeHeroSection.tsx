@@ -67,7 +67,7 @@ const HomeHeroSection = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10"
           >
-            Intinuous Proof creates a private identity certificate and a public proof page — without exposing your personal data.
+            Intinuous Proof creates a private identity certificate and a public proof page that help you prove what's real in the age of AI.
           </motion.p>
 
           {/* Extended context */}
