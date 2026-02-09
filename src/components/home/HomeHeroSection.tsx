@@ -56,9 +56,8 @@ const HomeHeroSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-8"
           >
-            <span className="text-foreground">Verify once.</span>
-            <br />
-            <span className="text-emphasis-italic">Prove forever.</span>
+            <span className="text-foreground">There's only one </span>
+            <span className="text-primary">YOU.</span>
           </motion.h1>
 
           {/* Subhead */}
