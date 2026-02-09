@@ -67,8 +67,22 @@ const HomeHeroSection = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10"
           >
-            As generative AI advances, traditional signals of identity are no longer reliable. Intinuous establishes verifiable digital proof that gives individuals and organizations a trusted reference point for what's real. Built for privacy and permanence, it's digital proof for a generative era.
+            Intinuous Proof creates a private identity certificate and a public proof page — without exposing your personal data.
           </motion.p>
+
+          {/* Extended context */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.35 }}
+            className="max-w-xl mx-auto mb-10"
+          >
+            <div className="border-t border-border pt-6">
+              <p className="text-sm text-muted-foreground/80 leading-relaxed">
+                As generative AI advances, traditional signals of identity are no longer reliable. Intinuous establishes verifiable digital proof that gives individuals and organizations a trusted reference point for what's real. Built for privacy and permanence, it's digital proof for a generative era.
+              </p>
+            </div>
+          </motion.div>
 
           {/* CTA */}
           <motion.div
