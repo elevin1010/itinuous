@@ -1,68 +1,36 @@
 
 
-# Revised Problem Section — Plain-Spoken, Scenario-Driven
+# Enhance Problem Section with Atmospheric Graphics and Animation
 
-## Overview
+## What Changes
 
-Replace the abstract language ("attack surface," "verifiable origin," "recognized authority") with concrete, relatable scenarios that anyone can immediately understand. The section should feel like a calm wake-up call — not technical, not fear-driven, just honest.
+Add visual depth to the Problem Section so it matches the richness of the Hero and other sections, while keeping the content clean and typography-focused.
 
-## Content Structure
+### 1. Atmospheric Gold Glow Background
+Add a subtle radial gold glow behind the section (similar to the Hero's atmospheric treatment) to give it visual weight and warmth instead of sitting on a flat black background.
 
-Three beats, all centered, clean typography:
+### 2. Animated Accent Line
+Add a thin, slowly pulsing vertical gold line that runs from above the heading down to the scenario list — a visual thread that subtly reinforces the idea of "continuity" and connects the content beats together.
 
-### Beat 1 — Opening Line
-> At some point, identity stops being theoretical.
+### 3. Enhanced Bullet Points
+Replace the static gold dots with small animated rings that pulse once as they appear on scroll — drawing the eye to each scenario as it fades in.
 
-Simple, declarative. No badge pill — just the statement as a large heading.
+### 4. "Proof does." Glow Treatment
+Add a subtle gold glow effect behind the "Proof does." text (similar to the CTA button's `glow-gold`) so it reads as the emotional peak of the section.
 
-### Beat 2 — Scenario List
-A short list of real moments when identity actually matters:
+### 5. Additional Parallax Decorative Elements
+Add a second parallax circle (dashed border, like the Solution section's orbital rings) on the left side to balance the existing right-side circle and add more atmospheric depth.
 
-- Someone questions whether an image of you is real
-- A platform asks you to prove you're the original source
-- Your name, face, or voice is used without permission
-- A client or collaborator needs to know they're dealing with the real you
-
-Each item appears with a subtle staggered fade-in. Styled as clean bullet points with muted foreground text — no cards, no icons, no decoration.
-
-### Beat 3 — The Punchline
-> In those moments, screenshots and profiles don't hold up.
-> **Proof does.**
-
-"Proof does." gets emphasis — larger weight, primary gold color. This is the emotional bridge into the What Is section.
-
-### Closing Divider
-A quiet horizontal line with centered text: "That's the gap Intinuous exists to fill" — transitions naturally into What Is.
-
-## Visual Treatment
-
-- Clean centered layout, `max-w-3xl`, generous whitespace
-- No cards, no grids, no stat callouts — just typography
-- The scenario list uses simple bullet points (gold-tinted dots) with comfortable spacing
-- Framer Motion scroll-triggered fades matching existing section patterns
-- Subtle parallax background element (matching existing decorative circles) for depth
-- Section padding matches existing pattern: `py-24 md:py-32`
+---
 
 ## Technical Details
 
-### Modify: `src/components/home/ProblemSection.tsx`
-- Replace all existing content with the new plain-spoken structure
-- Keep the same framer-motion patterns and background treatments
-- Remove the "attack surface" heading, the bulleted "who is allowed" list, the stats callout box, and the "verifiable origin / recognized authority / accountable history" cards
-- Much simpler component — mostly text with motion wrappers
+### File modified: `src/components/home/ProblemSection.tsx`
 
-### Verify: `src/pages/Index.tsx`
-- ProblemSection is already imported and placed between Hero and WhatIsSection (from previous implementation) — no changes needed here
+- Add a `bg-gradient-radial` gold glow div (hidden on mobile for performance, matching the Hero pattern)
+- Add a decorative vertical line element using a thin `div` with `bg-gradient-to-b from-transparent via-primary/20 to-transparent`, centered above the heading
+- Update bullet `span` elements from static dots to animated rings: a small `motion.span` with a scale animation on `whileInView`
+- Wrap "Proof does." paragraph in a container with a soft `glow-gold-light` box-shadow or a radial gold gradient behind it
+- Add a second `motion.div` parallax circle on the left side with `opacity-[0.04]` and dashed border
 
-## Section Flow (unchanged)
-
-```text
-Hero
-  |
-Problem Section (revised content)
-  |
-What Is
-  |
-(rest unchanged)
-```
-
+No new files, no new dependencies. All techniques already used elsewhere on the site.
