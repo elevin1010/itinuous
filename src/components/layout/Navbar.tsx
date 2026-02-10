@@ -70,16 +70,11 @@ const Navbar = () => {
         className="fixed top-0 left-0 right-0 z-50 py-4"
       >
         <div className="container">
-          <nav className={`flex items-center justify-between h-14 px-4 md:px-6 rounded-full transition-all duration-300 ${
+          <nav className={`flex items-center justify-center h-14 px-4 md:px-6 rounded-full transition-all duration-300 ${
             isScrolled 
               ? 'bg-background/80 backdrop-blur-xl border border-border/50' 
               : 'bg-transparent'
           }`}>
-            {/* Logo */}
-            <Link to="/" className="flex-shrink-0">
-              <Logo size="sm" />
-            </Link>
-
             {/* Desktop nav - centered pill */}
             <div className="hidden md:flex items-center gap-1 bg-muted/50 backdrop-blur-sm rounded-full px-1 py-1 border border-border/30">
               {navLinks.map((link) => (
@@ -103,9 +98,6 @@ const Navbar = () => {
                 )
               ))}
             </div>
-
-            {/* Spacer to balance logo width and center the nav pill */}
-            <div className="hidden md:flex flex-shrink-0 w-[120px]" />
 
             {/* Mobile menu button */}
             <button
