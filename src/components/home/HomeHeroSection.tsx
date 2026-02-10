@@ -62,9 +62,9 @@ const HomeHeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-8"
+            className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-8"
           >
-            <span className="text-foreground">There's only one </span>
+            <span className="text-foreground">Because there's only one </span>
             <span className="text-primary">YOU.</span>
           </motion.h1>
 
