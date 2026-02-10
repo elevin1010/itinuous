@@ -38,6 +38,7 @@ const Navbar = () => {
     { label: 'How It Works', href: '#how-it-works' },
     { label: 'Pricing', href: '#pricing' },
     { label: 'Roadmap', href: '#roadmap' },
+    { label: 'Contact', href: '/contact', isRoute: true },
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -82,14 +83,24 @@ const Navbar = () => {
             {/* Desktop nav - centered pill */}
             <div className="hidden md:flex items-center gap-1 bg-muted/50 backdrop-blur-sm rounded-full px-1 py-1 border border-border/30">
               {navLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  onClick={(e) => handleNavClick(e, link.href)}
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors px-4 py-2 rounded-full hover:bg-muted/80"
-                >
-                  {link.label}
-                </a>
+                link.isRoute ? (
+                  <Link
+                    key={link.label}
+                    to={link.href}
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors px-4 py-2 rounded-full hover:bg-muted/80"
+                  >
+                    {link.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    onClick={(e) => handleNavClick(e, link.href)}
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors px-4 py-2 rounded-full hover:bg-muted/80"
+                  >
+                    {link.label}
+                  </a>
+                )
               ))}
             </div>
 
@@ -131,17 +142,28 @@ const Navbar = () => {
             <div className="container py-8">
               <div className="flex flex-col gap-4">
                 {navLinks.map((link) => (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    onClick={(e) => {
-                      handleNavClick(e, link.href);
-                      setIsMobileMenuOpen(false);
-                    }}
-                    className="text-xl text-foreground hover:text-primary transition-colors py-2"
-                  >
-                    {link.label}
-                  </a>
+                  link.isRoute ? (
+                    <Link
+                      key={link.label}
+                      to={link.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="text-xl text-foreground hover:text-primary transition-colors py-2"
+                    >
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      onClick={(e) => {
+                        handleNavClick(e, link.href);
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className="text-xl text-foreground hover:text-primary transition-colors py-2"
+                    >
+                      {link.label}
+                    </a>
+                  )
                 ))}
                 <Button 
                   className="mt-6 bg-primary text-primary-foreground hover:bg-primary/90 rounded-full w-full gap-2"

@@ -41,7 +41,7 @@ const FinalCTASection = () => {
               </a>
             </Button>
             <Link 
-              to="/investors" 
+              to="/contact" 
               className="text-sm text-muted-foreground hover:text-foreground transition-colors underline-offset-4 hover:underline"
             >
               Learn more about Intinuous

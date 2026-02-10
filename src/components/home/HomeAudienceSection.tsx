@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Briefcase, Mic, Building2, Clapperboard, Scale } from 'lucide-react';
+import { Briefcase, Mic, Building2, Clapperboard, Scale, Baby } from 'lucide-react';
 
 const audiences = [
   {
@@ -13,6 +13,12 @@ const audiences = [
     title: 'Creators & Performers',
     description: 'Artists, musicians, actors, influencers',
     microLine: 'Prevent unauthorized identity reuse',
+  },
+  {
+    icon: Baby,
+    title: 'Parents',
+    description: 'Families protecting their children\'s digital future',
+    microLine: 'Secure your child\'s identity before someone else defines it',
   },
   {
     icon: Building2,
