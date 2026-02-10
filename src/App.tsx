@@ -8,6 +8,7 @@ import Investors from "./pages/Investors";
 import Creators from "./pages/Creators";
 import Legal from "./pages/Legal";
 import Privacy from "./pages/Privacy";
+import Contact from "./pages/Contact";
 import LogoDownload from "./pages/LogoDownload";
 import NotFound from "./pages/NotFound";
 
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/creators" element={<Creators />} />
           <Route path="/legal" element={<Legal />} />
           <Route path="/privacy" element={<Privacy />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/logo" element={<LogoDownload />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
