@@ -1,38 +1,17 @@
 
 
-# ElevenLabs Voice Agent — Floating Orb Widget
+# Remove Buzzword Cloud from Homepage Hero
 
-## Overview
+## What Changes
 
-Add a floating voice chat orb in the bottom-right corner of the site that connects to your ElevenLabs agent (`agent_8601kh36e158f1mbhej72b4j154t`). Clicking the orb starts a real-time voice conversation; clicking again ends it. The orb will pulse/glow when the agent is speaking.
+Remove the entire floating buzzword cloud (Provenance, Continuity, Authenticity, etc.) from the homepage hero background. The atmospheric gold glows and grid pattern already present will remain as the sole background treatment.
 
-## What You'll See
+## Technical Detail
 
-- A gold-accented orb fixed to the bottom-right of every page
-- Click it to start a voice conversation (browser will ask for microphone permission)
-- The orb glows or pulses while the agent is speaking
-- Click again to end the conversation
-- Status text below the orb shows "Listening..." / "Speaking..." / idle
+**File: `src/components/home/HomeHeroSection.tsx`**
 
-## Technical Details
+- Delete lines 17-57 — the entire `<div className="absolute inset-0 overflow-hidden pointer-events-none select-none">` block containing the 8 animated `<motion.span>` buzzword elements
+- The existing atmospheric gold glow orbs (lines 62-64) and grid pattern (line 60) stay untouched
 
-### New dependency
-- `@elevenlabs/react` — provides the `useConversation` hook for WebRTC voice
-
-### New file: `src/components/VoiceAgentOrb.tsx`
-- Uses `useConversation` from `@elevenlabs/react`
-- Connects as a **public agent** using the agent ID directly (no API key or backend needed)
-- Requests microphone permission on first click
-- Renders a fixed-position circular button with Framer Motion animations:
-  - Idle: subtle gold border glow
-  - Connected + listening: steady gold glow
-  - Speaking: pulsing gold ring animation
-- Shows a small status label beneath the orb
-
-### Modified: `src/App.tsx`
-- Import and render `<VoiceAgentOrb />` inside the app layout (outside Routes) so it appears on every page
-
-### No backend required
-- Public agents connect directly with the agent ID via WebRTC
-- If this doesn't work (agent requires auth), we'll add a Supabase Edge Function for token generation as a follow-up
+No other files affected. One deletion, no new code.
 
