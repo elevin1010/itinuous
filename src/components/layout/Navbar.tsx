@@ -75,8 +75,8 @@ const Navbar = () => {
               ? 'bg-background/80 backdrop-blur-xl border border-border/50' 
               : 'bg-transparent'
           }`}>
-            {/* Logo - absolutely positioned so it doesn't affect centering */}
-            <Link to="/" className="absolute left-4 md:left-6 top-1/2 -translate-y-1/2">
+            {/* Logo - hidden on mobile/tablet to avoid overlap, shown on lg+ */}
+            <Link to="/" className="absolute left-6 top-1/2 -translate-y-1/2 hidden lg:block">
               <Logo size="sm" />
             </Link>
 
