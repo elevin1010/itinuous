@@ -3,6 +3,7 @@ import { useRef } from 'react';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import intinuousMark from '@/assets/intinuous-mark.png';
+import intinuousText from '@/assets/intinuous-text.png';
 
 const HomeHeroSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -42,6 +43,12 @@ const HomeHeroSection = () => {
               src={intinuousMark} 
               alt="Intinuous" 
               className="w-12 h-12 mx-auto"
+            />
+            {/* Text logo shown on mobile/tablet only */}
+            <img 
+              src={intinuousText} 
+              alt="Intinuous" 
+              className="h-6 mx-auto mt-4 lg:hidden"
             />
           </motion.div>
 

@@ -104,10 +104,10 @@ const Navbar = () => {
               ))}
             </div>
 
-            {/* Mobile menu button */}
+            {/* Mobile menu button - positioned left */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 text-foreground"
+              className="md:hidden absolute left-4 top-1/2 -translate-y-1/2 p-2 text-foreground"
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
