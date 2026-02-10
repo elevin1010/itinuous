@@ -1,37 +1,37 @@
 
 
-# Add a Contact Page
+# Contact Form with Web3Forms
 
 ## Overview
 
-Create a simple, clean contact page at `/contact` that matches the existing page design language (Legal, Privacy). Since there's no backend, the form will compose a `mailto:` link with the form contents pre-filled -- consistent with how all CTAs on the site already work.
+Replace the current `mailto:` approach with Web3Forms, a free service that receives form submissions and forwards them to `hello@intinuous.com`. After submission, the page will show a "Thank You" message instead of opening an email client.
 
-## What You'll See
+## What you need to do first
 
-- A new "Contact" page with fields for **Name**, **Email**, **Subject**, and **Message**
-- A "Send Message" button that opens the user's email client with the form contents pre-filled to `hello@intinuous.com`
-- Client-side validation using `zod` (required fields, valid email format, length limits)
-- The same dark, minimal layout used on Legal and Privacy pages (Navbar, Footer, fade-in animation)
-- A link to the Contact page added in the **Footer** navigation (replacing the current mailto Contact link)
+1. Go to [web3forms.com](https://web3forms.com)
+2. Enter `hello@intinuous.com` and click "Create Access Key"
+3. Check your inbox for the access key and share it here
+
+The access key is a public key (safe to store in code).
+
+## What will change
+
+- The form will `POST` data to `https://api.web3forms.com/submit` instead of constructing a mailto link
+- On success, the form hides and a "Thank You" message appears with a note that you'll respond soon
+- On failure, a toast notification tells the user something went wrong
+- A loading state on the button prevents double submissions
+- No new dependencies needed -- just a `fetch` call
 
 ## Technical Details
 
-### New file: `src/pages/Contact.tsx`
+### Modified: `src/pages/Contact.tsx`
 
-- Page layout mirrors `Legal.tsx`: Navbar at top, Footer at bottom, scroll-to-top on mount, `max-w-3xl` centered container
-- Form built with `react-hook-form` + `zod` resolver for validation
-- Fields: Name (text), Email (email), Subject (text), Message (textarea)
-- On submit: constructs a `mailto:hello@intinuous.com` link with subject and body populated from form data, opens via anchor click
-- Gold gradient heading: "Get in Touch"
-- Subtle intro line: "We welcome inquiries from individuals and organizations."
-- Uses existing `Input`, `Textarea`, `Button`, `Label` components
-- Framer Motion fade-in on load
-
-### Modified file: `src/App.tsx`
-
-- Add route: `<Route path="/contact" element={<Contact />} />`
-
-### Modified file: `src/components/sections/Footer.tsx`
-
-- Change the existing `mailto:` Contact link to a `<Link to="/contact">` instead
+- Add `useState` for `submitted` (boolean) and `submitting` (boolean)
+- Replace `onSubmit` handler:
+  - `POST` to `https://api.web3forms.com/submit` with JSON body containing the access key + form fields
+  - On success: set `submitted = true`
+  - On error: show toast with error message
+- Conditionally render either the form or a thank-you message based on `submitted`
+- Button shows "Sending..." with disabled state while submitting
+- Thank-you message includes a "Send another message" link to reset the form
 
