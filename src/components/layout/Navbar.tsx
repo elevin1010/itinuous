@@ -104,19 +104,8 @@ const Navbar = () => {
               ))}
             </div>
 
-            {/* CTA */}
-            <div className="hidden md:flex items-center">
-              <Button 
-                size="sm" 
-                className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full gap-2"
-                asChild
-              >
-                <a href="mailto:hello@intinuous.com?subject=Start%20Verification">
-                  Get Started
-                  <ArrowRight className="w-4 h-4" />
-                </a>
-              </Button>
-            </div>
+            {/* Spacer for layout balance */}
+            <div className="hidden md:block w-10" />
 
             {/* Mobile menu button */}
             <button
