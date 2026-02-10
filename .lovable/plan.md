@@ -1,28 +1,38 @@
 
 
-# Floating Buzzword Cloud on Hero Section
+# ElevenLabs Voice Agent — Floating Orb Widget
 
 ## Overview
 
-Add a subtle, atmospheric word cloud to the hero section background that displays key brand terms -- Provenance, Continuity, Authenticity, Credibility, Verification, Authorization, Attestation, Infrastructure -- at varying sizes, rotations, and low opacities. The words will float gently using Framer Motion, reinforcing brand identity without competing with the headline.
+Add a floating voice chat orb in the bottom-right corner of the site that connects to your ElevenLabs agent (`agent_8601kh36e158f1mbhej72b4j154t`). Clicking the orb starts a real-time voice conversation; clicking again ends it. The orb will pulse/glow when the agent is speaking.
 
-## Visual Design
+## What You'll See
 
-- Words scattered across the hero background at very low opacity (5-12%)
-- Mixed font sizes (text-lg to text-6xl) and slight rotations for organic feel
-- Subtle, slow floating animation (gentle vertical drift, 15-30s loops)
-- Positioned behind all content (z-0), beneath the existing grid pattern and gold glows
-- Uses the primary gold color at low opacity to stay on-brand
-- Words are non-interactive (pointer-events-none) so they don't interfere with clicks
+- A gold-accented orb fixed to the bottom-right of every page
+- Click it to start a voice conversation (browser will ask for microphone permission)
+- The orb glows or pulses while the agent is speaking
+- Click again to end the conversation
+- Status text below the orb shows "Listening..." / "Speaking..." / idle
 
 ## Technical Details
 
-### Modified: `src/components/home/HomeHeroSection.tsx`
+### New dependency
+- `@elevenlabs/react` — provides the `useConversation` hook for WebRTC voice
 
-- Add a buzzwords array with position, size, rotation, and animation config for each word
-- Render them as absolutely-positioned `motion.span` elements inside the hero section
-- Each word gets a unique slow float animation with staggered durations so they feel organic
-- All words sit below the content z-index and use `select-none pointer-events-none`
+### New file: `src/components/VoiceAgentOrb.tsx`
+- Uses `useConversation` from `@elevenlabs/react`
+- Connects as a **public agent** using the agent ID directly (no API key or backend needed)
+- Requests microphone permission on first click
+- Renders a fixed-position circular button with Framer Motion animations:
+  - Idle: subtle gold border glow
+  - Connected + listening: steady gold glow
+  - Speaking: pulsing gold ring animation
+- Shows a small status label beneath the orb
 
-No new files or dependencies needed -- just Framer Motion (already used) and Tailwind classes.
+### Modified: `src/App.tsx`
+- Import and render `<VoiceAgentOrb />` inside the app layout (outside Routes) so it appears on every page
+
+### No backend required
+- Public agents connect directly with the agent ID via WebRTC
+- If this doesn't work (agent requires auth), we'll add a Supabase Edge Function for token generation as a follow-up
 
