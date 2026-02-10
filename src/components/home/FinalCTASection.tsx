@@ -24,13 +24,8 @@ const FinalCTASection = () => {
           </h2>
 
           {/* Subhead */}
-          <p className="text-lg md:text-xl text-muted-foreground mb-4 max-w-xl mx-auto">
-            Start verification once — and stop proving yourself from scratch every time.
-          </p>
-
-          {/* Non-action framing */}
-          <p className="text-sm text-muted-foreground/60 mb-10 italic">
-            Without continuity, identity has to be proven from scratch every time.
+          <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-xl mx-auto">
+            Let's keep it that way.
           </p>
 
           {/* CTAs */}
