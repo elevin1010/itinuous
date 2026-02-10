@@ -19,9 +19,8 @@ const FinalCTASection = () => {
         >
           {/* Headline */}
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-            There's only <span className="text-emphasis-italic">ONE</span> you.
-            <br />
-            <span className="text-gradient-gold">Prove it.</span>
+            There's only one{' '}
+            <span className="text-gradient-gold">YOU.</span>
           </h2>
 
           {/* Subhead */}
