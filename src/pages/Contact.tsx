@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
@@ -22,7 +22,6 @@ const contactSchema = z.object({
 type ContactFormData = z.infer<typeof contactSchema>;
 
 const Contact = () => {
-  const linkRef = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -36,16 +35,13 @@ const Contact = () => {
   const onSubmit = (data: ContactFormData) => {
     const body = `Name: ${data.name}\nEmail: ${data.email}\n\n${data.message}`;
     const href = `mailto:hello@intinuous.com?subject=${encodeURIComponent(data.subject)}&body=${encodeURIComponent(body)}`;
-    if (linkRef.current) {
-      linkRef.current.href = href;
-      linkRef.current.click();
-    }
+    window.open(href, '_blank');
   };
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Navbar />
-      <a ref={linkRef} className="hidden" aria-hidden="true" />
+      
       <main className="pt-32 pb-20">
         <div className="container max-w-3xl mx-auto px-6">
           <motion.div
