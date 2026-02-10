@@ -14,9 +14,6 @@ const Footer = () => {
             <Link to="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Home
             </Link>
-            <Link to="/investors" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Investors
-            </Link>
             <a 
               href="mailto:hello@intinuous.com?subject=Contact%20Inquiry" 
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
