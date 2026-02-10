@@ -1,15 +1,23 @@
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import intinuousMark from '@/assets/intinuous-mark.png';
 
 const HomeHeroSection = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+  const opacity = useTransform(scrollYProgress, [0, 0.7, 1], [1, 1, 0]);
+
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden">
+    <motion.section ref={sectionRef} style={{ opacity }} className="relative min-h-screen flex flex-col justify-center overflow-hidden">
       {/* Background layers */}
       <div className="absolute inset-0 bg-background" />
       
@@ -138,7 +146,7 @@ const HomeHeroSection = () => {
           <ChevronDown className="w-5 h-5 animate-scroll-indicator" />
         </button>
       </motion.div>
-    </section>
+    </motion.section>
   );
 };
 
