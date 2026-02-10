@@ -21,6 +21,41 @@ const HomeHeroSection = () => {
       {/* Background layers */}
       <div className="absolute inset-0 bg-background" />
       
+      {/* Floating buzzword cloud */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none select-none" aria-hidden="true">
+        {[
+          { text: 'Provenance', size: 'text-5xl md:text-6xl', top: '12%', left: '8%', rotate: -8, duration: 22, delay: 0 },
+          { text: 'Continuity', size: 'text-3xl md:text-4xl', top: '65%', left: '5%', rotate: 12, duration: 26, delay: 2 },
+          { text: 'Authenticity', size: 'text-4xl md:text-5xl', top: '20%', right: '6%', rotate: 6, duration: 18, delay: 1 },
+          { text: 'Credibility', size: 'text-2xl md:text-3xl', top: '75%', right: '10%', rotate: -10, duration: 24, delay: 3 },
+          { text: 'Verification', size: 'text-lg md:text-2xl', top: '45%', left: '3%', rotate: 15, duration: 28, delay: 4 },
+          { text: 'Authorization', size: 'text-xl md:text-3xl', top: '35%', right: '3%', rotate: -5, duration: 20, delay: 1.5 },
+          { text: 'Attestation', size: 'text-2xl md:text-4xl', top: '85%', left: '25%', rotate: 8, duration: 25, delay: 2.5 },
+          { text: 'Infrastructure', size: 'text-lg md:text-xl', top: '8%', right: '25%', rotate: -12, duration: 30, delay: 0.5 },
+        ].map((word) => (
+          <motion.span
+            key={word.text}
+            className={`absolute ${word.size} font-bold text-primary`}
+            style={{
+              top: word.top,
+              left: word.left,
+              right: word.right,
+              rotate: `${word.rotate}deg`,
+              opacity: 0.06 + Math.random() * 0.06,
+            }}
+            animate={{ y: [0, -20, 0] }}
+            transition={{
+              duration: word.duration,
+              repeat: Infinity,
+              ease: 'easeInOut',
+              delay: word.delay,
+            }}
+          >
+            {word.text}
+          </motion.span>
+        ))}
+      </div>
+
       {/* Subtle grid pattern */}
       <div className="absolute inset-0 grid-pattern opacity-40" />
       
