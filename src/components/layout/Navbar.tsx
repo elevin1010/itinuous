@@ -91,12 +91,6 @@ const Navbar = () => {
                   {link.label}
                 </a>
               ))}
-              <Link
-                to="/investors"
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors px-4 py-2 rounded-full hover:bg-muted/80"
-              >
-                Investors
-              </Link>
             </div>
 
             {/* CTA */}
@@ -149,13 +143,6 @@ const Navbar = () => {
                     {link.label}
                   </a>
                 ))}
-                <Link
-                  to="/investors"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-xl text-foreground hover:text-primary transition-colors py-2"
-                >
-                  Investors
-                </Link>
                 <Button 
                   className="mt-6 bg-primary text-primary-foreground hover:bg-primary/90 rounded-full w-full gap-2"
                   asChild
