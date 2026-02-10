@@ -105,7 +105,7 @@ const Navbar = () => {
             </div>
 
             {/* Spacer to balance logo width and center the nav pill */}
-            <div className="hidden md:flex flex-shrink-0 w-[100px]" />
+            <div className="hidden md:flex flex-shrink-0 w-[120px]" />
 
             {/* Mobile menu button */}
             <button
