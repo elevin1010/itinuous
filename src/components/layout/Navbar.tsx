@@ -155,13 +155,13 @@ const Navbar = () => {
                   className="mt-6 bg-primary text-primary-foreground hover:bg-primary/90 rounded-full w-full gap-2"
                   asChild
                 >
-                  <a
-                    href="mailto:hello@intinuous.com?subject=Start%20Verification"
+                  <Link
+                    to="/contact"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    Get Started
+                    Request Early Access
                     <ArrowRight className="w-4 h-4" />
-                  </a>
+                  </Link>
                 </Button>
               </div>
             </div>

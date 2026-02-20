@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Check, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const features = [
   'One verified identity record',
@@ -24,7 +25,7 @@ const PricingSection = () => {
           className="text-center mb-12"
         >
           <span className="badge-pill inline-block mb-6">
-            Simple Pricing
+            Planned Pricing
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
             One plan. <span className="text-emphasis-italic">Full protection.</span>
@@ -77,17 +78,11 @@ const PricingSection = () => {
                 className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-full gap-2 glow-gold"
                 asChild
               >
-                <a href="mailto:hello@intinuous.com?subject=Start%20Verification">
-                  Start Verification
+                <Link to="/contact">
+                  Request Early Access
                   <ArrowRight className="w-4 h-4" />
-                </a>
+                </Link>
               </Button>
-
-              {/* Stance */}
-              <div className="mt-8 pt-8 border-t border-border/30 space-y-1 text-sm text-muted-foreground/60">
-                <p>No free tier.</p>
-                <p>If you care about your identity, you secure it.</p>
-              </div>
             </div>
           </div>
         </motion.div>

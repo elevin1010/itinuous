@@ -12,6 +12,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { useToast } from '@/hooks/use-toast';
+import VoiceAgentOrb from '@/components/VoiceAgentOrb';
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, 'Name is required').max(100, 'Name must be less than 100 characters'),
@@ -180,6 +181,7 @@ const Contact = () => {
         </div>
       </main>
       <Footer />
+      <VoiceAgentOrb />
     </div>
   );
 };
