@@ -27,7 +27,7 @@ const Footer = () => {
 
           {/* Copyright */}
           <div className="text-sm text-muted-foreground/60">
-            © 2025 Intinuous. All rights reserved.
+            © 2026 Intinuous. All rights reserved.
           </div>
         </div>
       </div>

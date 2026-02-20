@@ -45,7 +45,7 @@ const HomeRoadmapSection = () => {
           >
             <h3 className="text-lg font-semibold text-foreground mb-6 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-primary" />
-              Version 1 (now)
+              Version 1 (launching soon)
             </h3>
             <ul className="space-y-4">
               {currentFeatures.map((feature) => (

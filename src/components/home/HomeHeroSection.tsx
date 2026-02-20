@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { ArrowRight, ChevronDown } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import intinuousMark from '@/assets/intinuous-mark.png';
 import intinuousText from '@/assets/intinuous-text.png';
@@ -121,10 +122,10 @@ const HomeHeroSection = () => {
               className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full gap-2 glow-gold px-8"
               asChild
             >
-              <a href="mailto:hello@intinuous.com?subject=Start%20Verification">
-                Start Verification
+              <Link to="/contact">
+                Request Early Access
                 <ArrowRight className="w-4 h-4" />
-              </a>
+              </Link>
             </Button>
             <Button 
               variant="ghost" 

@@ -35,10 +35,10 @@ const FinalCTASection = () => {
               className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full gap-2 glow-gold px-8"
               asChild
             >
-              <a href="mailto:hello@intinuous.com?subject=Start%20Verification">
-                Start Verification
+              <Link to="/contact">
+                Request Early Access
                 <ArrowRight className="w-4 h-4" />
-              </a>
+              </Link>
             </Button>
             <Link 
               to="/contact" 

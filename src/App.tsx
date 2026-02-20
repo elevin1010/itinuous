@@ -11,7 +11,7 @@ import Privacy from "./pages/Privacy";
 import Contact from "./pages/Contact";
 import LogoDownload from "./pages/LogoDownload";
 import NotFound from "./pages/NotFound";
-import VoiceAgentOrb from "./components/VoiceAgentOrb";
+
 
 const queryClient = new QueryClient();
 
@@ -31,7 +31,7 @@ const App = () => (
           <Route path="/logo" element={<LogoDownload />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-        <VoiceAgentOrb />
+        
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
