@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const FinalCTASection = () => {
   return (
-    <section className="py-32 md:py-44 relative">
+    <section className="py-16 md:py-24 relative">
       {/* Atmospheric glow — larger for cinematic feel */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[700px] bg-gradient-radial from-primary/15 via-primary/5 to-transparent rounded-full blur-[150px]" />
       
