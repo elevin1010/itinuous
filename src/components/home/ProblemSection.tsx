@@ -9,7 +9,7 @@ const problemCards = [
   },
   {
     icon: ShieldOff,
-    stat: 'There is currently no standard way for AI systems to ask permission before generating a real person\'s likeness',
+    stat: 'No standard exists for AI systems to ask permission before generating someone\'s likeness',
   },
   {
     icon: Gavel,
