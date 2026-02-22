@@ -4,15 +4,31 @@ import { Check, ArrowRight } from 'lucide-react';
 const currentFeatures = [
   'One-time verification',
   'Private certificate',
-  'Public proof page + QR',
+  'Public proof page + QR code',
   'Manual sharing',
 ];
 
 const futureFeatures = [
-  { title: 'Built for permission-based AI systems', description: 'Designed to support a future where AI tools ask before using real people\'s identities — instead of assuming access.', highlight: true },
-  { title: 'Identity keys for streamlined authorization', description: 'A foundation for single-point verification and access as platforms adopt permission-aware workflows.', highlight: false },
-  { title: 'Support for additional credentials over time', description: 'Attach future validations or credentials to the same trusted identity record — without starting over.', highlight: false },
-  { title: 'Long-term identity control', description: 'A path toward setting rules for how your identity is handled over time, including legacy considerations.', highlight: false },
+  {
+    title: 'Likeness Keys for AI Systems',
+    description: 'A permission layer designed for the way AI actually works — so generative models can ask before they generate, and rights holders have a technical mechanism to say yes or no.',
+    highlight: true,
+  },
+  {
+    title: 'Credential Stacking',
+    description: 'Attach future validations to your existing record without starting over. One identity, growing over time.',
+    highlight: false,
+  },
+  {
+    title: 'Legacy & Estate Management',
+    description: 'Set rules for how your identity is handled after you\'re gone. A foundation for long-term identity control that current platforms don\'t offer.',
+    highlight: false,
+  },
+  {
+    title: 'Organizational Verification',
+    description: 'Tools for agencies, studios, and enterprises to manage identity continuity at scale.',
+    highlight: false,
+  },
 ];
 
 const HomeRoadmapSection = () => {
@@ -27,10 +43,10 @@ const HomeRoadmapSection = () => {
           className="text-center mb-16"
         >
           <span className="badge-pill inline-block mb-6">
-            Roadmap
+            What's Coming
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
-            Building <span className="text-emphasis-italic">deliberately</span>
+            Built deliberately. Expanding with <span className="text-emphasis-italic">purpose.</span>
           </h2>
         </motion.div>
 
@@ -45,7 +61,7 @@ const HomeRoadmapSection = () => {
           >
             <h3 className="text-lg font-semibold text-foreground mb-6 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-primary" />
-              Version 1 (launching soon)
+              Version 1 — Launching Soon
             </h3>
             <ul className="space-y-4">
               {currentFeatures.map((feature) => (
@@ -59,7 +75,7 @@ const HomeRoadmapSection = () => {
             </ul>
           </motion.div>
 
-          {/* What's coming */}
+          {/* On the roadmap */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -69,7 +85,7 @@ const HomeRoadmapSection = () => {
           >
             <h3 className="text-lg font-semibold text-foreground mb-6 flex items-center gap-2">
               <ArrowRight className="w-4 h-4 text-primary" />
-              What's coming
+              On the roadmap
             </h3>
             <ul className="space-y-5">
               {futureFeatures.map((feature) => (
@@ -93,25 +109,8 @@ const HomeRoadmapSection = () => {
                 </li>
               ))}
             </ul>
-            
-            {/* Highlight explanation */}
-            <p className="mt-6 text-xs text-muted-foreground/60 italic">
-              AI systems request permission through Intinuous — your identity is never scraped or assumed.
-            </p>
           </motion.div>
         </div>
-
-        {/* Closer */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-center max-w-xl mx-auto space-y-2 text-muted-foreground"
-        >
-          <p>We're building this deliberately.</p>
-          <p className="text-emphasis-italic">Privacy first. Utility second. Scale last.</p>
-        </motion.div>
       </div>
     </section>
   );

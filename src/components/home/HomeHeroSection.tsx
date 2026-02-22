@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
-import { ArrowRight, ChevronDown } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import intinuousMark from '@/assets/intinuous-mark.png';
@@ -14,10 +14,6 @@ const HomeHeroSection = () => {
   });
   const opacity = useTransform(scrollYProgress, [0, 0.7, 1], [1, 1, 0]);
 
-  const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <motion.section ref={sectionRef} style={{ opacity }} className="relative min-h-screen flex flex-col justify-center overflow-hidden">
       {/* Background layers */}
@@ -26,7 +22,7 @@ const HomeHeroSection = () => {
       {/* Subtle grid pattern */}
       <div className="absolute inset-0 grid-pattern opacity-40" />
       
-      {/* Atmospheric gold glows */}
+      {/* Atmospheric glows */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-primary/15 via-primary/5 to-transparent rounded-full blur-[100px]" />
       <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-gradient-radial from-primary/10 via-transparent to-transparent rounded-full blur-[80px]" />
       
@@ -45,7 +41,6 @@ const HomeHeroSection = () => {
               alt="Intinuous" 
               className="w-12 h-12 mx-auto"
             />
-            {/* Text logo shown on mobile/tablet only */}
             <img 
               src={intinuousText} 
               alt="Intinuous" 
@@ -53,69 +48,33 @@ const HomeHeroSection = () => {
             />
           </motion.div>
 
-          {/* Badge pill */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="mb-8"
-          >
-            <span className="badge-pill inline-block">
-              Identity Continuity Layer
-            </span>
-          </motion.div>
-
-          {/* Headline */}
+          {/* Headline — typographically dominant */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4"
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-8"
           >
-            <span className="text-foreground">There's only one </span>
-            <span className="text-primary">YOU.</span>
+            <span className="text-foreground">Your face, </span>
+            <span className="text-gradient-gold">your key.</span>
           </motion.h1>
 
-          {/* Sub-headline */}
+          {/* Subheadline */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.25 }}
-            className="text-2xl md:text-3xl lg:text-4xl font-bold italic tracking-tight text-foreground mb-8"
+            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed"
           >
-            Let's keep it that way.
+            In the age of generative AI, your likeness can be created, copied, and distributed without your permission. Intinuous gives you a verified identity record and a cryptographic key — so nothing generates without your say.
           </motion.p>
-
-          {/* Product subhead */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10"
-          >
-            Intinuous Proof creates a private identity certificate and a public proof page that help you prove what's real in the age of AI.
-          </motion.p>
-
-          {/* Extended context */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.35 }}
-            className="max-w-xl mx-auto mb-10"
-          >
-            <div className="border-t border-border pt-6">
-              <p className="text-sm text-muted-foreground/80 leading-relaxed">
-                As generative AI advances, traditional signals of identity are no longer reliable. Intinuous establishes verifiable digital proof that gives individuals and organizations a trusted reference point for what's real. Built for privacy and permanence, it's digital proof for a generative era.
-              </p>
-            </div>
-          </motion.div>
 
           {/* CTA */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6"
+            transition={{ duration: 0.6, delay: 0.35 }}
+            className="flex flex-col items-center gap-6 mb-6"
           >
             <Button 
               size="lg"
@@ -127,43 +86,19 @@ const HomeHeroSection = () => {
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </Button>
-            <Button 
-              variant="ghost" 
-              size="lg"
-              className="text-muted-foreground hover:text-foreground rounded-full"
-              onClick={() => scrollToSection('how-it-works')}
-            >
-              See how it works
-            </Button>
           </motion.div>
 
-          {/* Reassurance */}
+          {/* Trust line */}
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
+            transition={{ duration: 0.6, delay: 0.45 }}
             className="text-sm text-muted-foreground/60"
           >
-            Your personal data stays private by default.
+            Private by default. No data resale. No biometric marketplace.
           </motion.p>
         </div>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.8 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-      >
-        <button 
-          onClick={() => scrollToSection('what-is')}
-          className="flex flex-col items-center gap-2 text-muted-foreground/50 hover:text-muted-foreground transition-colors"
-        >
-          <span className="text-xs uppercase tracking-widest">Scroll</span>
-          <ChevronDown className="w-5 h-5 animate-scroll-indicator" />
-        </button>
-      </motion.div>
     </motion.section>
   );
 };

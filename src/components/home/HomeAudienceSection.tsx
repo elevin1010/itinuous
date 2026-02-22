@@ -1,42 +1,36 @@
 import { motion } from 'framer-motion';
-import { Briefcase, Mic, Building2, Clapperboard, Scale, Baby } from 'lucide-react';
+import { Clapperboard, Mic, Briefcase, Baby, Building2, Scale } from 'lucide-react';
 
 const audiences = [
   {
-    icon: Briefcase,
-    title: 'Professionals',
-    description: 'Executives, consultants, public figures',
-    microLine: 'Maintain continuity across public exposure',
+    icon: Clapperboard,
+    title: 'Actors & Performers',
+    description: 'Hollywood is already facing AI-generated likenesses used without permission. Intinuous gives performers a verifiable record and a technical foundation for likeness rights — before something goes wrong.',
   },
   {
     icon: Mic,
-    title: 'Creators & Performers',
-    description: 'Artists, musicians, actors, influencers',
-    microLine: 'Prevent unauthorized identity reuse',
+    title: 'Creators & Influencers',
+    description: 'Your image is your brand. Protect it with proof that travels with you across platforms.',
+  },
+  {
+    icon: Briefcase,
+    title: 'Executives & Public Figures',
+    description: 'Deepfake fraud targeting business leaders is accelerating. Establish a verified record before your identity is used against you.',
   },
   {
     icon: Baby,
     title: 'Parents',
-    description: 'Families protecting their children\'s digital future',
-    microLine: 'Secure your child\'s identity before someone else defines it',
+    description: 'Secure your child\'s identity before someone else defines it. Intinuous lets families establish a protected record early.',
   },
   {
     icon: Building2,
-    title: 'Organizations',
-    description: 'Enterprises managing identity at scale',
-    microLine: 'Establish authority for employees and representatives',
-  },
-  {
-    icon: Clapperboard,
-    title: 'Platforms & Studios',
-    description: 'AI studios, content platforms, agencies',
-    microLine: 'Verify rights before generating identity-based content',
+    title: 'Organizations & Studios',
+    description: 'Verify rights before generating identity-based content. Reduce liability. Build trust with talent.',
   },
   {
     icon: Scale,
     title: 'Legal & Compliance',
-    description: 'Attorneys, regulators, compliance teams',
-    microLine: 'Access verifiable evidence when questions arise',
+    description: 'When disputes arise, verifiable evidence matters. Intinuous produces documentation that holds up.',
   },
 ];
 
@@ -49,20 +43,26 @@ const HomeAudienceSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-20%' }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="text-center mb-6"
         >
           <span className="badge-pill inline-block mb-6">
             Who It's For
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            People with <span className="text-emphasis-italic">reputational</span> surface area
+            For anyone whose face has <span className="text-emphasis-italic">value</span> — and vulnerability.
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            People and organizations with economic or reputational exposure
-          </p>
         </motion.div>
 
-        {/* Grid layout with alternating slide directions */}
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-10%' }}
+          transition={{ duration: 0.4, delay: 0.1 }}
+          className="text-lg text-muted-foreground max-w-2xl mx-auto text-center mb-16"
+        >
+          If your identity, likeness, or reputation has economic or public exposure, Intinuous is for you.
+        </motion.p>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
           {audiences.map((audience, index) => (
             <motion.div
@@ -78,14 +78,11 @@ const HomeAudienceSection = () => {
                   <audience.icon className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-foreground mb-1">
+                  <h3 className="text-lg font-semibold text-foreground mb-2">
                     {audience.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground mb-2">
+                  <p className="text-sm text-muted-foreground leading-relaxed">
                     {audience.description}
-                  </p>
-                  <p className="text-xs text-primary/80 italic">
-                    {audience.microLine}
                   </p>
                 </div>
               </div>
