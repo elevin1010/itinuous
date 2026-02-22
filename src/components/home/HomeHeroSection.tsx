@@ -27,7 +27,7 @@ const HomeHeroSection = () => {
       <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-gradient-radial from-primary/10 via-transparent to-transparent rounded-full blur-[80px]" />
       
       {/* Content */}
-      <div className="container relative z-10 pt-32 pb-24">
+      <div className="container relative z-10 pt-32 pb-12">
         <div className="max-w-4xl mx-auto text-center">
           {/* Logo mark */}
           <motion.div
