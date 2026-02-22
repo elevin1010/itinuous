@@ -3,9 +3,9 @@ import { X, Check } from 'lucide-react';
 
 const isItems = [
   'A user-owned proof layer',
-  'Privacy-first by design',
-  'Verifiable without re-exposure',
-  'Permanent identity continuity',
+  'Private and verifiable without re-exposure',
+  'Permanent identity continuity you control',
+  'Infrastructure, not a platform',
 ];
 
 const isntItems = [
@@ -24,18 +24,25 @@ const ClarificationSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-6"
         >
-          <span className="badge-pill inline-block mb-6">
-            Clarity
-          </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
-            What This Is — and <span className="text-emphasis-italic">Isn't</span>
+            Your identity is not <span className="text-emphasis-italic">content.</span>
           </h2>
         </motion.div>
 
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-10%' }}
+          transition={{ duration: 0.4, delay: 0.1 }}
+          className="text-lg text-muted-foreground max-w-2xl mx-auto text-center mb-16"
+        >
+          Intinuous is built on one principle: your data belongs to you. We don't sell it, share it, or build a profile from it.
+        </motion.p>
+
         {/* Comparison columns */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {/* IS column */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -98,22 +105,6 @@ const ClarificationSection = () => {
             </ul>
           </motion.div>
         </div>
-
-        {/* Thesis closer */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center"
-        >
-          <p className="text-xl md:text-2xl text-foreground font-medium mb-2">
-            Your identity is not content.
-          </p>
-          <p className="text-xl md:text-2xl font-medium text-emphasis-italic">
-            It's infrastructure.
-          </p>
-        </motion.div>
       </div>
     </section>
   );

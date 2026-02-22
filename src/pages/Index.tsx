@@ -1,14 +1,11 @@
 import Navbar from '@/components/layout/Navbar';
 import HomeHeroSection from '@/components/home/HomeHeroSection';
 import ProblemSection from '@/components/home/ProblemSection';
-import WhatIsSection from '@/components/home/WhatIsSection';
-import WhyExistsSection from '@/components/home/WhyExistsSection';
+import HomeSolutionSection from '@/components/home/HomeSolutionSection';
 import HomeAudienceSection from '@/components/home/HomeAudienceSection';
-import BenefitsSection from '@/components/home/BenefitsSection';
-import HomeHowItWorksSection from '@/components/home/HomeHowItWorksSection';
-import PricingSection from '@/components/home/PricingSection';
 import ClarificationSection from '@/components/home/ClarificationSection';
 import HomeRoadmapSection from '@/components/home/HomeRoadmapSection';
+import PricingSection from '@/components/home/PricingSection';
 import FinalCTASection from '@/components/home/FinalCTASection';
 import Footer from '@/components/sections/Footer';
 
@@ -19,14 +16,11 @@ const Index = () => {
       <main>
         <HomeHeroSection />
         <ProblemSection />
-        <WhatIsSection />
-        <WhyExistsSection />
+        <HomeSolutionSection />
         <HomeAudienceSection />
-        <BenefitsSection />
-        <HomeHowItWorksSection />
-        <PricingSection />
         <ClarificationSection />
         <HomeRoadmapSection />
+        <PricingSection />
         <FinalCTASection />
       </main>
       <Footer />

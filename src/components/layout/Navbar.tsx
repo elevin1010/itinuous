@@ -36,8 +36,8 @@ const Navbar = () => {
 
   const navLinks = [
     { label: 'How It Works', href: '#how-it-works' },
-    { label: 'Pricing', href: '#pricing' },
-    { label: 'Roadmap', href: '#roadmap' },
+    { label: 'Who It\'s For', href: '#audience' },
+    { label: 'Access', href: '#access' },
     { label: 'Contact', href: '/contact', isRoute: true },
   ];
 
