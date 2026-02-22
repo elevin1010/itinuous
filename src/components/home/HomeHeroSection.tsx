@@ -104,7 +104,7 @@ const HomeHeroSection = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.6 }}
             onClick={() => document.getElementById('problem')?.scrollIntoView({ behavior: 'smooth' })}
-            className="mt-8 flex flex-col items-center gap-2 cursor-pointer group"
+            className="mt-8 mx-auto flex flex-col items-center gap-2 cursor-pointer group"
             aria-label="Scroll down"
           >
             <span className="text-xs text-muted-foreground/50 uppercase tracking-widest group-hover:text-muted-foreground transition-colors">Scroll</span>
