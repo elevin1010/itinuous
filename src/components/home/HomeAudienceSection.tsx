@@ -5,7 +5,7 @@ const audiences = [
   {
     icon: Clapperboard,
     title: 'Actors & Performers',
-    description: 'Hollywood is already facing AI-generated likenesses used without permission. Intinuous gives performers a verifiable record and a technical foundation for likeness rights — before something goes wrong.',
+    description: 'AI-generated likenesses are already being used without consent. Intinuous gives performers a verifiable record and a technical foundation for likeness rights.',
   },
   {
     icon: Mic,
