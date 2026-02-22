@@ -99,6 +99,24 @@ const HomeHeroSection = () => {
           </motion.p>
         </div>
       </div>
+
+      {/* Scroll down indicator */}
+      <motion.button
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.6 }}
+        onClick={() => document.getElementById('problem')?.scrollIntoView({ behavior: 'smooth' })}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 cursor-pointer group"
+        aria-label="Scroll down"
+      >
+        <span className="text-xs text-muted-foreground/50 uppercase tracking-widest group-hover:text-muted-foreground transition-colors">Scroll</span>
+        <motion.div
+          animate={{ y: [0, 6, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <ArrowRight className="w-5 h-5 text-muted-foreground/40 group-hover:text-muted-foreground rotate-90 transition-colors" />
+        </motion.div>
+      </motion.button>
     </motion.section>
   );
 };
