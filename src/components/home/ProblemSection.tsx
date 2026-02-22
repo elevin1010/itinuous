@@ -26,7 +26,7 @@ const ProblemSection = () => {
   const y = useTransform(scrollYProgress, [0, 1], ["60px", "-60px"]);
 
   return (
-    <section ref={ref} className="relative py-24 md:py-32 overflow-hidden">
+    <section ref={ref} className="relative py-12 md:py-16 overflow-hidden">
       {/* Atmospheric glow */}
       <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-radial from-primary/10 via-primary/3 to-transparent rounded-full blur-[120px] pointer-events-none" />
 
