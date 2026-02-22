@@ -1,56 +1,150 @@
 
-# Pre-Launch Site Update
 
-## Summary
-Transition the site from "live product" to "pre-launch" mode by swapping CTAs, softening pricing language, moving the voice agent to the contact page, and adding branded social sharing metadata.
+# Intinuous Site Redesign
 
----
-
-## Changes
-
-### 1. Swap all "Start Verification" CTAs to "Request Early Access"
-**Files:** `HomeHeroSection.tsx`, `PricingSection.tsx`, `FinalCTASection.tsx`, `Navbar.tsx`
-
-- Replace every `mailto:hello@intinuous.com?subject=Start%20Verification` link with `Link to="/contact"` routing
-- Change button text from "Start Verification" to "Request Early Access"
-- Update the hero "See how it works" secondary CTA to remain as-is
-- Update mobile menu "Get Started" button to also route to `/contact` with "Request Early Access" text
-
-### 2. Reframe Pricing Section
-**File:** `PricingSection.tsx`
-
-- Change badge from "Simple Pricing" to "Planned Pricing"
-- Remove the "No free tier" / "If you care about your identity, you secure it" stance block at the bottom of the card entirely
-- Keep the price, features, and monthly reframe intact so visitors understand value
-
-### 3. Update Roadmap to "Launching Soon"
-**File:** `HomeRoadmapSection.tsx`
-
-- Change "Version 1 (now)" to "Version 1 (launching soon)"
-- This signals the product exists but isn't publicly available yet
-
-### 4. Move ElevenLabs Voice Agent to Contact Page Only
-**Files:** `App.tsx`, `Contact.tsx`
-
-- Remove the global `<VoiceAgentOrb />` from `App.tsx` (currently renders on every page)
-- Add `<VoiceAgentOrb />` inside the `Contact.tsx` page component so visitors can still ask questions there
-
-### 5. Add Branded OG Image and Social Meta
-**File:** `index.html`
-
-- Replace the default Lovable OG image (`lovable.dev/opengraph-image-p98pqg.png`) with a branded Intinuous image
-- This requires creating or providing a branded OG image (1200x630px recommended). For now, we can point to the Intinuous logo mark or generate a simple dark card with the tagline. If you have a specific image you'd like to use, share it and we'll wire it up.
-
-### 6. Update Footer Copyright Year
-**File:** `Footer.tsx`
-
-- Change `2025` to `2026` to reflect the current year
+## Overview
+A full content and structural redesign of the homepage, navigation, footer, and contact form. The page flow is simplified from 11 sections to 8, with new copy throughout and a shift from "product you can buy" to "invitation-only early access."
 
 ---
 
-## Technical Details
+## Section Map (Current to New)
 
-- All CTA buttons currently using `<a href="mailto:...">` will become `<Link to="/contact">` from react-router-dom, keeping navigation client-side
-- The ElevenLabs widget script (`VoiceAgentOrb`) will only load on `/contact`, reducing page weight on all other routes
-- No new dependencies required
-- No database or backend changes needed
+```text
+CURRENT                          NEW (from brief)
+─────────────────────────────    ─────────────────────────────
+HomeHeroSection                  Section 1 - Hero (rewrite)
+ProblemSection                   Section 2 - The Problem (rewrite + stat cards)
+WhatIsSection                    REMOVE (merged into Solution)
+WhyExistsSection                 REMOVE (merged into Solution)
+HomeAudienceSection              Section 4 - Who It's For (rewrite)
+BenefitsSection                  REMOVE (merged into Solution)
+HomeHowItWorksSection            Section 3 - The Solution (new, includes steps)
+PricingSection                   Section 7 - Access (3 tiers, no prices)
+ClarificationSection             Section 5 - Privacy Commitment (rewrite)
+HomeRoadmapSection               Section 6 - Roadmap (rewrite)
+FinalCTASection                  Section 8 - Closing Hero (rewrite)
+```
+
+---
+
+## Detailed Changes
+
+### 1. Index.tsx - New section order
+Remove imports for `WhatIsSection`, `WhyExistsSection`, `BenefitsSection`. Reorder remaining sections to match the brief's flow:
+Hero, Problem, Solution, Who It's For, Privacy, Roadmap, Access, Closing Hero.
+
+### 2. HomeHeroSection.tsx - Full rewrite
+- Headline: "Your face, your key." (largest text on site, typographically dominant)
+- Subheadline: new AI/likeness copy from brief
+- CTA: "Request Early Access" (links to /contact)
+- Trust line beneath: "Private by default. No data resale. No biometric marketplace."
+- Remove the extended context block and scroll indicator
+- Keep atmospheric glows and logo mark
+
+### 3. ProblemSection.tsx - Full rewrite
+- Section label: "The Problem"
+- Headline: "Looking real is no longer proof."
+- Body: new paragraphs from brief ending with "Proof does."
+- Replace scenario list with 3 problem stat cards (deepfake fraud, no permission standard, no technical recourse)
+- Keep parallax and atmospheric elements
+
+### 4. New: SolutionSection (replaces WhatIs + Benefits + HowItWorks)
+Create `src/components/home/HomeSolutionSection.tsx`:
+- Section label: "What Intinuous Does"
+- Headline: "One verified record. One key. Yours forever."
+- Body: key/likeness metaphor from brief
+- 3 numbered steps (Verify once, Receive your key, Share proof)
+- Closer: "No recurring re-verification. No screenshots. No 'trust me.'"
+
+### 5. HomeAudienceSection.tsx - Copy rewrite
+- Headline: "For anyone whose face has value -- and vulnerability."
+- Updated 6 segments with new copy from brief (Actors and Performers, Creators and Influencers, Executives and Public Figures, Parents, Organizations and Studios, Legal and Compliance)
+- Each card gets the brief's description paragraph
+
+### 6. ClarificationSection.tsx - Rewrite as Privacy Commitment
+- Headline: "Your identity is not content."
+- Body: "Intinuous is built on one principle: your data belongs to you..."
+- IS list updated: "A user-owned proof layer", "Private and verifiable without re-exposure", "Permanent identity continuity you control", "Infrastructure, not a platform"
+- ISN'T list stays same
+- Remove the "It's infrastructure" closer (redundant with IS list)
+
+### 7. HomeRoadmapSection.tsx - Restructured
+- Section label: "What's Coming"
+- Headline: "Built deliberately. Expanding with purpose."
+- Version 1 card stays similar (launching soon)
+- "On the roadmap" items rewritten with named features from brief:
+  - Likeness Keys for AI Systems (with description)
+  - Credential Stacking
+  - Legacy and Estate Management
+  - Organizational Verification
+
+### 8. PricingSection.tsx - Becomes Access Section
+Complete rewrite as invitation-only access:
+- Section label: "Early Access"
+- Headline: "Intinuous is currently invitation only."
+- Body: first cohort copy from brief
+- 3 tier cards (no prices): Individual, Agency and Management, Studio and Enterprise
+- Each card lists features from brief
+- CTA: "Request Early Access"
+- Small line: "We respond to every inquiry personally. No automated sequences."
+- Section id changes from "pricing" to "access"
+
+### 9. FinalCTASection.tsx - Closing Hero rewrite
+- Headline: "There's only one you. Let's keep it that way."
+- Body: invitation-only cohort copy
+- CTA: "Request Early Access"
+- Small line: "We respond to every inquiry personally. No automated sequences. Confidential inquiries welcome."
+- Full-width dark cinematic feel (expand padding/glow)
+
+### 10. Navbar.tsx
+- Change "Pricing" nav link to "Access" pointing to `#access`
+- Add "Who It's For" link pointing to `#audience`
+- Nav order: How It Works, Who It's For, Access, Contact
+- Keep "Early Access" CTA button style on desktop (already "Request Early Access" on mobile)
+
+### 11. Footer.tsx
+- Add tagline: "Identity Continuity Layer" beneath logo
+- Add "Your identity is infrastructure. Treat it that way." as closing line
+- Copyright stays 2026
+- Links: Privacy, Terms (Legal), Contact
+
+### 12. Contact.tsx - Simplified form
+- Remove Subject field
+- Replace Message field with: "Describe your identity exposure in a sentence."
+- 3 fields only: Name, Email, open question
+- Update schema to match (remove `subject`, rename `message` to `exposure`)
+- Keep Web3Forms integration
+
+---
+
+## Files Modified (12 files)
+| File | Action |
+|------|--------|
+| `src/pages/Index.tsx` | Remove 3 imports, reorder sections |
+| `src/components/home/HomeHeroSection.tsx` | Full copy rewrite |
+| `src/components/home/ProblemSection.tsx` | Full copy rewrite + stat cards |
+| `src/components/home/HomeSolutionSection.tsx` | NEW file (replaces 3 sections) |
+| `src/components/home/HomeAudienceSection.tsx` | Copy rewrite |
+| `src/components/home/ClarificationSection.tsx` | Copy rewrite as Privacy |
+| `src/components/home/HomeRoadmapSection.tsx` | Restructured content |
+| `src/components/home/PricingSection.tsx` | Full rewrite as Access tiers |
+| `src/components/home/FinalCTASection.tsx` | Copy rewrite |
+| `src/components/layout/Navbar.tsx` | Nav links updated |
+| `src/components/sections/Footer.tsx` | Tagline + closing line added |
+| `src/pages/Contact.tsx` | Simplified to 3 fields |
+
+## Files Removed (3 files)
+| File | Reason |
+|------|--------|
+| `src/components/home/WhatIsSection.tsx` | Merged into Solution |
+| `src/components/home/WhyExistsSection.tsx` | Merged into Solution |
+| `src/components/home/BenefitsSection.tsx` | Merged into Solution |
+
+---
+
+## No changes to
+- Design system (index.css, tailwind.config)
+- Other pages (Creators, Investors, Legal, Privacy, LogoDownload)
+- UI components
+- Dependencies
+
