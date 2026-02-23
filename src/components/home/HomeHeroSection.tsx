@@ -66,7 +66,7 @@ const HomeHeroSection = () => {
             transition={{ duration: 0.6, delay: 0.25 }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed"
           >
-            In the age of generative AI, your likeness can be created, copied, and distributed without your permission. Intinuous gives you a verified identity record and a cryptographic key — built for a world where nothing generates without your say.
+            In the age of generative AI, anyone can create your face, your voice, your likeness — without asking. Intinuous gives you a verified record and a cryptographic key, so your identity stays yours.
           </motion.p>
 
           {/* CTA */}
