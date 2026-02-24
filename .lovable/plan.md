@@ -1,43 +1,76 @@
 
 
-# Copy Balance Tweaks
+# Identity Verification Certificate Redesign
 
-Two targeted text edits to even out card lengths across sections.
+## Overview
+Build a new `CertificatePreview` React component that renders a contemporary, on-brand identity verification certificate. This will be a visual showpiece component that can be used on the homepage, creators page, or as a standalone route. The design bridges official document aesthetics (passports, licenses) with cryptographic visual language, all within the Intinuous dark/gold palette.
 
----
+## Design Direction
 
-## 1. Tighten the middle Problem stat card
+The certificate draws from three visual traditions:
+- **Official documents**: Structured field layout, serif-like hierarchy, border detailing, watermark
+- **Passports/licenses**: Machine-readable zone (MRZ) at the bottom, grid structure, security micro-patterns
+- **Cryptographic artifacts**: The pixelated color signature block, hex hashes displayed in monospace, subtle hash-pattern backgrounds
 
-**File:** `src/components/home/ProblemSection.tsx` (line 12)
+### Layout (portrait-leaning card, roughly 3:4 aspect ratio)
 
-Current (25 words):
-> "There is currently no standard way for AI systems to ask permission before generating a real person's likeness"
+```text
++--------------------------------------------------+
+|  [subtle gold border with corner accents]         |
+|                                                   |
+|  [Intinuous badge/mark]   IDENTITY VERIFICATION   |
+|                           CERTIFICATE             |
+|  Attestation: identity.likeness.observed          |
+|                                                   |
+|  +-----------+  +--------------------------+      |
+|  | Pixelated |  | Issuer    Intinuous      |      |
+|  | Color     |  | Issued To Private        |      |
+|  | Signature |  | Subject   A-8287108928   |      |
+|  | Block     |  | Provider  persona        |      |
+|  |           |  | Issued    2026-01-27     |      |
+|  +-----------+  | Chain     polygon (137)  |      |
+|                 +--------------------------+      |
+|                                                   |
+|  Verification Hash                                |
+|  0xa0dfb7dd...5aaea4d6                           |
+|  Transaction Hash                                 |
+|  0x82cdb5d8...73585eef                           |
+|                                                   |
+|  [MRZ-style machine-readable line]               |
+|  <<<INTINUOUS<A8287108928<<<2026<<<POLYGON<<<    |
+|                                                   |
+|  Issued 2026-01-27T16:20:17.000Z                 |
+|  Intinuous . https://intinuous.com               |
++--------------------------------------------------+
+```
 
-Proposed (14 words):
-> "No standard exists for AI systems to ask permission before generating someone's likeness"
+### Visual Details
+- **Background**: Near-black (#080808) with a very subtle repeating micro-pattern (fine grid or guilloche-inspired CSS pattern) as a "security background"
+- **Border**: Thin gold border with decorative corner brackets (like a passport page)
+- **Badge**: The uploaded gold hexagonal mark rendered as a semi-transparent watermark behind the data fields
+- **Pixelated color signature**: Canvas-rendered block of randomized colored squares (seeded from the verification hash) -- preserving the existing concept but rendering it with gold/teal/dark tones instead of the current cyan/blue
+- **Typography**: "Inter" for labels, "IBM Plex Mono" for hash values and IDs, "Montserrat Light" uppercase for the title
+- **MRZ zone**: A monospace, machine-readable-zone-style string at the bottom, styled like a passport's MRZ with slightly reduced opacity
+- **Hashes**: Displayed in monospace with truncation ellipsis, gold accent on hover to copy
 
-This brings it in line with the brevity of cards 1 and 3.
+## Technical Plan
 
----
+### 1. Copy the badge asset into the project
+Copy `user-uploads://intinuous_feb2026_favicon_master.png` to `src/assets/intinuous-badge.png` for use as a watermark in the certificate.
 
-## 2. Balance the Audience cards
+### 2. Create `src/components/CertificatePreview.tsx`
+A self-contained component that renders the certificate using:
+- Tailwind classes for layout and the existing design tokens (gold, dark background, etc.)
+- A small canvas-based or CSS-grid-based "pixelated color signature" block, seeded deterministically from a hash prop
+- Framer Motion for subtle entrance animation
+- Props for all certificate fields (issuer, subject ID, provider, chain, hashes, issued date, attestation type) with sensible defaults matching the example
 
-**File:** `src/components/home/HomeAudienceSection.tsx` (lines 4-34)
+### 3. Create a `/certificate` demo route
+Add a new page `src/pages/CertificateDemo.tsx` that renders the certificate component centered on a dark background -- useful for demonstration, screenshots, and iteration. Register it in `App.tsx`.
 
-The Actors card is ~35 words while others range from 12-22. Two options:
+### 4. CSS additions
+Add a subtle guilloche/micro-pattern utility class (`.certificate-pattern`) to `index.css` for the security background texture.
 
-**Option A — Trim Actors to match the others:**
-> "AI-generated likenesses are already being used without consent. Intinuous gives performers a verifiable record and a technical foundation for likeness rights."
-
-(Removes "Hollywood is already facing" and "before something goes wrong" — cuts from 35 to 24 words, matching the middle of the pack.)
-
-**Option B — Expand the shorter cards to match Actors.** This adds more substance but makes the grid heavier overall.
-
-**Recommendation:** Option A. The brief cards feel intentional and punchy — trimming the outlier keeps the grid tight.
-
----
-
-## Summary
-- 2 files modified, 2 lines changed total
-- No structural or visual changes
+## What stays the same
+All certificate data fields from the original are preserved: Issuer, Issued To, Subject ID, Provider, Issued At, Chain, Verification Hash, Transaction Hash, the pixelated color signature block, timestamp, and footer URL.
 
