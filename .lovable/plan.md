@@ -1,95 +1,37 @@
 
 
-# Certificate V2 — QR Code, Headshot, and Cryptographic Graphics
+# Make the Phoenix Watermark Visible
 
-## What's Changing
+## Problem
+The `PhoenixWatermark` component renders correctly but is invisible because all stroke opacities are extremely low:
+- Main phoenix/torch strokes: `rgba(215, 178, 90, 0.055)` (5.5%)
+- Radiating rays: `rgba(215, 178, 90, 0.03)` (3%)
+- Broken chains: `rgba(215, 178, 90, 0.04)` (4%)
 
-Three new visual elements plus an additional algorithmic security graphic:
+These are buried under the moire, guilloche, attestation gradient, micro-text, and the badge watermark layers.
 
-### 1. QR Code (canvas-rendered, no library needed)
-A deterministic QR code generated from the verification hash, rendered on a canvas using a lightweight custom implementation (or a tiny library like `qrcode`). Positioned in the **bottom-right area**, near the MRZ zone, mirroring how passports place machine-readable codes adjacent to the MRZ strip. Rendered in gold-on-black to stay on-brand.
+## Solution
+Increase opacity across the board so the phoenix is a visible-but-subtle watermark, not an invisible one:
 
-### 2. Optional Headshot / Photo
-An optional `photoUrl` prop. When provided, renders a small portrait photo (passport-style, roughly 72x90px) with a thin gold border, placed to the **left of the data fields** — replacing or sitting above the color signature block. When absent, the space is occupied by the color signature alone. The photo area will have a subtle label: "SUBJECT PHOTO".
+### Changes to `src/components/certificate/PhoenixWatermark.tsx`
+- **Main strokes** (body, wings, torch, feathers): Increase from `0.055` to `0.18` -- visible but still clearly a watermark
+- **Line width**: Increase from `0.8` to `1.2` for the main drawing
+- **Radiating rays**: Increase from `0.03` to `0.09`
+- **Broken chain links**: Increase from `0.04` to `0.12`
+- **Scale factor**: Increase from `0.0028` to `0.0038` so the drawing is physically larger on the certificate
 
-### 3. Moire / Guilloche Security Pattern (canvas-rendered)
-A second canvas element that renders a **concentric interference pattern** (moire) seeded from the transaction hash. This creates a unique, hard-to-reproduce visual fingerprint per certificate. The technique: draw two sets of concentric circles with slightly different centers and frequencies, producing organic interference fringes. Rendered at low opacity as a background layer behind the data fields, in gold tones.
+These values will make the phoenix clearly visible as a subtle gold watermark behind the content -- similar to how currency watermarks are visible when you look for them but don't overpower the printed text.
 
-### 4. Color Signature Acknowledgment
-The color signature stays as-is — each certificate gets a unique output seeded from the verification hash. No changes needed here, just repositioning within the new layout.
+## Technical Details
 
-## Updated Layout
+File: `src/components/certificate/PhoenixWatermark.tsx`
 
-```text
-+------------------------------------------------------+
-|  [corner]                                   [corner]  |
-|                                                       |
-|  [badge]  IDENTITY VERIFICATION                       |
-|           CERTIFICATE                                 |
-|  Attestation: identity.likeness.observed              |
-|                                                       |
-|  +----------+ +----------+ +--------------------+     |
-|  | Headshot | | Color    | | Issuer   Intinuous |     |
-|  | Photo    | | Signature| | Issued To Private  |     |
-|  | (opt.)   | | Block    | | Subject  A-828...  |     |
-|  |          | |          | | Provider persona   |     |
-|  +----------+ +----------+ | Issued   2026-01   |     |
-|                             | Chain    polygon   |     |
-|                             +--------------------+     |
-|                                                       |
-|  [--- moire pattern layer behind this area ---]       |
-|                                                       |
-|  Verification Hash            Transaction Hash        |
-|  0xa0dfb7dd...5aaea4d6        0x82cdb5d8...73585eef   |
-|                                                       |
-|  [MRZ line]                              [QR Code]    |
-|  <<<INTINUOUS<A828...<<<                 [        ]    |
-|                                          [        ]    |
-|  Issued 2026-01-27...    Intinuous.com                |
-|  [corner]                                   [corner]  |
-+------------------------------------------------------+
-```
+| Element | Current Opacity | New Opacity | Current Width | New Width |
+|---------|----------------|-------------|---------------|-----------|
+| Phoenix/torch strokes | 0.055 | 0.18 | 0.8 | 1.2 |
+| Radiating rays | 0.03 | 0.09 | 0.4 | 0.6 |
+| Broken chains | 0.04 | 0.12 | 0.6 | 0.9 |
+| Scale multiplier | 0.0028 | 0.0038 | -- | -- |
 
-## Technical Plan
-
-### Step 1: Install `qrcode` package
-Install `qrcode` (tiny, zero-dep library) for generating QR code data matrices. This avoids reimplementing the QR spec from scratch while keeping bundle size minimal.
-
-### Step 2: Add new sub-components to `CertificatePreview.tsx`
-
-**MoirePattern component** — A canvas-based component that:
-- Takes a hash string as seed
-- Draws two sets of concentric ellipses with slightly offset centers (derived from the hash)
-- Uses gold-tinted strokes at very low opacity
-- Creates a unique interference pattern per certificate
-- Rendered as a background layer (absolute positioned, low opacity)
-
-**QRBlock component** — A small canvas that:
-- Encodes a verification URL (e.g. `https://intinuous.com/verify/{hash}`) as a QR code
-- Renders in gold-on-transparent style
-- Sized ~64x64px with a "SCAN TO VERIFY" label beneath
-
-**SubjectPhoto component** — A simple image block:
-- Accepts an optional `photoUrl` prop
-- Renders passport-style with gold border and "SUBJECT PHOTO" label
-- When absent, shows a placeholder silhouette outline or is simply hidden
-
-### Step 3: Update props interface
-Add new optional props:
-- `photoUrl?: string` — URL for the subject's headshot
-- `verifyBaseUrl?: string` — base URL for QR code link (defaults to `https://intinuous.com/verify/`)
-
-### Step 4: Reorganize layout
-- Shift to a slightly wider aspect ratio (roughly 5:7) to accommodate the photo + color sig + fields side by side
-- Place hashes in a two-column layout to save vertical space
-- Position QR code in the bottom-right, adjacent to the MRZ strip
-- Layer the moire canvas behind the main content area
-
-### Step 5: Update `CertificateDemo.tsx`
-Add example usage showing both states: one certificate with a headshot, one without.
-
-## Files Modified
-- `src/components/CertificatePreview.tsx` — Major rewrite with new sub-components and layout
-- `src/pages/CertificateDemo.tsx` — Updated demo with photo example
-- `package.json` — Add `qrcode` dependency
+Only one file is modified. No new dependencies or components needed.
 
