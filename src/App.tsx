@@ -11,7 +11,7 @@ import Privacy from "./pages/Privacy";
 import Contact from "./pages/Contact";
 import LogoDownload from "./pages/LogoDownload";
 import NotFound from "./pages/NotFound";
-
+import CertificateDemo from "./pages/CertificateDemo";
 
 const queryClient = new QueryClient();
 
@@ -29,6 +29,7 @@ const App = () => (
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/logo" element={<LogoDownload />} />
+          <Route path="/certificate" element={<CertificateDemo />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         
