@@ -20,10 +20,10 @@ export default function PhoenixWatermark({ hash, width, height }: { hash: string
     const rng = seededRng(hash + 'phoenix');
     const cx = width * 0.5;
     const cy = height * 0.48;
-    const scale = Math.min(width, height) * 0.0028;
+    const scale = Math.min(width, height) * 0.0038;
 
-    ctx.strokeStyle = 'rgba(215, 178, 90, 0.055)';
-    ctx.lineWidth = 0.8;
+    ctx.strokeStyle = 'rgba(215, 178, 90, 0.18)';
+    ctx.lineWidth = 1.2;
     ctx.lineCap = 'round';
 
     // ── Inverted Torch (handle up, flame down) ──
@@ -157,8 +157,8 @@ export default function PhoenixWatermark({ hash, width, height }: { hash: string
     ctx.stroke();
 
     // Radiating lines (resurrection glow)
-    ctx.strokeStyle = 'rgba(215, 178, 90, 0.03)';
-    ctx.lineWidth = 0.4;
+    ctx.strokeStyle = 'rgba(215, 178, 90, 0.09)';
+    ctx.lineWidth = 0.6;
     const rays = 24;
     for (let i = 0; i < rays; i++) {
       const angle = (i / rays) * Math.PI * 2;
@@ -171,8 +171,8 @@ export default function PhoenixWatermark({ hash, width, height }: { hash: string
     }
 
     // Broken chain links scattered around base
-    ctx.strokeStyle = 'rgba(215, 178, 90, 0.04)';
-    ctx.lineWidth = 0.6;
+    ctx.strokeStyle = 'rgba(215, 178, 90, 0.12)';
+    ctx.lineWidth = 0.9;
     for (let i = 0; i < 4; i++) {
       const lx = cx + (rng() - 0.5) * 100 * scale;
       const ly = torchBottom + 20 * scale + rng() * 20 * scale;
