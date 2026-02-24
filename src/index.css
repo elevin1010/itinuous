@@ -236,4 +236,22 @@
   .animate-scroll-indicator {
     animation: scroll-indicator 2s ease-in-out infinite;
   }
+
+  /* Certificate security micro-pattern */
+  .certificate-pattern {
+    background-image:
+      repeating-linear-gradient(
+        0deg,
+        hsl(0 0% 50% / 0.15) 0px,
+        transparent 1px,
+        transparent 4px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        hsl(0 0% 50% / 0.15) 0px,
+        transparent 1px,
+        transparent 4px
+      );
+    background-size: 4px 4px;
+  }
 }
