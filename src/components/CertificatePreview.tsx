@@ -1,6 +1,9 @@
 import { useEffect, useRef, useMemo } from 'react';
 import { motion } from 'framer-motion';
+import QRCode from 'qrcode';
 import badgeImg from '@/assets/intinuous-badge.png';
+
+/* ─── Types ─── */
 
 interface CertificateProps {
   issuer?: string;
@@ -13,6 +16,8 @@ interface CertificateProps {
   transactionHash?: string;
   issuedAt?: string;
   attestation?: string;
+  photoUrl?: string;
+  verifyBaseUrl?: string;
 }
 
 const defaults: Required<CertificateProps> = {
@@ -26,14 +31,17 @@ const defaults: Required<CertificateProps> = {
   transactionHash: '0x82cdb5d84ebc3e26f36a746e5c1dbb4c2c3eae5a9a00e1f3b1a5d58d73585eef',
   issuedAt: '2026-01-27T16:20:17.000Z',
   attestation: 'identity.likeness.observed',
+  photoUrl: '',
+  verifyBaseUrl: 'https://intinuous.com/verify/',
 };
+
+/* ─── Utilities ─── */
 
 function truncateHash(hash: string) {
   if (hash.length <= 20) return hash;
   return `${hash.slice(0, 10)}...${hash.slice(-8)}`;
 }
 
-/** Deterministic seeded RNG from a hash string */
 function seededRng(seed: string) {
   let h = 0;
   for (let i = 0; i < seed.length; i++) {
@@ -45,8 +53,10 @@ function seededRng(seed: string) {
   };
 }
 
+/* ─── Sub-components ─── */
+
 /** Pixelated color signature rendered on a canvas */
-function PixelSignature({ hash, size = 80 }: { hash: string; size?: number }) {
+function PixelSignature({ hash, size = 72 }: { hash: string; size?: number }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const cellCount = 8;
 
@@ -55,22 +65,13 @@ function PixelSignature({ hash, size = 80 }: { hash: string; size?: number }) {
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
-
     const cellSize = size / cellCount;
     const rng = seededRng(hash);
-
-    // Gold/dark palette for the pixel blocks
     const palette = [
-      [215, 178, 90],  // vault gold
-      [180, 148, 68],  // darker gold
-      [240, 210, 130], // light gold
-      [30, 30, 30],    // near black
-      [50, 50, 50],    // dark gray
-      [80, 70, 50],    // warm dark
-      [160, 130, 70],  // muted gold
-      [20, 20, 20],    // deep black
+      [215, 178, 90], [180, 148, 68], [240, 210, 130],
+      [30, 30, 30], [50, 50, 50], [80, 70, 50],
+      [160, 130, 70], [20, 20, 20],
     ];
-
     for (let y = 0; y < cellCount; y++) {
       for (let x = 0; x < cellCount; x++) {
         const color = palette[Math.floor(rng() * palette.length)];
@@ -81,13 +82,111 @@ function PixelSignature({ hash, size = 80 }: { hash: string; size?: number }) {
   }, [hash, size]);
 
   return (
+    <div className="flex flex-col items-center">
+      <canvas
+        ref={canvasRef}
+        width={size}
+        height={size}
+        className="border border-primary/30"
+        style={{ imageRendering: 'pixelated' }}
+      />
+      <p className="text-[6px] font-mono text-muted-foreground/50 mt-1 uppercase tracking-wider">
+        Color Signature
+      </p>
+    </div>
+  );
+}
+
+/** Moiré / Guilloche interference pattern — unique per certificate */
+function MoirePattern({ hash, width, height }: { hash: string; width: number; height: number }) {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    ctx.clearRect(0, 0, width, height);
+
+    const rng = seededRng(hash);
+    const cx1 = width * (0.3 + rng() * 0.4);
+    const cy1 = height * (0.3 + rng() * 0.4);
+    const cx2 = cx1 + (rng() - 0.5) * width * 0.25;
+    const cy2 = cy1 + (rng() - 0.5) * height * 0.25;
+    const freq1 = 6 + rng() * 6;
+    const freq2 = 6 + rng() * 6;
+    const maxR = Math.max(width, height) * 0.7;
+
+    // Set 1
+    ctx.strokeStyle = 'rgba(215, 178, 90, 0.06)';
+    ctx.lineWidth = 0.5;
+    for (let r = freq1; r < maxR; r += freq1) {
+      ctx.beginPath();
+      ctx.ellipse(cx1, cy1, r, r * 0.85, rng() * 0.3, 0, Math.PI * 2);
+      ctx.stroke();
+    }
+
+    // Set 2
+    ctx.strokeStyle = 'rgba(215, 178, 90, 0.05)';
+    for (let r = freq2; r < maxR; r += freq2) {
+      ctx.beginPath();
+      ctx.ellipse(cx2, cy2, r * 0.9, r, rng() * 0.3, 0, Math.PI * 2);
+      ctx.stroke();
+    }
+  }, [hash, width, height]);
+
+  return (
     <canvas
       ref={canvasRef}
-      width={size}
-      height={size}
-      className="border border-border/50"
-      style={{ imageRendering: 'pixelated' }}
+      width={width}
+      height={height}
+      className="absolute inset-0 pointer-events-none"
+      style={{ opacity: 1 }}
     />
+  );
+}
+
+/** QR code rendered in gold-on-transparent */
+function QRBlock({ data, size = 56 }: { data: string; size?: number }) {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    QRCode.toCanvas(canvas, data, {
+      width: size,
+      margin: 1,
+      color: {
+        dark: '#D7B25A',
+        light: '#00000000',
+      },
+      errorCorrectionLevel: 'M',
+    }).catch(() => {});
+  }, [data, size]);
+
+  return (
+    <div className="flex flex-col items-center">
+      <canvas ref={canvasRef} className="border border-primary/20" />
+      <p className="text-[5px] font-mono text-muted-foreground/40 mt-0.5 uppercase tracking-wider">
+        Scan to Verify
+      </p>
+    </div>
+  );
+}
+
+/** Optional subject headshot photo */
+function SubjectPhoto({ url }: { url: string }) {
+  return (
+    <div className="flex flex-col items-center">
+      <div className="w-[68px] h-[85px] border border-primary/40 overflow-hidden bg-muted/20">
+        <img src={url} alt="Subject" className="w-full h-full object-cover" />
+      </div>
+      <p className="text-[6px] font-mono text-muted-foreground/50 mt-1 uppercase tracking-wider">
+        Subject Photo
+      </p>
+    </div>
   );
 }
 
@@ -103,20 +202,26 @@ function CornerAccent({ position }: { position: 'tl' | 'tr' | 'bl' | 'br' }) {
   return <div className={styles[position]} />;
 }
 
+/* ─── Main Certificate ─── */
+
 export default function CertificatePreview(props: CertificateProps) {
   const d = useMemo(() => ({ ...defaults, ...props }), [props]);
 
   const mrzLine = `<<<INTINUOUS<${d.subjectId.replace(/-/g, '')}<<<${d.issuedAt.slice(0, 4)}<<<${d.chain.toUpperCase()}<<<`;
+  const qrData = `${d.verifyBaseUrl}${d.verificationHash}`;
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
-      className="relative w-full max-w-[420px] aspect-[3/4] border border-primary/30 bg-[hsl(0_0%_3%)] rounded-sm overflow-hidden shadow-lg"
+      className="relative w-full max-w-[480px] aspect-[5/7] border border-primary/30 bg-[hsl(0_0%_3%)] rounded-sm overflow-hidden shadow-lg"
     >
       {/* Security micro-pattern background */}
       <div className="certificate-pattern absolute inset-0 opacity-[0.04] pointer-events-none" />
+
+      {/* Moiré interference layer */}
+      <MoirePattern hash={d.transactionHash} width={480} height={672} />
 
       {/* Corner accents */}
       <CornerAccent position="tl" />
@@ -126,11 +231,7 @@ export default function CertificatePreview(props: CertificateProps) {
 
       {/* Watermark badge */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <img
-          src={badgeImg}
-          alt=""
-          className="w-48 h-48 object-contain opacity-[0.06]"
-        />
+        <img src={badgeImg} alt="" className="w-48 h-48 object-contain opacity-[0.04]" />
       </div>
 
       {/* Content */}
@@ -159,16 +260,16 @@ export default function CertificatePreview(props: CertificateProps) {
           Attestation: {d.attestation}
         </p>
 
-        {/* Main body: pixel sig + fields */}
-        <div className="flex gap-4 mb-5">
-          <div className="flex-shrink-0">
-            <PixelSignature hash={d.verificationHash} size={88} />
-            <p className="text-[7px] font-mono text-muted-foreground/60 mt-1 text-center">
-              COLOR SIGNATURE
-            </p>
+        {/* Main body: photo + color sig + fields */}
+        <div className="flex gap-3 mb-5">
+          {/* Left column: photo (optional) + color signature */}
+          <div className="flex-shrink-0 flex flex-col gap-3">
+            {d.photoUrl && <SubjectPhoto url={d.photoUrl} />}
+            <PixelSignature hash={d.verificationHash} size={68} />
           </div>
 
-          <div className="flex-1 space-y-2 text-[10px]">
+          {/* Right column: data fields */}
+          <div className="flex-1 space-y-1.5 text-[10px]">
             {[
               ['Issuer', d.issuer],
               ['Issued To', d.issuedTo],
@@ -185,33 +286,36 @@ export default function CertificatePreview(props: CertificateProps) {
           </div>
         </div>
 
-        {/* Hashes */}
-        <div className="space-y-3 mb-auto">
+        {/* Hashes — two-column layout */}
+        <div className="grid grid-cols-2 gap-4 mb-auto">
           <div>
-            <p className="text-[9px] uppercase tracking-wider text-muted-foreground mb-0.5">Verification Hash</p>
-            <p className="font-mono text-[10px] text-primary/90 hover:text-primary transition-colors cursor-pointer" title={d.verificationHash}>
+            <p className="text-[8px] uppercase tracking-wider text-muted-foreground mb-0.5">Verification Hash</p>
+            <p className="font-mono text-[9px] text-primary/90 hover:text-primary transition-colors cursor-pointer" title={d.verificationHash}>
               {truncateHash(d.verificationHash)}
             </p>
           </div>
           <div>
-            <p className="text-[9px] uppercase tracking-wider text-muted-foreground mb-0.5">Transaction Hash</p>
-            <p className="font-mono text-[10px] text-primary/90 hover:text-primary transition-colors cursor-pointer" title={d.transactionHash}>
+            <p className="text-[8px] uppercase tracking-wider text-muted-foreground mb-0.5">Transaction Hash</p>
+            <p className="font-mono text-[9px] text-primary/90 hover:text-primary transition-colors cursor-pointer" title={d.transactionHash}>
               {truncateHash(d.transactionHash)}
             </p>
           </div>
         </div>
 
-        {/* MRZ zone */}
-        <div className="mt-4 pt-3 border-t border-border/40">
-          <p className="font-mono text-[9px] text-muted-foreground/50 tracking-[0.15em] leading-relaxed break-all">
-            {mrzLine}
-          </p>
+        {/* MRZ zone + QR code */}
+        <div className="mt-4 pt-3 border-t border-border/40 flex items-end justify-between gap-3">
+          <div className="flex-1 min-w-0">
+            <p className="font-mono text-[8px] text-muted-foreground/40 tracking-[0.12em] leading-relaxed break-all">
+              {mrzLine}
+            </p>
+          </div>
+          <QRBlock data={qrData} size={56} />
         </div>
 
         {/* Footer */}
-        <div className="mt-3 flex items-center justify-between text-[8px] text-muted-foreground/50">
+        <div className="mt-2 flex items-center justify-between text-[7px] text-muted-foreground/40">
           <span className="font-mono">Issued {d.issuedAt}</span>
-          <span>Intinuous · https://intinuous.com</span>
+          <span>Intinuous · intinuous.com</span>
         </div>
       </div>
     </motion.div>
