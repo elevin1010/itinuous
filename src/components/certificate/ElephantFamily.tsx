@@ -34,8 +34,6 @@ export default function ElephantFamily({ hash, width, height }: { hash: string; 
       const h = 55 * s;
       const w = 42 * s;
 
-      ctx.beginPath();
-
       // Start at bottom-left foot
       const blx = ox - w * 0.45;
       const bly = oy;
@@ -191,6 +189,7 @@ export default function ElephantFamily({ hash, width, height }: { hash: string; 
     ctx.save();
 
     // Build combined clipping path from all elephants
+    ctx.beginPath();
     for (const e of elephants) {
       elephantPath(e.x, e.y, e.s, e.trunkUp);
     }
