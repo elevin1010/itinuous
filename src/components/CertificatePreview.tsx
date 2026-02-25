@@ -11,6 +11,7 @@ import CornerAccent from './certificate/CornerAccent';
 import GuillochePattern from './certificate/GuillochePattern';
 import MicroText from './certificate/MicroText';
 import PhoenixWatermark from './certificate/PhoenixWatermark';
+import ElephantFamily from './certificate/ElephantFamily';
 
 /* ─── Types ─── */
 
@@ -70,8 +71,11 @@ export default function CertificatePreview(props: CertificateProps) {
       {/* L3: Guilloche spirographs */}
       <GuillochePattern hash={d.verificationHash} width={540} height={756} />
 
-      {/* L4: Phoenix + inverted torch watermark */}
+      {/* L4: Phoenix watermark (top-right) */}
       <PhoenixWatermark hash={d.transactionHash} width={540} height={756} />
+
+      {/* L4b: Elephant family (bottom-left) */}
+      <ElephantFamily hash={d.verificationHash} width={540} height={756} />
 
       {/* L5: Attestation gradient overlay */}
       <AttestationGradient attestation={d.attestation} hash={d.verificationHash} />
