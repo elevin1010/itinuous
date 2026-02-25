@@ -18,11 +18,11 @@ export default function GuillochePattern({ hash, width, height }: { hash: string
     const numCurves = 4 + Math.floor(rng() * 3);
 
     for (let c = 0; c < numCurves; c++) {
-      const cx = width * (0.55 + rng() * 0.35);
-      const cy = height * (0.55 + rng() * 0.35);
-      const R = 30 + rng() * 80;
-      const r = 8 + rng() * 35;
-      const d = 4 + rng() * 40;
+      const cx = width * (0.45 + rng() * 0.5);
+      const cy = height * (0.40 + rng() * 0.55);
+      const R = 50 + rng() * 140;
+      const r = 10 + rng() * 50;
+      const d = 5 + rng() * 60;
       const rotations = 20 + Math.floor(rng() * 40);
       const steps = rotations * 100;
 
@@ -41,10 +41,10 @@ export default function GuillochePattern({ hash, width, height }: { hash: string
     }
 
     // Central rosette — bottom-right
-    const rcx = width * 0.75;
-    const rcy = height * 0.75;
+    const rcx = width * 0.70;
+    const rcy = height * 0.68;
     const petals = 6 + Math.floor(rng() * 8);
-    const roseR = 50 + rng() * 60;
+    const roseR = 80 + rng() * 100;
     ctx.strokeStyle = 'rgba(215, 178, 90, 0.035)';
     ctx.lineWidth = 0.5;
 
