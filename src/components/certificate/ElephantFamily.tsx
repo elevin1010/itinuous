@@ -6,7 +6,7 @@ export default function ElephantFamily({ hash, width, height }: { hash: string; 
       src={elephantsImg}
       alt=""
       className="absolute bottom-0 left-0 pointer-events-none opacity-50"
-      style={{ width: '58%', marginBottom: '-50px' }}
+      style={{ width: '70%', marginBottom: '-50px' }}
     />
   );
 }
