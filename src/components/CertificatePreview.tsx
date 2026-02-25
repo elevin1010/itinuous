@@ -89,10 +89,7 @@ export default function CertificatePreview(props: CertificateProps) {
       <CornerAccent position="bl" />
       <CornerAccent position="br" />
 
-      {/* Watermark badge */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <img src={badgeImg} alt="" className="w-56 h-56 object-contain opacity-[0.04]" />
-      </div>
+      {/* Watermark badge removed — too much visual noise */}
 
       {/* ── Content ── */}
       <div className="relative z-10 flex flex-col h-full px-8 py-7 text-foreground">

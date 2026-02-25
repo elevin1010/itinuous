@@ -23,16 +23,16 @@ export default function ElephantFamily({ hash, width, height }: { hash: string; 
     const rng = seededRng(hash + 'elephants');
 
     // Scene anchored bottom-left
-    const baseY = height * 0.82;
-    const startX = width * 0.38; // rightmost elephant (lead adult) starts here
+    const baseY = height * 0.80;
+    const startX = width * 0.42; // rightmost elephant (lead adult) starts here
 
     // ── Helper: draw an elephant silhouette as a closed path ──
     function elephantPath(
       ox: number, oy: number, s: number, trunkUp: boolean
     ) {
-      // ox,oy = bottom-center of elephant, s = scale (1 = ~45px tall adult)
-      const h = 45 * s;
-      const w = 35 * s;
+      // ox,oy = bottom-center of elephant, s = scale (1 = ~55px tall adult)
+      const h = 55 * s;
+      const w = 42 * s;
 
       ctx.beginPath();
 
@@ -137,21 +137,21 @@ export default function ElephantFamily({ hash, width, height }: { hash: string; 
     // Lead adult (rightmost, largest, trunk up for torch)
     const lead = { x: startX + jitter(), y: baseY + jitter(), s: 1.0, trunkUp: true };
     // Second adult
-    const adult2 = { x: startX - 50 + jitter(), y: baseY + 2 + jitter(), s: 0.85, trunkUp: false };
+    const adult2 = { x: startX - 60 + jitter(), y: baseY + 2 + jitter(), s: 0.85, trunkUp: false };
     // Calf 1 (in front)
-    const calf1 = { x: startX - 95 + jitter(), y: baseY + 5 + jitter(), s: 0.5, trunkUp: false };
+    const calf1 = { x: startX - 115 + jitter(), y: baseY + 5 + jitter(), s: 0.55, trunkUp: false };
     // Calf 2 (furthest ahead)
-    const calf2 = { x: startX - 125 + jitter(), y: baseY + 6 + jitter(), s: 0.45, trunkUp: false };
+    const calf2 = { x: startX - 150 + jitter(), y: baseY + 6 + jitter(), s: 0.48, trunkUp: false };
 
     const elephants = [lead, adult2, calf1, calf2];
 
     // ── Torch flame position (tip of lead adult's raised trunk) ──
-    const flameX = lead.x - 35 * lead.s * 0.1 + 2;
-    const flameY = lead.y - 45 * lead.s * 1.18;
+    const flameX = lead.x - 42 * lead.s * 0.1 + 2;
+    const flameY = lead.y - 55 * lead.s * 1.18;
 
     // ── Draw torch handle + flame (always visible) ──
     ctx.save();
-    ctx.strokeStyle = 'rgba(215, 178, 90, 0.3)';
+    ctx.strokeStyle = 'rgba(215, 178, 90, 0.5)';
     ctx.lineWidth = 1.5;
 
     // Torch cup (Liberty-style fluted cup)
@@ -165,7 +165,7 @@ export default function ElephantFamily({ hash, width, height }: { hash: string; 
     ctx.stroke();
 
     // Flame
-    ctx.fillStyle = 'rgba(215, 178, 90, 0.35)';
+    ctx.fillStyle = 'rgba(215, 178, 90, 0.55)';
     ctx.beginPath();
     ctx.moveTo(flameX - 4, flameY);
     ctx.quadraticCurveTo(flameX - 5, flameY - 8, flameX, flameY - 14);
@@ -177,7 +177,7 @@ export default function ElephantFamily({ hash, width, height }: { hash: string; 
     // ── Subtle ground-line glow ahead of calves ──
     ctx.save();
     const groundGrad = ctx.createLinearGradient(flameX, baseY + 8, calf2.x - 30, baseY + 8);
-    groundGrad.addColorStop(0, 'rgba(215, 178, 90, 0.08)');
+    groundGrad.addColorStop(0, 'rgba(215, 178, 90, 0.15)');
     groundGrad.addColorStop(1, 'rgba(215, 178, 90, 0)');
     ctx.strokeStyle = groundGrad;
     ctx.lineWidth = 1;
@@ -198,12 +198,13 @@ export default function ElephantFamily({ hash, width, height }: { hash: string; 
 
     // Radial gradient biased leftward from the flame
     const grad = ctx.createRadialGradient(
-      flameX, flameY, 5,
-      flameX - 60, flameY + 30, 160
+      flameX, flameY, 8,
+      flameX - 80, flameY + 40, 200
     );
-    grad.addColorStop(0, 'rgba(215, 178, 90, 0.30)');
-    grad.addColorStop(0.3, 'rgba(215, 178, 90, 0.20)');
-    grad.addColorStop(0.6, 'rgba(215, 178, 90, 0.10)');
+    grad.addColorStop(0, 'rgba(215, 178, 90, 0.55)');
+    grad.addColorStop(0.25, 'rgba(215, 178, 90, 0.40)');
+    grad.addColorStop(0.5, 'rgba(215, 178, 90, 0.25)');
+    grad.addColorStop(0.75, 'rgba(215, 178, 90, 0.12)');
     grad.addColorStop(1, 'rgba(215, 178, 90, 0)');
 
     ctx.fillStyle = grad;

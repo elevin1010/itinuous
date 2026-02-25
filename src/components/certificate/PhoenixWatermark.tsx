@@ -16,9 +16,9 @@ export default function PhoenixWatermark({ hash, width, height }: { hash: string
     ctx.clearRect(0, 0, width, height);
 
     const rng = seededRng(hash + 'phoenix');
-    const cx = width * 0.80;
-    const cy = height * 0.16;
-    const scale = 1.1; // tuned so wingspan ≈ 100px
+    const cx = width * 0.78;
+    const cy = height * 0.18;
+    const scale = 1.8; // larger phoenix ~180px wingspan
 
     ctx.strokeStyle = 'rgba(215, 178, 90, 0.18)';
     ctx.lineWidth = 1.2;
