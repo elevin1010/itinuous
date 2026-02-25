@@ -2,8 +2,7 @@ import { useEffect, useRef } from 'react';
 import { seededRng } from './utils';
 
 /**
- * Banknote-style spirograph / guilloche pattern.
- * Draws parametric rose curves seeded from the hash — each certificate gets unique geometry.
+ * Banknote-style guilloche pattern, constrained to the bottom-right quadrant.
  */
 export default function GuillochePattern({ hash, width, height }: { hash: string; width: number; height: number }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -16,16 +15,14 @@ export default function GuillochePattern({ hash, width, height }: { hash: string
     ctx.clearRect(0, 0, width, height);
 
     const rng = seededRng(hash + 'guilloche');
-
-    // Draw multiple spirograph curves
     const numCurves = 4 + Math.floor(rng() * 3);
 
     for (let c = 0; c < numCurves; c++) {
-      const cx = width * (0.2 + rng() * 0.6);
-      const cy = height * (0.2 + rng() * 0.6);
-      const R = 40 + rng() * 120; // outer radius
-      const r = 10 + rng() * 50;  // inner radius
-      const d = 5 + rng() * 60;   // pen distance
+      const cx = width * (0.55 + rng() * 0.35);
+      const cy = height * (0.55 + rng() * 0.35);
+      const R = 30 + rng() * 80;
+      const r = 8 + rng() * 35;
+      const d = 4 + rng() * 40;
       const rotations = 20 + Math.floor(rng() * 40);
       const steps = rotations * 100;
 
@@ -37,18 +34,17 @@ export default function GuillochePattern({ hash, width, height }: { hash: string
         const t = (i / steps) * rotations * Math.PI * 2;
         const x = cx + (R - r) * Math.cos(t) + d * Math.cos(((R - r) / r) * t);
         const y = cy + (R - r) * Math.sin(t) - d * Math.sin(((R - r) / r) * t);
-
         if (i === 0) ctx.moveTo(x, y);
         else ctx.lineTo(x, y);
       }
       ctx.stroke();
     }
 
-    // Add a large central rosette
-    const rcx = width * 0.5;
-    const rcy = height * 0.45;
+    // Central rosette — bottom-right
+    const rcx = width * 0.75;
+    const rcy = height * 0.75;
     const petals = 6 + Math.floor(rng() * 8);
-    const roseR = 80 + rng() * 100;
+    const roseR = 50 + rng() * 60;
     ctx.strokeStyle = 'rgba(215, 178, 90, 0.035)';
     ctx.lineWidth = 0.5;
 

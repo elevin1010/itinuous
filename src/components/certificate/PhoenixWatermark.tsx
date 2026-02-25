@@ -2,10 +2,8 @@ import { useEffect, useRef } from 'react';
 import { seededRng } from './utils';
 
 /**
- * A fine-line engraving-style phoenix rising from an inverted torch.
- * Drawn algorithmically on canvas in gold at very low opacity.
- * The phoenix symbolizes sovereignty and resurrection of identity rights.
- * The inverted torch = extinguished tyranny / defiance.
+ * Small phoenix watermark positioned in the top-right corner.
+ * ~100px wide, no torch — just the bird rising.
  */
 export default function PhoenixWatermark({ hash, width, height }: { hash: string; width: number; height: number }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -18,171 +16,90 @@ export default function PhoenixWatermark({ hash, width, height }: { hash: string
     ctx.clearRect(0, 0, width, height);
 
     const rng = seededRng(hash + 'phoenix');
-    const cx = width * 0.5;
-    const cy = height * 0.48;
-    const scale = Math.min(width, height) * 0.0038;
+    const cx = width * 0.80;
+    const cy = height * 0.16;
+    const scale = 1.1; // tuned so wingspan ≈ 100px
 
     ctx.strokeStyle = 'rgba(215, 178, 90, 0.18)';
     ctx.lineWidth = 1.2;
     ctx.lineCap = 'round';
 
-    // ── Inverted Torch (handle up, flame down) ──
-    const torchTop = cy + 30 * scale;
-    const torchBottom = cy + 100 * scale;
-    const handleTop = cy - 10 * scale;
+    // ── Phoenix body — elongated teardrop ──
+    const birdCy = cy;
 
-    // Handle
     ctx.beginPath();
-    ctx.moveTo(cx - 4 * scale, handleTop);
-    ctx.lineTo(cx - 4 * scale, torchTop);
-    ctx.lineTo(cx - 14 * scale, torchTop + 8 * scale);
-    ctx.lineTo(cx - 14 * scale, torchTop + 20 * scale);
-    ctx.lineTo(cx + 14 * scale, torchTop + 20 * scale);
-    ctx.lineTo(cx + 14 * scale, torchTop + 8 * scale);
-    ctx.lineTo(cx + 4 * scale, torchTop);
-    ctx.lineTo(cx + 4 * scale, handleTop);
+    ctx.moveTo(cx, birdCy + 12 * scale);
+    ctx.quadraticCurveTo(cx - 4 * scale, birdCy, cx, birdCy - 10 * scale);
+    ctx.quadraticCurveTo(cx + 4 * scale, birdCy, cx, birdCy + 12 * scale);
     ctx.stroke();
 
-    // Handle cross-hatching (engraving style)
-    for (let y = handleTop; y < torchTop; y += 4 * scale) {
-      ctx.beginPath();
-      ctx.moveTo(cx - 3 * scale, y);
-      ctx.lineTo(cx + 3 * scale, y);
-      ctx.stroke();
-    }
-
-    // Inverted flame (dripping down)
-    const flamePoints = 7 + Math.floor(rng() * 4);
+    // Left wing
+    const wingSpan = 45; // ~100px total across both wings
     ctx.beginPath();
-    ctx.moveTo(cx - 12 * scale, torchTop + 20 * scale);
-    for (let i = 0; i <= flamePoints; i++) {
-      const t = i / flamePoints;
-      const x = cx + (t - 0.5) * 24 * scale;
-      const flickerY = torchBottom + (Math.sin(t * Math.PI * 3) * 15 + rng() * 20) * scale;
-      ctx.quadraticCurveTo(
-        x + (rng() - 0.5) * 10 * scale,
-        flickerY + rng() * 10 * scale,
-        x,
-        flickerY
-      );
-    }
-    ctx.quadraticCurveTo(cx + 18 * scale, torchTop + 30 * scale, cx + 12 * scale, torchTop + 20 * scale);
-    ctx.stroke();
-
-    // Dripping embers
-    for (let i = 0; i < 5; i++) {
-      const ex = cx + (rng() - 0.5) * 20 * scale;
-      const ey = torchBottom + 10 * scale + rng() * 30 * scale;
-      ctx.beginPath();
-      ctx.arc(ex, ey, 1 + rng() * 1.5, 0, Math.PI * 2);
-      ctx.stroke();
-    }
-
-    // ── Phoenix Rising (above the torch) ──
-    const birdCy = cy - 40 * scale;
-
-    // Body — elongated curve
-    ctx.beginPath();
-    ctx.moveTo(cx, birdCy + 20 * scale);
-    ctx.quadraticCurveTo(cx - 5 * scale, birdCy, cx, birdCy - 15 * scale);
-    ctx.quadraticCurveTo(cx + 5 * scale, birdCy, cx, birdCy + 20 * scale);
-    ctx.stroke();
-
-    // Left wing — sweeping arc with feather detail
-    const wingSpan = 70 + rng() * 30;
-    ctx.beginPath();
-    ctx.moveTo(cx - 3 * scale, birdCy);
+    ctx.moveTo(cx - 2 * scale, birdCy);
     ctx.bezierCurveTo(
-      cx - wingSpan * scale * 0.4, birdCy - 30 * scale,
-      cx - wingSpan * scale * 0.7, birdCy - 50 * scale,
-      cx - wingSpan * scale, birdCy - 20 * scale
+      cx - wingSpan * scale * 0.4, birdCy - 20 * scale,
+      cx - wingSpan * scale * 0.7, birdCy - 35 * scale,
+      cx - wingSpan * scale, birdCy - 14 * scale
     );
     ctx.stroke();
 
     // Left wing feathers
-    for (let f = 0; f < 6; f++) {
-      const t = (f + 1) / 7;
+    for (let f = 0; f < 5; f++) {
+      const t = (f + 1) / 6;
       const fx = cx - wingSpan * scale * t;
-      const fy = birdCy - (20 + 30 * Math.sin(t * Math.PI)) * scale;
+      const fy = birdCy - (14 + 20 * Math.sin(t * Math.PI)) * scale;
       ctx.beginPath();
       ctx.moveTo(fx, fy);
-      ctx.lineTo(fx - 8 * scale, fy + 12 * scale);
+      ctx.lineTo(fx - 5 * scale, fy + 8 * scale);
       ctx.stroke();
     }
 
     // Right wing
     ctx.beginPath();
-    ctx.moveTo(cx + 3 * scale, birdCy);
+    ctx.moveTo(cx + 2 * scale, birdCy);
     ctx.bezierCurveTo(
-      cx + wingSpan * scale * 0.4, birdCy - 30 * scale,
-      cx + wingSpan * scale * 0.7, birdCy - 50 * scale,
-      cx + wingSpan * scale, birdCy - 20 * scale
+      cx + wingSpan * scale * 0.4, birdCy - 20 * scale,
+      cx + wingSpan * scale * 0.7, birdCy - 35 * scale,
+      cx + wingSpan * scale, birdCy - 14 * scale
     );
     ctx.stroke();
 
     // Right wing feathers
-    for (let f = 0; f < 6; f++) {
-      const t = (f + 1) / 7;
+    for (let f = 0; f < 5; f++) {
+      const t = (f + 1) / 6;
       const fx = cx + wingSpan * scale * t;
-      const fy = birdCy - (20 + 30 * Math.sin(t * Math.PI)) * scale;
+      const fy = birdCy - (14 + 20 * Math.sin(t * Math.PI)) * scale;
       ctx.beginPath();
       ctx.moveTo(fx, fy);
-      ctx.lineTo(fx + 8 * scale, fy + 12 * scale);
+      ctx.lineTo(fx + 5 * scale, fy + 8 * scale);
       ctx.stroke();
     }
 
-    // Tail feathers — flowing down and outward
-    const tailCount = 5 + Math.floor(rng() * 4);
+    // Tail feathers
+    const tailCount = 4 + Math.floor(rng() * 3);
     for (let i = 0; i < tailCount; i++) {
-      const spread = ((i / (tailCount - 1)) - 0.5) * 50 * scale;
-      const len = 40 + rng() * 35;
+      const spread = ((i / (tailCount - 1)) - 0.5) * 30 * scale;
+      const len = 25 + rng() * 20;
       ctx.beginPath();
-      ctx.moveTo(cx, birdCy + 15 * scale);
+      ctx.moveTo(cx, birdCy + 10 * scale);
       ctx.bezierCurveTo(
-        cx + spread * 0.5, birdCy + 25 * scale,
-        cx + spread, birdCy + (len - 10) * scale,
+        cx + spread * 0.5, birdCy + 16 * scale,
+        cx + spread, birdCy + (len - 6) * scale,
         cx + spread * 1.2, birdCy + len * scale
       );
       ctx.stroke();
     }
 
-    // Head crest / crown
+    // Head crest
     ctx.beginPath();
-    ctx.moveTo(cx, birdCy - 15 * scale);
-    ctx.lineTo(cx - 3 * scale, birdCy - 25 * scale);
-    ctx.moveTo(cx, birdCy - 15 * scale);
-    ctx.lineTo(cx, birdCy - 28 * scale);
-    ctx.moveTo(cx, birdCy - 15 * scale);
-    ctx.lineTo(cx + 3 * scale, birdCy - 25 * scale);
+    ctx.moveTo(cx, birdCy - 10 * scale);
+    ctx.lineTo(cx - 2 * scale, birdCy - 18 * scale);
+    ctx.moveTo(cx, birdCy - 10 * scale);
+    ctx.lineTo(cx, birdCy - 20 * scale);
+    ctx.moveTo(cx, birdCy - 10 * scale);
+    ctx.lineTo(cx + 2 * scale, birdCy - 18 * scale);
     ctx.stroke();
-
-    // Radiating lines (resurrection glow)
-    ctx.strokeStyle = 'rgba(215, 178, 90, 0.09)';
-    ctx.lineWidth = 0.6;
-    const rays = 24;
-    for (let i = 0; i < rays; i++) {
-      const angle = (i / rays) * Math.PI * 2;
-      const innerR = 30 * scale;
-      const outerR = (80 + rng() * 40) * scale;
-      ctx.beginPath();
-      ctx.moveTo(cx + Math.cos(angle) * innerR, birdCy + Math.sin(angle) * innerR);
-      ctx.lineTo(cx + Math.cos(angle) * outerR, birdCy + Math.sin(angle) * outerR);
-      ctx.stroke();
-    }
-
-    // Broken chain links scattered around base
-    ctx.strokeStyle = 'rgba(215, 178, 90, 0.12)';
-    ctx.lineWidth = 0.9;
-    for (let i = 0; i < 4; i++) {
-      const lx = cx + (rng() - 0.5) * 100 * scale;
-      const ly = torchBottom + 20 * scale + rng() * 20 * scale;
-      const linkW = 6 * scale;
-      const linkH = 3 * scale;
-      // Open chain link (broken)
-      ctx.beginPath();
-      ctx.ellipse(lx, ly, linkW, linkH, rng() * Math.PI, 0.3, Math.PI * 1.7);
-      ctx.stroke();
-    }
 
   }, [hash, width, height]);
 
