@@ -1,11 +1,13 @@
 import { useEffect, useRef } from 'react';
 import { seededRng } from './utils';
+import type { CertVariant } from '../CertificatePreview';
 
-/**
- * Small phoenix watermark positioned in the top-right corner.
- * ~100px wide, no torch — just the bird rising.
- */
-export default function PhoenixWatermark({ hash, width, height }: { hash: string; width: number; height: number }) {
+const strokeStyle = {
+  dark: 'rgba(215, 178, 90, 0.18)',
+  light: 'rgba(140, 110, 50, 0.15)',
+};
+
+export default function PhoenixWatermark({ hash, width, height, variant = 'dark' }: { hash: string; width: number; height: number; variant?: CertVariant }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -18,9 +20,9 @@ export default function PhoenixWatermark({ hash, width, height }: { hash: string
     const rng = seededRng(hash + 'phoenix');
     const cx = width * 0.78;
     const cy = height * 0.18;
-    const scale = 1.8; // larger phoenix ~180px wingspan
+    const scale = 1.8;
 
-    ctx.strokeStyle = 'rgba(215, 178, 90, 0.18)';
+    ctx.strokeStyle = strokeStyle[variant];
     ctx.lineWidth = 1.2;
     ctx.lineCap = 'round';
 
@@ -101,7 +103,7 @@ export default function PhoenixWatermark({ hash, width, height }: { hash: string
     ctx.lineTo(cx + 2 * scale, birdCy - 18 * scale);
     ctx.stroke();
 
-  }, [hash, width, height]);
+  }, [hash, width, height, variant]);
 
   return (
     <canvas

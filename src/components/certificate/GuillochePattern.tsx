@@ -1,10 +1,13 @@
 import { useEffect, useRef } from 'react';
 import { seededRng } from './utils';
+import type { CertVariant } from '../CertificatePreview';
 
-/**
- * Banknote-style guilloche pattern, constrained to the bottom-right quadrant.
- */
-export default function GuillochePattern({ hash, width, height }: { hash: string; width: number; height: number }) {
+const strokeColors = {
+  dark: { curve: (rng: () => number) => `rgba(215, 178, 90, ${0.04 + rng() * 0.06})`, rosette: 'rgba(215, 178, 90, 0.035)' },
+  light: { curve: (rng: () => number) => `rgba(140, 110, 50, ${0.06 + rng() * 0.06})`, rosette: 'rgba(140, 110, 50, 0.05)' },
+};
+
+export default function GuillochePattern({ hash, width, height, variant = 'dark' }: { hash: string; width: number; height: number; variant?: CertVariant }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -15,6 +18,7 @@ export default function GuillochePattern({ hash, width, height }: { hash: string
     ctx.clearRect(0, 0, width, height);
 
     const rng = seededRng(hash + 'guilloche');
+    const sc = strokeColors[variant];
     const numCurves = 4 + Math.floor(rng() * 3);
 
     for (let c = 0; c < numCurves; c++) {
@@ -27,7 +31,7 @@ export default function GuillochePattern({ hash, width, height }: { hash: string
       const steps = rotations * 100;
 
       ctx.beginPath();
-      ctx.strokeStyle = `rgba(215, 178, 90, ${0.04 + rng() * 0.06})`;
+      ctx.strokeStyle = sc.curve(rng);
       ctx.lineWidth = 0.3 + rng() * 0.4;
 
       for (let i = 0; i <= steps; i++) {
@@ -40,12 +44,11 @@ export default function GuillochePattern({ hash, width, height }: { hash: string
       ctx.stroke();
     }
 
-    // Central rosette — bottom-right
     const rcx = width * 0.70;
     const rcy = height * 0.68;
     const petals = 6 + Math.floor(rng() * 8);
     const roseR = 80 + rng() * 100;
-    ctx.strokeStyle = 'rgba(215, 178, 90, 0.035)';
+    ctx.strokeStyle = sc.rosette;
     ctx.lineWidth = 0.5;
 
     for (let p = 0; p < petals; p++) {
@@ -61,7 +64,7 @@ export default function GuillochePattern({ hash, width, height }: { hash: string
       }
       ctx.stroke();
     }
-  }, [hash, width, height]);
+  }, [hash, width, height, variant]);
 
   return (
     <canvas
