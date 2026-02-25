@@ -1,7 +1,8 @@
 import { useMemo } from 'react';
 import { seededRng } from './utils';
+import type { CertVariant } from '../CertificatePreview';
 
-export default function AttestationGradient({ attestation, hash }: { attestation: string; hash: string }) {
+export default function AttestationGradient({ attestation, hash, variant = 'dark' }: { attestation: string; hash: string; variant?: CertVariant }) {
   const style = useMemo(() => {
     const rng = seededRng(attestation + hash);
     const hue1 = 35 + rng() * 20;
@@ -12,14 +13,18 @@ export default function AttestationGradient({ attestation, hash }: { attestation
     const x2 = Math.floor(rng() * 60 + 30);
     const y2 = Math.floor(rng() * 60 + 30);
 
+    const opacity = variant === 'light' ? 0.04 : 0.07;
+    const o2 = variant === 'light' ? 0.03 : 0.06;
+    const o3 = variant === 'light' ? 0.025 : 0.05;
+
     return {
       background: `
-        linear-gradient(${angle}deg, hsla(${hue1}, 70%, 55%, 0.07) 0%, transparent 60%),
-        radial-gradient(ellipse at ${x1}% ${y1}%, hsla(${hue2}, 60%, 50%, 0.06) 0%, transparent 55%),
-        radial-gradient(ellipse at ${x2}% ${y2}%, hsla(${hue1}, 50%, 40%, 0.05) 0%, transparent 50%)
+        linear-gradient(${angle}deg, hsla(${hue1}, 70%, 55%, ${opacity}) 0%, transparent 60%),
+        radial-gradient(ellipse at ${x1}% ${y1}%, hsla(${hue2}, 60%, 50%, ${o2}) 0%, transparent 55%),
+        radial-gradient(ellipse at ${x2}% ${y2}%, hsla(${hue1}, 50%, 40%, ${o3}) 0%, transparent 50%)
       `,
     };
-  }, [attestation, hash]);
+  }, [attestation, hash, variant]);
 
   return <div className="absolute inset-0 pointer-events-none" style={style} />;
 }

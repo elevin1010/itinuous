@@ -1,10 +1,7 @@
 import { useMemo } from 'react';
+import type { CertVariant } from '../CertificatePreview';
 
-/**
- * Micro-text security layer — repeated tiny text that looks like a texture
- * at normal zoom but becomes readable when zoomed in. Like currency bills.
- */
-export default function MicroText({ hash, attestation }: { hash: string; attestation: string }) {
+export default function MicroText({ hash, attestation, variant = 'dark' }: { hash: string; attestation: string; variant?: CertVariant }) {
   const lines = useMemo(() => {
     const phrases = [
       `INTINUOUS·VERIFIED·${hash.slice(2, 10).toUpperCase()}·`,
@@ -13,35 +10,23 @@ export default function MicroText({ hash, attestation }: { hash: string; attesta
       `DECENTRALIZED·TRUST·PROTOCOL·`,
       `NON·TRANSFERABLE·UNIQUE·IDENTITY·`,
     ];
-
     const rows: string[] = [];
     for (let i = 0; i < 80; i++) {
-      const phrase = phrases[i % phrases.length];
-      // Repeat phrase enough times to fill a wide row
-      rows.push(phrase.repeat(12));
+      rows.push(phrases[i % phrases.length].repeat(12));
     }
     return rows;
   }, [hash, attestation]);
 
+  const textColor = variant === 'light' ? 'text-[hsl(43_50%_35%)]' : 'text-primary';
+
   return (
     <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.06]">
-      <div
-        className="absolute inset-0"
-        style={{
-          transform: 'rotate(-3deg) scale(1.2)',
-          transformOrigin: 'center center',
-        }}
-      >
+      <div className="absolute inset-0" style={{ transform: 'rotate(-3deg) scale(1.2)', transformOrigin: 'center center' }}>
         {lines.map((line, i) => (
           <p
             key={i}
-            className="whitespace-nowrap font-mono text-primary leading-none"
-            style={{
-              fontSize: '3px',
-              letterSpacing: '0.5px',
-              marginTop: i === 0 ? '-10px' : '0',
-              lineHeight: '5px',
-            }}
+            className={`whitespace-nowrap font-mono ${textColor} leading-none`}
+            style={{ fontSize: '3px', letterSpacing: '0.5px', marginTop: i === 0 ? '-10px' : '0', lineHeight: '5px' }}
           >
             {line}
           </p>
