@@ -1,25 +1,12 @@
 
 
-# Replace Canvas Elephants with Image Asset
+Update the hero section copy in `src/components/home/HomeHeroSection.tsx`:
 
-## Approach
-Replace the entire canvas-based `ElephantFamily` component with a simple `<img>` element using the user's designed elephant artwork (`elephants_gradient2.png`). This image already has the torch, gradient glow, and proper silhouettes baked in.
+1. **Subheadline**: Replace the current paragraph with the new two-paragraph structure:
+   - "In the age of generative AI, your likeness can be replicated in minutes. What's missing is a way to formally establish the original."
+   - "Intinuous creates a verified, timestamped identity attestation — built for the generative era — so your authenticity doesn't depend on a single platform."
 
-## Changes
+2. **Trust line**: Change separator from `. ` to ` · ` → "Private by default · No data resale · No biometric marketplace"
 
-### 1. Copy `elephants_gradient2.png` to `src/assets/`
-Copy the uploaded file into the project assets folder for proper bundling.
-
-### 2. Rewrite `src/components/certificate/ElephantFamily.tsx`
-Strip out all canvas logic. Replace with a simple component that:
-- Imports the image from `@/assets/elephants_gradient2.png`
-- Renders an `<img>` element absolutely positioned at the bottom-left of the certificate
-- Uses `pointer-events-none` and appropriate opacity
-- Sizes it to roughly 55-60% of the certificate width, anchored to the bottom-left corner
-- The image has a transparent background with a gold glow, so it will composite naturally over the dark certificate background
-
-The component no longer needs `hash`, `width`, or `height` props since it is a static image. However, to avoid changing the parent interface, we can keep the props and just ignore them.
-
-### 3. `src/components/CertificatePreview.tsx` — No changes needed
-The existing `<ElephantFamily>` usage remains the same.
+Headline ("Your face, your key.") and CTA ("Request Early Access") remain unchanged.
 
