@@ -51,6 +51,9 @@ export default function PixelSignature({ hash, size = 160, variant = 'dark' }: {
       <p className={`text-[9px] font-mono ${textClass} mt-1.5 uppercase tracking-wider`}>
         Color Signature
       </p>
+      <p className={`text-[7px] font-mono ${textClass} uppercase tracking-wider leading-tight`}>
+        Deterministic Visual Hash of Submitted Likeness
+      </p>
     </div>
   );
 }

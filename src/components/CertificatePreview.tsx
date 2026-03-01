@@ -163,30 +163,30 @@ export default function CertificatePreview(props: CertificateProps) {
           </div>
         </div>
 
-        {/* Hashes */}
-        <div className="grid grid-cols-2 gap-5 mb-auto">
-          <div>
-            <p className={`text-[10px] uppercase tracking-wider ${v.hashLabel} mb-1`}>Verification Hash</p>
-            <p className={`font-mono text-xs ${v.hashValue} transition-colors cursor-pointer`} title={d.verificationHash}>
-              {truncateHash(d.verificationHash)}
-            </p>
+        {/* Hashes + QR */}
+        <div className="flex gap-5 mb-auto">
+          <div className="flex-1 space-y-3">
+            <div>
+              <p className={`text-[10px] uppercase tracking-wider ${v.hashLabel} mb-1`}>Verification Hash</p>
+              <p className={`font-mono text-xs ${v.hashValue} transition-colors cursor-pointer`} title={d.verificationHash}>
+                {truncateHash(d.verificationHash)}
+              </p>
+            </div>
+            <div>
+              <p className={`text-[10px] uppercase tracking-wider ${v.hashLabel} mb-1`}>Transaction Hash</p>
+              <p className={`font-mono text-xs ${v.hashValue} transition-colors cursor-pointer`} title={d.transactionHash}>
+                {truncateHash(d.transactionHash)}
+              </p>
+            </div>
           </div>
-          <div>
-            <p className={`text-[10px] uppercase tracking-wider ${v.hashLabel} mb-1`}>Transaction Hash</p>
-            <p className={`font-mono text-xs ${v.hashValue} transition-colors cursor-pointer`} title={d.transactionHash}>
-              {truncateHash(d.transactionHash)}
-            </p>
-          </div>
+          <QRBlock data={qrData} size={104} variant={d.variant} />
         </div>
 
-        {/* MRZ zone + QR code */}
-        <div className={`mt-5 pt-4 border-t ${v.footerBorder} flex items-end justify-between gap-4`}>
-          <div className="flex-1 min-w-0">
-            <p className={`font-mono text-[10px] ${v.mrzText} tracking-[0.12em] leading-relaxed break-all`}>
-              {mrzLine}
-            </p>
-          </div>
-          <QRBlock data={qrData} size={80} variant={d.variant} />
+        {/* MRZ zone */}
+        <div className={`mt-5 pt-4 border-t ${v.footerBorder}`}>
+          <p className={`font-mono text-[10px] ${v.mrzText} tracking-[0.12em] leading-relaxed break-all`}>
+            {mrzLine}
+          </p>
         </div>
 
         {/* Footer */}
