@@ -44,7 +44,7 @@ const HomeHeroSection = () => {
             <img 
               src={intinuousText} 
               alt="Intinuous" 
-              className="h-6 mx-auto mt-4 lg:hidden"
+              className="h-6 mx-auto mt-4"
             />
           </motion.div>
 
