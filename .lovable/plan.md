@@ -1,22 +1,14 @@
 
 
-## Certificate V1 — Text & Layout Updates
+## Make Certificate Labels More Visible
 
-### Changes
+The issue is low opacity on label text. Increase contrast by bumping opacity/lightness on these elements:
 
-1. **`src/components/certificate/PixelSignature.tsx`** (line 51-52): Change label from `Color Signature` to two lines — `Color Signature` on first line, `Deterministic Visual Hash of Submitted Likeness` as a smaller subtitle below.
+### Files & Changes
 
-2. **`src/components/certificate/QRBlock.tsx`**: 
-   - Add `Status: Active` text above the QR canvas
-   - Change `Scan to Verify` → `Verify Status` below the QR canvas
+1. **`src/components/certificate/SubjectPhoto.tsx`** (line 12): Change `text-muted-foreground/50` → `text-muted-foreground/80` (dark), `text-[hsl(0_0%_50%)]` → `text-[hsl(0_0%_35%)]` (light)
 
-3. **`src/components/CertificatePreview.tsx`**:
-   - Enlarge QR from `size={80}` to `size={104}` (30%)
-   - Restructure hash section (lines 166-180): change from `grid-cols-2` to single-column stacked layout (verification hash on top, transaction hash below) to accommodate the larger QR code beside them
-   - The text defaults (`issuedTo: 'Withheld'`, `attestation: 'identity.likeness.verified'`) are already applied from the last diff
+2. **`src/components/certificate/PixelSignature.tsx`** (line 40): Change `text-muted-foreground/50` → `text-muted-foreground/80` (dark), `text-[hsl(0_0%_50%)]` → `text-[hsl(0_0%_35%)]` (light) — applies to both "Color Signature" and subtitle
 
-### Files
-- `src/components/CertificatePreview.tsx`
-- `src/components/certificate/PixelSignature.tsx`
-- `src/components/certificate/QRBlock.tsx`
+3. **`src/components/certificate/QRBlock.tsx`** (line 21): Change `text-muted-foreground/40` → `text-muted-foreground/75` (dark), `text-[hsl(0_0%_50%)]` → `text-[hsl(0_0%_35%)]` (light) — applies to "Status: Active" and "Verify Status"
 
