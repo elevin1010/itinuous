@@ -2,35 +2,37 @@ import { motion } from 'framer-motion';
 import { Check, ArrowRight } from 'lucide-react';
 
 const currentFeatures = [
-  'One-time verification',
-  'Private certificate',
-  'Public proof page + QR code',
-  'Manual sharing',
+  'One-time identity verification',
+  'Tamper-resistant private certificate',
+  'Public attestation page + QR verification',
+  'Badge and embed-ready verification assets',
+  'Identity continuity dashboard',
 ];
+
+const currentTagline = 'A formal, portable identity attestation — available today.';
 
 const futureFeatures = [
   {
-    title: 'Likeness Keys for AI Systems',
-    description: 'A permission layer designed for the way AI actually works — so generative models can ask before they generate, and rights holders have a technical mechanism to say yes or no.',
+    title: 'Likeness Keys for Generative Systems',
+    description: 'A structured identity reference layer designed for the generative era — enabling documented permission signaling before likeness is generated or used.\n\nBuilt to align with how AI systems evolve, not depend on them.',
     highlight: true,
   },
   {
     title: 'Credential Stacking',
-    description: 'Attach future validations to your existing record without starting over. One identity, growing over time.',
+    description: 'Attach additional validations to your existing record over time — without starting over.\n\nOne identity. Continuously strengthened.',
     highlight: false,
   },
   {
-    title: 'Legacy & Estate Management',
-    description: 'Set rules for how your identity is handled after you\'re gone. A foundation for long-term identity control that current platforms don\'t offer.',
+    title: 'Legacy & Estate Continuity',
+    description: 'Designate how your verified identity should be handled after you\'re gone.\n\nA foundation for long-term identity stewardship beyond any single platform.',
     highlight: false,
   },
   {
     title: 'Organizational Verification',
-    description: 'Tools for agencies, studios, and enterprises to manage identity continuity at scale.',
+    description: 'Structured onboarding and coordination tools for agencies, studios, and enterprises managing identity documentation at scale.\n\nEarly partnership integrations available.',
     highlight: false,
   },
 ];
-
 const HomeRoadmapSection = () => {
   return (
     <section id="roadmap" className="py-24 md:py-32 relative">
@@ -61,7 +63,7 @@ const HomeRoadmapSection = () => {
           >
             <h3 className="text-lg font-semibold text-foreground mb-6 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-primary" />
-              Version 1 — Launching Soon
+              Version 1 — Now Launching
             </h3>
             <ul className="space-y-4">
               {currentFeatures.map((feature) => (
@@ -73,6 +75,7 @@ const HomeRoadmapSection = () => {
                 </li>
               ))}
             </ul>
+            <p className="text-sm text-muted-foreground/70 italic mt-6">{currentTagline}</p>
           </motion.div>
 
           {/* On the roadmap */}
@@ -85,7 +88,7 @@ const HomeRoadmapSection = () => {
           >
             <h3 className="text-lg font-semibold text-foreground mb-6 flex items-center gap-2">
               <ArrowRight className="w-4 h-4 text-primary" />
-              On the roadmap
+              In Development
             </h3>
             <ul className="space-y-5">
               {futureFeatures.map((feature) => (
