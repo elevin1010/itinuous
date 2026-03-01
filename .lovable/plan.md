@@ -1,12 +1,6 @@
 
 
-## Remove Elephant Family from Certificate
+## Increase MicroText opacity to 30% for preview
 
-Two changes needed:
-
-1. **`src/components/CertificatePreview.tsx`** — Remove the `ElephantFamily` import (line 14) and the `<ElephantFamily>` render call (line 108).
-
-2. Optionally delete `src/components/certificate/ElephantFamily.tsx` and `src/assets/elephants_gradient2.png` to clean up unused files.
-
-No other visual layers will be changed.
+Single change in `src/components/certificate/MicroText.tsx`: change `opacity-[0.06]` to `opacity-[0.30]` on the wrapper div (line 23) so the micro-text becomes clearly visible for review.
 
