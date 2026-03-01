@@ -20,7 +20,7 @@ export default function MicroText({ hash, attestation, variant = 'dark' }: { has
   const textColor = variant === 'light' ? 'text-[hsl(43_50%_35%)]' : 'text-primary';
 
   return (
-    <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.06]">
+    <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.30]">
       <div className="absolute inset-0" style={{ transform: 'rotate(-3deg) scale(1.2)', transformOrigin: 'center center' }}>
         {lines.map((line, i) => (
           <p
