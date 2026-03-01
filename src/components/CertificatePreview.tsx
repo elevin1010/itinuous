@@ -11,7 +11,7 @@ import CornerAccent from './certificate/CornerAccent';
 import GuillochePattern from './certificate/GuillochePattern';
 import MicroText from './certificate/MicroText';
 import PhoenixWatermark from './certificate/PhoenixWatermark';
-import ElephantFamily from './certificate/ElephantFamily';
+
 
 /* ─── Types ─── */
 
@@ -105,7 +105,7 @@ export default function CertificatePreview(props: CertificateProps) {
       <MoirePattern hash={d.transactionHash} width={540} height={756} variant={d.variant} />
       <GuillochePattern hash={d.verificationHash} width={540} height={756} variant={d.variant} />
       <PhoenixWatermark hash={d.transactionHash} width={540} height={756} variant={d.variant} />
-      <ElephantFamily hash={d.verificationHash} width={540} height={756} variant={d.variant} />
+      
       <AttestationGradient attestation={d.attestation} hash={d.verificationHash} variant={d.variant} />
 
       <div className={`certificate-pattern absolute inset-0 ${v.patternOpacity} pointer-events-none`} />
