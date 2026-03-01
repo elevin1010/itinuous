@@ -22,9 +22,12 @@ export default function QRBlock({ data, size = 80, variant = 'dark' }: { data: s
 
   return (
     <div className="flex flex-col items-center">
+      <p className={`text-[8px] font-mono ${textClass} mb-1 uppercase tracking-wider`}>
+        Status: Active
+      </p>
       <canvas ref={canvasRef} className={`border ${borderClass}`} />
       <p className={`text-[8px] font-mono ${textClass} mt-1 uppercase tracking-wider`}>
-        Scan to Verify
+        Verify Status
       </p>
     </div>
   );
