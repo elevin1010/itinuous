@@ -54,7 +54,7 @@ const HomeAudienceSection = () => {
         </motion.div>
 
         <motion.p
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 0.3, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-10%' }}
           transition={{ duration: 0.4, delay: 0.1 }}

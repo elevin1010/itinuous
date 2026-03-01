@@ -11,9 +11,9 @@ const FinalCTASection = () => {
       
       <div className="container relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0.3, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: true, margin: '-10%' }}
           transition={{ duration: 0.6 }}
           className="max-w-3xl mx-auto text-center"
         >
