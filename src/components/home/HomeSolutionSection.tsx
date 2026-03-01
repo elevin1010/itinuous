@@ -40,7 +40,7 @@ const HomeSolutionSection = () => {
             What Intinuous Does
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            One verified record. One key. <span className="text-emphasis-italic">Yours forever.</span>
+            One verified record. One key. <span className="text-emphasis-italic">Yours to control.</span>
           </h2>
         </motion.div>
 
@@ -53,10 +53,10 @@ const HomeSolutionSection = () => {
           className="text-center max-w-2xl mx-auto mb-16"
         >
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Intinuous creates a permanent, tamper-resistant record of your verified identity — anchored cryptographically, tied to you, and controlled by no one else.
+            Intinuous creates a permanent, tamper-resistant record of your verified identity — anchored cryptographically, tied to you, and independent of any single platform.
           </p>
           <p className="text-lg text-muted-foreground leading-relaxed mt-4">
-            Think of it as a key to your own likeness. If a system doesn't have your key, it can't generate you.
+            Think of it as a key to your own likeness. When your identity appears, you have a documented, timestamped way to prove it's yours.
           </p>
         </motion.div>
 
