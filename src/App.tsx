@@ -12,6 +12,7 @@ import Contact from "./pages/Contact";
 import LogoDownload from "./pages/LogoDownload";
 import NotFound from "./pages/NotFound";
 import CertificateDemo from "./pages/CertificateDemo";
+import CertificateDemo2 from "./pages/CertificateDemo2";
 
 const queryClient = new QueryClient();
 
@@ -30,6 +31,7 @@ const App = () => (
           <Route path="/contact" element={<Contact />} />
           <Route path="/logo" element={<LogoDownload />} />
           <Route path="/certificate" element={<CertificateDemo />} />
+          <Route path="/certificate2" element={<CertificateDemo2 />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         
