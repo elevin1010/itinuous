@@ -6,41 +6,50 @@ import { Link } from 'react-router-dom';
 const tiers = [
   {
     name: 'Individual',
-    audience: 'For performers, creators, executives, and public figures who need a verified identity record and likeness key.',
+    audience: 'For performers, creators, executives, and public figures who want to formally anchor their likeness in the generative era.',
+    subtitle: null,
     features: [
-      'Verified identity record',
-      'Private certificate',
-      'Public proof page + QR code',
-      'Dispute evidence support',
-      'Ongoing continuity',
+      'Verified identity attestation',
+      'Tamper-resistant private certificate',
+      'Public attestation page with live status',
+      'Unique Intinuous ID',
+      'Badge + QR verification asset',
+      'Embed-ready verification snippet',
+      'Identity continuity dashboard',
+      'Documentation package for dispute support',
     ],
     cta: 'By invitation · Apply below',
     highlight: true,
   },
   {
     name: 'Agency & Management',
-    audience: 'For talent agencies, management companies, and representation firms who want to offer identity continuity as a standard service to their roster.',
+    audience: 'For talent agencies and representation firms standardizing identity documentation across their roster.',
+    subtitle: null,
     features: [
-      'Everything in Individual, for your entire client list',
-      'Centralized dashboard',
-      'Bulk verification workflow',
-      'Dedicated onboarding support',
-      'Annual contract, per-roster pricing',
+      'Everything in Individual',
+      'Coordinated roster onboarding',
+      'Centralized status tracking (managed support)',
+      'Bulk intake workflow (assisted)',
+      'Contract-reference documentation templates',
+      'Priority documentation support',
+      'Dedicated onboarding partner',
     ],
-    cta: 'Contact us to discuss',
+    cta: 'Annual agreement · Structured pilot available',
     highlight: false,
   },
   {
     name: 'Studio & Enterprise',
-    audience: 'For AI studios, content platforms, production companies, and enterprises that need to verify rights before generating or publishing identity-based content.',
+    audience: 'For AI studios, production companies, and platforms exploring identity verification before generating or publishing identity-based content.',
+    subtitle: 'Available through structured pilot and custom integration.',
     features: [
-      'Full organizational verification suite',
-      'Permission and authorization management',
-      'Compliance documentation',
-      'Custom integration support',
-      'Bespoke pricing',
+      'Registry-based identity verification access',
+      'Live attestation status lookup',
+      'Documentation export for compliance workflows',
+      'Custom integration consultation',
+      'Identity verification framework alignment',
+      'Early partnership access to evolving permission-layer roadmap',
     ],
-    cta: 'Contact us to discuss',
+    cta: 'Bespoke engagement · Contact us',
     highlight: false,
   },
 ];
@@ -102,9 +111,15 @@ const PricingSection = () => {
                 <h3 className="text-xl font-semibold text-foreground mb-3">
                   {tier.name}
                 </h3>
-                <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
+                <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
                   {tier.audience}
                 </p>
+                {tier.subtitle && (
+                  <p className="text-xs text-muted-foreground/70 italic mb-4">
+                    {tier.subtitle}
+                  </p>
+                )}
+                <p className="text-xs font-semibold uppercase tracking-wider text-foreground/60 mb-3">Includes:</p>
                 <ul className="space-y-3 mb-8">
                   {tier.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-3">
