@@ -35,7 +35,7 @@ interface CertificateProps {
 
 const defaults: Required<CertificateProps> = {
   issuer: 'Intinuous',
-  issuedTo: 'Private',
+  issuedTo: 'Withheld',
   subjectId: 'A-8287108928',
   provider: 'persona',
   chain: 'polygon',
@@ -43,7 +43,7 @@ const defaults: Required<CertificateProps> = {
   verificationHash: '0xa0dfb7dd4a46f22de15702c12b571c03a8b625e4fc54a576de20c48c5aaea4d6',
   transactionHash: '0x82cdb5d84ebc3e26f36a746e5c1dbb4c2c3eae5a9a00e1f3b1a5d58d73585eef',
   issuedAt: '2026-01-27T16:20:17.000Z',
-  attestation: 'identity.likeness.observed',
+  attestation: 'identity.likeness.verified',
   photoUrl: '',
   verifyBaseUrl: 'https://intinuous.com/verify/',
   variant: 'dark',
