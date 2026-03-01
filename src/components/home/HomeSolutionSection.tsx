@@ -12,13 +12,13 @@ const steps = [
     icon: FileKey,
     number: '02',
     title: 'Receive your key',
-    description: 'Your verified identity is anchored to a single Intinuous record. You receive a private certificate and a public proof page — yours permanently.',
+    description: 'Your verified identity is anchored to a single Intinuous record. You receive a tamper-resistant private certificate and a public attestation page — a documented, timestamped reference you control.',
   },
   {
     icon: Share2,
     number: '03',
     title: 'Share proof when it matters',
-    description: 'Use your public proof page or QR code to demonstrate verification without re-exposing personal information. Challenge unauthorized use. Establish the original.',
+    description: 'Use your public attestation page, badge, or QR code to demonstrate verification without re-exposing personal information. Embed it wherever your identity appears. Reference it when authenticity is questioned. Establish the original before it becomes contested.',
   },
 ];
 
