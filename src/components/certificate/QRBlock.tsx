@@ -18,7 +18,7 @@ export default function QRBlock({ data, size = 80, variant = 'dark' }: { data: s
   }, [data, size, variant]);
 
   const borderClass = variant === 'light' ? 'border-[hsl(43_50%_45%)]/30' : 'border-primary/20';
-  const textClass = variant === 'light' ? 'text-[hsl(0_0%_50%)]' : 'text-muted-foreground/40';
+  const textClass = variant === 'light' ? 'text-[hsl(0_0%_35%)]' : 'text-muted-foreground/75';
 
   return (
     <div className="flex flex-col items-center">

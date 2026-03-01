@@ -9,7 +9,7 @@ export default function SubjectPhoto({ url, variant = 'dark' }: { url: string; v
       <div className={`w-[160px] h-[160px] border ${borderClass} overflow-hidden ${bgClass}`}>
         <img src={url} alt="Subject" className="w-full h-full object-cover" />
       </div>
-      <p className={`text-[9px] font-mono ${variant === 'light' ? 'text-[hsl(0_0%_50%)]' : 'text-muted-foreground/50'} mt-1.5 uppercase tracking-wider`}>
+      <p className={`text-[9px] font-mono ${variant === 'light' ? 'text-[hsl(0_0%_35%)]' : 'text-muted-foreground/80'} mt-1.5 uppercase tracking-wider`}>
         Subject Photo
       </p>
     </div>
