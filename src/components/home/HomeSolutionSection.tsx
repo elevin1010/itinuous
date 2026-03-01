@@ -30,9 +30,9 @@ const HomeSolutionSection = () => {
       
       <div className="container relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0.3, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: true, margin: '-10%' }}
           transition={{ duration: 0.6 }}
           className="text-center mb-8"
         >
@@ -46,7 +46,7 @@ const HomeSolutionSection = () => {
 
         {/* Body */}
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0.3, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-10%' }}
           transition={{ duration: 0.5, delay: 0.1 }}
@@ -66,9 +66,9 @@ const HomeSolutionSection = () => {
             {steps.map((step, index) => (
               <motion.div
                 key={step.number}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0.3, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, margin: '-10%' }}
                 transition={{ duration: 0.5, delay: index * 0.15 }}
                 className="landio-card p-8 text-center relative"
               >
@@ -99,9 +99,9 @@ const HomeSolutionSection = () => {
 
           {/* Closer */}
           <motion.div
-            initial={{ opacity: 0 }}
+            initial={{ opacity: 0.3 }}
             whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: '-10%' }}
             transition={{ duration: 0.6, delay: 0.5 }}
             className="text-center mt-16"
           >

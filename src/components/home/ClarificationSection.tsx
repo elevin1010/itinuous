@@ -20,9 +20,9 @@ const ClarificationSection = () => {
     <section className="py-24 md:py-32 relative">
       <div className="container relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0.3, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: true, margin: '-10%' }}
           transition={{ duration: 0.6 }}
           className="text-center mb-6"
         >
@@ -32,7 +32,7 @@ const ClarificationSection = () => {
         </motion.div>
 
         <motion.p
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 0.3, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-10%' }}
           transition={{ duration: 0.4, delay: 0.1 }}
@@ -45,9 +45,9 @@ const ClarificationSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {/* IS column */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0.3, x: -12 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: '-10%' }}
             transition={{ duration: 0.5 }}
             className="landio-card p-8"
           >
@@ -59,9 +59,9 @@ const ClarificationSection = () => {
               {isItems.map((item, index) => (
                 <motion.li
                   key={item}
-                  initial={{ opacity: 0, x: -10 }}
+                  initial={{ opacity: 0.3, x: -6 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: true, margin: '-10%' }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
                   className="flex items-center gap-3"
                 >
@@ -76,9 +76,9 @@ const ClarificationSection = () => {
 
           {/* ISN'T column */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
+            initial={{ opacity: 0.3, x: 12 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: '-10%' }}
             transition={{ duration: 0.5, delay: 0.1 }}
             className="landio-card p-8"
           >
@@ -90,9 +90,9 @@ const ClarificationSection = () => {
               {isntItems.map((item, index) => (
                 <motion.li
                   key={item}
-                  initial={{ opacity: 0, x: 10 }}
+                  initial={{ opacity: 0.3, x: 6 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: true, margin: '-10%' }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
                   className="flex items-center gap-3"
                 >
