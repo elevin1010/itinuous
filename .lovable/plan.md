@@ -1,23 +1,65 @@
 
 
-## MicroText as a Border Frame
+## Certificate V2 — Norwegian Passport-Inspired Design
 
-Rewrite `MicroText.tsx` to render text along all four edges of the certificate as a continuous border, positioned **outside** the corner accents (which sit at `top-3 left-3`, i.e. 12px inset with 20px size — so the text border should sit at roughly 2-3px from the edge).
+Create a new `CertificatePreview2` component and demo page, drawing from the Norwegian passport's defining qualities: generous whitespace, soft muted palette, rounded corners, and a clean typographic hierarchy — while retaining cryptographic verification features.
 
-### Approach
+### Design Principles (from references)
 
-Use four absolutely positioned strips (top, right, bottom, left) each containing a single line of micro-text. Right and left strips use CSS `writing-mode: vertical-lr` (right side) and `vertical-rl` (left side, reversed) so text flows naturally along the edges.
+- **Spacious and calm** — far less visual density than V1; let the document breathe
+- **Soft color palette** — muted sage/teal background with warm accents (inspired by the passport interior pages), not the current black+gold
+- **Rounded corners** — the passport booklet has soft edges, so `rounded-xl`
+- **Subtle security art** — a hash-seeded generative landscape (geometric mountains + waves, like the passport's interior illustration) replaces the heavy moiré/guilloche stack
+- **Minimal chrome** — no corner brackets, no phoenix watermark; the badge and typography do the work
+- **Retained crypto features**: pixel color signature (smaller), QR code, MRZ line, micro-text border, verification/transaction hashes
 
-**Phrase fitting**: Concatenate all 5 phrases into one continuous string. Measure the approximate character width at the chosen font size (~5px font, ~3.5px per char with letter-spacing) and repeat the combined phrase string enough times to fill each edge, then truncate to the nearest phrase boundary (using `·` as delimiter) so no phrase is cut mid-word.
+### Layout
 
-### Implementation
+```text
+┌─────────────────────────────────┐
+│  [badge]  INTINUOUS             │
+│           Identity Certificate  │
+│                                 │
+│  ┌──────┐   Name: ...          │
+│  │photo │   Subject: ...       │
+│  └──────┘   Provider: ...      │
+│             Issued: ...         │
+│             Chain: ...          │
+│                                 │
+│  ┌─── generative landscape ───┐ │
+│  │  (hash-seeded mountains/   │ │
+│  │   waves in muted tones)    │ │
+│  └────────────────────────────┘ │
+│                                 │
+│  [pixel sig]    [hashes]   [QR] │
+│  <<<MRZ LINE<<<                 │
+│  Issued date · intinuous.com    │
+└─────────────────────────────────┘
+```
 
-- **Font size**: ~5px (slightly larger than current 3px for readability as a border)
-- **Opacity**: 30% as requested
-- **Top/bottom**: horizontal `<p>` elements, absolutely positioned
-- **Left/right**: vertical text via `writing-mode`
-- **Positioning**: ~2px from edge, inside the certificate but outside the corner brackets
+### New Files
 
-### Files
-- `src/components/certificate/MicroText.tsx` — Full rewrite to border-frame layout
+1. **`src/components/CertificatePreview2.tsx`** — Main layout. Soft sage/cream palette, rounded corners, cleaner grid. Reuses existing `PixelSignature`, `QRBlock`, `SubjectPhoto`, `MicroText`, and `utils`. Skips moiré, guilloche, phoenix, corner accents.
+
+2. **`src/components/certificate/GenerativeLandscape.tsx`** — Canvas component that draws a hash-seeded geometric mountain/wave scene in muted tones (sage greens, soft grays, warm tans). Deterministic via `seededRng`. This replaces the moiré+guilloche stack as the primary visual cryptographic fingerprint — each certificate gets a unique landscape.
+
+3. **`src/pages/CertificateDemo2.tsx`** — Demo page at `/certificate2` showing the new design.
+
+4. **`src/App.tsx`** — Add route for `/certificate2`.
+
+### Color Palette
+
+- Background: `hsl(160, 15%, 94%)` (soft sage-gray)
+- Text: `hsl(200, 10%, 20%)` (dark slate)
+- Accent: `hsl(43, 50%, 45%)` (muted gold, from existing brand)
+- Landscape fills: hash-seeded combinations of `hsl(160-200, 10-20%, 60-80%)` (mountain grays/sage) and `hsl(175, 20%, 75%)` (water teal)
+
+### Cryptographic Features Retained
+
+- **Pixel color signature** — smaller (100px), positioned bottom-left
+- **Generative landscape** — new primary visual fingerprint, fully hash-seeded
+- **QR code** — bottom-right
+- **MRZ line** — bottom
+- **Micro-text border** — reused from V1 with adjusted colors
+- **Hashes** — displayed inline
 
