@@ -5,32 +5,32 @@ const audiences = [
   {
     icon: Clapperboard,
     title: 'Actors & Performers',
-    description: 'Establish a verifiable record of your likeness before AI-generated versions appear without consent.',
+    description: 'AI-generated likenesses are already appearing without consent. Intinuous gives you a verifiable record and a technical foundation for likeness rights.',
   },
   {
     icon: Mic,
     title: 'Creators & Influencers',
-    description: 'Your image is your brand — protect it with proof that travels with you across platforms.',
+    description: 'Your image is your brand. Protect it with proof that travels with you across every platform.',
   },
   {
     icon: Briefcase,
     title: 'Executives & Public Figures',
-    description: 'Establish a verified record before your identity is used against you in deepfake fraud.',
+    description: 'Deepfake fraud targeting business leaders is accelerating. Establish your record before your identity is used against you.',
   },
   {
     icon: Baby,
     title: 'Parents',
-    description: 'Secure your child\'s identity before someone else defines it.',
+    description: 'Secure your child\'s identity before someone else defines it. Establish a protected record early.',
   },
   {
     icon: Building2,
-    title: 'Organizations & Studios',
-    description: 'Verify rights before generating identity-based content and reduce liability.',
+    title: 'Agencies & Studios',
+    description: 'Verify rights before generating identity-based content. Reduce liability. Build trust with talent.',
   },
   {
     icon: Scale,
     title: 'Legal & Compliance',
-    description: 'When disputes arise, verifiable evidence matters — Intinuous produces documentation that holds up.',
+    description: 'When disputes arise, verifiable evidence matters. Intinuous produces documentation that holds up.',
   },
 ];
 

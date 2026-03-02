@@ -6,13 +6,13 @@ const steps = [
     icon: UserCheck,
     number: '01',
     title: 'Verify once',
-    description: 'Complete a one-time identity verification against a trusted third-party provider.',
+    description: 'Complete a one-time identity verification confirmed against a trusted third-party provider. No recurring re-verification.',
   },
   {
     icon: FileKey,
     number: '02',
     title: 'Receive your record',
-    description: 'You get a tamper-resistant private certificate and a public attestation page — a timestamped, referenceable proof that you are the original.',
+    description: 'Your verified identity is anchored to a single Intinuous record. You receive a tamper-resistant private certificate and a public attestation page — a timestamped, referenceable proof that you are the original.',
   },
   {
     icon: Share2,
@@ -37,7 +37,7 @@ const WhatWeDoSection = () => {
         >
           <span className="badge-pill inline-block mb-6">What Intinuous Does</span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            Verify once. Own the <span className="text-emphasis-italic">record.</span>
+            One verified record. <span className="text-emphasis-italic">Yours to keep.</span>
           </h2>
         </motion.div>
 
@@ -49,10 +49,7 @@ const WhatWeDoSection = () => {
           className="text-center max-w-2xl mx-auto mb-16"
         >
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Intinuous creates a permanent, tamper-resistant attestation of your verified identity — cryptographically anchored, timestamped, and independent of any platform.
-          </p>
-          <p className="text-lg text-muted-foreground leading-relaxed mt-4">
-            It's not a social profile. It's not a blue check. It's a portable proof of origin — the kind of documented record that existed for trademarks, titles, and contracts long before AI made it necessary for individuals.
+            Intinuous creates a permanent, tamper-resistant attestation of your verified identity — cryptographically anchored, timestamped, and independent of any platform. Not a social profile. Not a blue check. A portable proof of origin.
           </p>
         </motion.div>
 

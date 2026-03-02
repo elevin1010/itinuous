@@ -18,8 +18,8 @@ const IndexV2 = () => {
         <TheMomentSection />
         <TheGapSection />
         <WhatWeDoSection />
-        <InfraSection />
         <AudienceV2Section />
+        <InfraSection />
         <PrincipleSection />
         <EarlyAccessCTA />
       </main>
