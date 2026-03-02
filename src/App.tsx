@@ -13,6 +13,7 @@ import LogoDownload from "./pages/LogoDownload";
 import NotFound from "./pages/NotFound";
 import CertificateDemo from "./pages/CertificateDemo";
 import CertificateDemo2 from "./pages/CertificateDemo2";
+import IndexV2 from "./pages/IndexV2";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/v2" element={<IndexV2 />} />
           <Route path="/investors" element={<Investors />} />
           <Route path="/creators" element={<Creators />} />
           <Route path="/legal" element={<Legal />} />
