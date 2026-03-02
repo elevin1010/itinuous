@@ -21,7 +21,7 @@ const EarlyAccessCTA = () => {
           </h2>
 
           <p className="text-lg text-muted-foreground mb-4 max-w-xl mx-auto leading-relaxed">
-            We're building our first cohort deliberately — a small group of individuals and organizations whose participation shapes what this becomes. Every application is reviewed personally. No automated sequences.
+            We're onboarding a first cohort of individuals and organizations deliberately. Every application is reviewed personally. No automated sequences. No waitlist theater.
           </p>
 
           <p className="text-lg text-muted-foreground mb-10 max-w-xl mx-auto leading-relaxed">
@@ -46,7 +46,7 @@ const EarlyAccessCTA = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-lg text-foreground/80 mt-10 font-medium"
           >
-            There's only one you. The time to establish that record is before it's contested.
+            There's only one you. The record that proves it should exist before it's needed.
           </motion.p>
         </motion.div>
       </div>

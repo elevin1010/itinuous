@@ -22,18 +22,10 @@ const InfraSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-10%' }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="max-w-2xl mx-auto space-y-6"
+          className="max-w-2xl mx-auto"
         >
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Intinuous launches as a portable identity attestation for individuals. But it's designed for what comes next.
-          </p>
-
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            As AI platforms develop permission systems. As agencies begin standardizing likeness documentation. As contracts increasingly reference identity attestation — an independent, portable record becomes the missing infrastructure.
-          </p>
-
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            We're building that layer now, starting with individuals who understand why it matters before everyone else does.
+            Intinuous launches as a portable identity attestation for individuals. It's designed for what follows. As AI platforms develop permission systems, as agencies standardize likeness documentation, as contracts increasingly reference identity attestation — an independent, portable record becomes the missing layer. We're building that infrastructure now, starting with the people who understand why it matters before everyone else does.
           </p>
         </motion.div>
       </div>

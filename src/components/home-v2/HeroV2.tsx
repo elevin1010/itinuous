@@ -51,25 +51,16 @@ const HeroV2 = () => {
             transition={{ duration: 0.6, delay: 0.25 }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-6 leading-relaxed"
           >
-            In the age of generative AI, your voice, your face, your likeness — can be replicated in minutes, without your permission, before you've said a word.
+            In the age of generative AI, your face, your voice, your likeness can be replicated in minutes — without your permission, without your knowledge, before you've said a word.
           </motion.p>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-4 leading-relaxed"
-          >
-            Matthew McConaughey trademarked his. Most people can't do that.
-          </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.35 }}
             className="text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto mb-12 leading-relaxed font-medium"
           >
-            Intinuous is how everyone else establishes the original.
+            Intinuous creates a verified, timestamped record of who you are. The original. Yours to control.
           </motion.p>
 
           {/* CTA */}

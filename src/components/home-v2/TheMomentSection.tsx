@@ -13,7 +13,7 @@ const TheMomentSection = () => {
         >
           <span className="badge-pill inline-block mb-6">The Moment</span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
-            It's not coming. It's <span className="text-emphasis-italic">here.</span>
+            Looking real is no longer <span className="text-emphasis-italic">proof.</span>
           </h2>
         </motion.div>
 
@@ -25,15 +25,11 @@ const TheMomentSection = () => {
           className="max-w-2xl mx-auto space-y-6"
         >
           <p className="text-lg text-muted-foreground leading-relaxed">
-            AI has reduced the cost of replicating a person's face, voice, and likeness to near zero. It's already happening to actors, creators, executives, and ordinary people whose image carries value online.
+            AI has reduced the cost of replicating a person's face, voice, and likeness to near zero. It's already happening — to performers, creators, executives, and anyone whose identity carries value online.
           </p>
 
           <p className="text-lg text-muted-foreground leading-relaxed">
-            The celebrities who can afford lawyers are trademarking their identity. SAG-AFTRA is negotiating contracts. Legislation is moving — slowly.
-          </p>
-
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            Everyone else is waiting.
+            The people who saw it coming are acting now. Trademarking. Documenting. Establishing records before the problem arrives.
           </p>
 
           <motion.p
