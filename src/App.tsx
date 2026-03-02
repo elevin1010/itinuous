@@ -14,6 +14,7 @@ import NotFound from "./pages/NotFound";
 import CertificateDemo from "./pages/CertificateDemo";
 import CertificateDemo2 from "./pages/CertificateDemo2";
 import IndexV2 from "./pages/IndexV2";
+import InvestorOneSheet from "./pages/InvestorOneSheet";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +28,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/v2" element={<IndexV2 />} />
           <Route path="/investors" element={<Investors />} />
+          <Route path="/investor_1sheet" element={<InvestorOneSheet />} />
           <Route path="/creators" element={<Creators />} />
           <Route path="/legal" element={<Legal />} />
           <Route path="/privacy" element={<Privacy />} />
