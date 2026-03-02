@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500&display=swap');
+
+.investor-onesheet {
+  --ink:     #181614;
+  --body:    #2E2B28;
+  --muted:   #7A7570;
+  --rule:    #E2DDD8;
+  --cream:   #FAF8F4;
+  --white:   #FFFFFF;
+  --gold:    #B8924A;
+  --gold-lt: #D4AA6A;
+  --tag-bg:  #F0EDE8;
+
+  font-family: 'Jost', sans-serif;
+  background: var(--cream);
+  color: var(--body);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Grain overlay */
+.investor-onesheet::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+
+/* Layout */
+.investor-onesheet .page {
+  position: relative; z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Header */
+.investor-onesheet .ios-header {
+  padding: 4rem 0 0;
+  display: flex; justify-content: space-between; align-items: baseline;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 1.5rem;
+  opacity: 0; animation: ios-rise 0.7s 0.1s forwards;
+}
+.investor-onesheet .logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem; font-weight: 600;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--ink);
+}
+.investor-onesheet .doc-label {
+  font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Hero */
+.investor-onesheet .hero {
+  padding: 4.5rem 0 3.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+.investor-onesheet .hero-kicker {
+  font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1.6rem;
+  opacity: 0; animation: ios-rise 0.7s 0.25s forwards;
+}
+.investor-onesheet .hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.6rem, 6vw, 4rem);
+  font-weight: 300; line-height: 1.12;
+  color: var(--ink); letter-spacing: -0.01em;
+  opacity: 0; animation: ios-rise 0.7s 0.4s forwards;
+}
+.investor-onesheet .hero h1 em {
+  font-style: italic; color: var(--gold);
+}
+.investor-onesheet .hero-lead {
+  margin-top: 2rem; max-width: 580px;
+  font-size: 1.05rem; line-height: 1.8; font-weight: 300;
+  color: var(--body);
+  opacity: 0; animation: ios-rise 0.7s 0.55s forwards;
+}
+.investor-onesheet .hero-lead strong { font-weight: 500; color: var(--ink); }
+
+/* Pull quote */
+.investor-onesheet .pull {
+  margin: 3rem 0;
+  padding: 0 0 0 1.8rem;
+  border-left: 2px solid var(--gold);
+  opacity: 0; animation: ios-rise 0.7s 0.7s forwards;
+}
+.investor-onesheet .pull p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.45rem; font-weight: 400; font-style: italic;
+  line-height: 1.55; color: var(--ink);
+}
+
+/* Sections */
+.investor-onesheet .section {
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.investor-onesheet .section:last-of-type { border-bottom: none; }
+.investor-onesheet .section-label {
+  font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1.2rem; display: block;
+}
+.investor-onesheet .section p {
+  font-size: 0.975rem; line-height: 1.82; font-weight: 300;
+  color: var(--body); margin-bottom: 1rem;
+}
+.investor-onesheet .section p:last-child { margin-bottom: 0; }
+.investor-onesheet .section p strong { font-weight: 500; color: var(--ink); }
+
+/* Stat row */
+.investor-onesheet .stats {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 0; margin: 2rem 0;
+  border: 1px solid var(--rule);
+}
+.investor-onesheet .stat {
+  padding: 1.6rem 1.4rem;
+  border-right: 1px solid var(--rule);
+  background: var(--white);
+}
+.investor-onesheet .stat:last-child { border-right: none; }
+.investor-onesheet .stat-val {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem; font-weight: 600; color: var(--ink);
+  line-height: 1; margin-bottom: 0.5rem;
+}
+.investor-onesheet .stat-val span { color: var(--gold); }
+.investor-onesheet .stat-label {
+  font-size: 0.75rem; font-weight: 400; color: var(--muted);
+  line-height: 1.45;
+}
+
+/* Tags */
+.investor-onesheet .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.2rem; }
+.investor-onesheet .tag {
+  padding: 0.3rem 0.8rem;
+  background: var(--tag-bg);
+  font-size: 0.78rem; color: var(--muted);
+  border: 1px solid var(--rule);
+}
+
+/* Signal box */
+.investor-onesheet .signal-box {
+  background: var(--ink);
+  padding: 2rem 2.2rem;
+  margin: 2rem 0;
+}
+.investor-onesheet .signal-box p {
+  font-size: 0.975rem; line-height: 1.8; font-weight: 300;
+  color: #C8C4BE; margin-bottom: 0.8rem;
+}
+.investor-onesheet .signal-box p:last-child { margin-bottom: 0; }
+.investor-onesheet .signal-box strong { font-weight: 500; color: var(--white); }
+.investor-onesheet .signal-box .signal-note {
+  color: #8A8680; font-size: 0.85rem;
+}
+
+/* Founder */
+.investor-onesheet .founder-block {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 2.5rem; align-items: start;
+  margin-top: 1.5rem;
+}
+.investor-onesheet .founder-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem; font-weight: 600; color: var(--ink);
+  margin-bottom: 0.3rem;
+}
+.investor-onesheet .founder-title { font-size: 0.8rem; color: var(--muted); letter-spacing: 0.06em; margin-bottom: 1.2rem; }
+.investor-onesheet .founder-bio { font-size: 0.92rem; line-height: 1.75; font-weight: 300; color: var(--body); }
+
+/* Phase strip */
+.investor-onesheet .phases {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 0; margin: 1.5rem 0;
+  border: 1px solid var(--rule);
+}
+.investor-onesheet .phase {
+  padding: 1.4rem 1.2rem;
+  border-right: 1px solid var(--rule);
+  background: var(--white);
+}
+.investor-onesheet .phase:last-child { border-right: none; }
+.investor-onesheet .phase-now { background: var(--ink); }
+.investor-onesheet .phase-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem; font-weight: 600;
+  color: rgba(0,0,0,0.12); line-height: 1; margin-bottom: 0.5rem;
+}
+.investor-onesheet .phase-now .phase-num { color: var(--gold); opacity: 0.6; }
+.investor-onesheet .phase-name {
+  font-size: 0.78rem; font-weight: 500; color: var(--ink); line-height: 1.4;
+}
+.investor-onesheet .phase-now .phase-name { color: var(--white); }
+.investor-onesheet .phase-status {
+  font-size: 0.63rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--muted); margin-top: 0.4rem;
+}
+.investor-onesheet .phase-now .phase-status { color: var(--gold); }
+
+/* CTA */
+.investor-onesheet .cta-section {
+  padding: 4rem 0 5rem;
+  text-align: center;
+}
+.investor-onesheet .cta-section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 300; color: var(--ink); line-height: 1.25;
+  margin-bottom: 1rem;
+}
+.investor-onesheet .cta-section h2 em { font-style: italic; color: var(--gold); }
+.investor-onesheet .cta-sub {
+  font-size: 0.95rem; color: var(--muted); font-weight: 300;
+  max-width: 420px; margin: 0 auto 2.5rem; line-height: 1.7;
+}
+.investor-onesheet .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.investor-onesheet .btn-primary {
+  padding: 0.85rem 2rem;
+  background: var(--ink); color: var(--white);
+  font-family: 'Jost', sans-serif;
+  font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;
+  text-decoration: none; font-weight: 500;
+  transition: background 0.2s;
+  display: inline-block;
+}
+.investor-onesheet .btn-primary:hover { background: var(--gold); }
+.investor-onesheet .btn-outline {
+  padding: 0.85rem 2rem;
+  border: 1px solid var(--rule); color: var(--muted);
+  font-family: 'Jost', sans-serif;
+  font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;
+  text-decoration: none; font-weight: 400;
+  transition: all 0.2s; background: transparent;
+  display: inline-block;
+}
+.investor-onesheet .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+/* Footer */
+.investor-onesheet .ios-footer {
+  padding: 1.5rem 0 2.5rem;
+  border-top: 1px solid var(--rule);
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 0.8rem;
+}
+.investor-onesheet .footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem; font-weight: 600; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--ink);
+}
+.investor-onesheet .footer-note { font-size: 0.72rem; color: var(--muted); letter-spacing: 0.04em; }
+
+/* Animations */
+@keyframes ios-rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.investor-onesheet .fade-in {
+  opacity: 0; transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.investor-onesheet .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* Responsive */
+@media (max-width: 600px) {
+  .investor-onesheet .stats,
+  .investor-onesheet .phases { grid-template-columns: 1fr 1fr; }
+  .investor-onesheet .stat:nth-child(2),
+  .investor-onesheet .phase:nth-child(2) { border-right: none; }
+  .investor-onesheet .stat:nth-child(3),
+  .investor-onesheet .phase:nth-child(3) { border-top: 1px solid var(--rule); }
+  .investor-onesheet .founder-block { grid-template-columns: 1fr; gap: 1.5rem; }
+  .investor-onesheet .ios-header { flex-direction: column; gap: 0.5rem; }
+}
