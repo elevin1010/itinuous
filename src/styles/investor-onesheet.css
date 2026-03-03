@@ -168,10 +168,6 @@
   color: #C8C4BE; margin-bottom: 0.8rem;
 }
 .investor-onesheet .signal-box p:last-child { margin-bottom: 0; }
-.investor-onesheet .signal-box strong { font-weight: 500; color: var(--white); }
-.investor-onesheet .signal-box .signal-note {
-  color: #8A8680; font-size: 0.85rem;
-}
 
 /* Founder */
 .investor-onesheet .founder-block {
