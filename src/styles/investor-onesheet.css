@@ -28,6 +28,18 @@
   background-size: 200px 200px;
 }
 
+/* Badge watermark */
+.investor-onesheet .ios-badge-watermark {
+  position: absolute;
+  top: 2rem;
+  right: -6rem;
+  height: 300px;
+  width: auto;
+  opacity: 0.07;
+  pointer-events: none;
+  z-index: 0;
+}
+
 /* Layout */
 .investor-onesheet .page {
   position: relative; z-index: 1;
