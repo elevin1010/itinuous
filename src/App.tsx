@@ -16,6 +16,16 @@ import CertificateDemo2 from "./pages/CertificateDemo2";
 import IndexV2 from "./pages/IndexV2";
 import InvestorOneSheet from "./pages/InvestorOneSheet";
 import OgImagePreview from "./pages/OgImagePreview";
+import { AppLayout } from "./components/app/AppLayout";
+import Overview from "./pages/app/Overview";
+import Identities from "./pages/app/Identities";
+import Attestations from "./pages/app/Attestations";
+import AssetsPage from "./pages/app/Assets";
+import PublicProof from "./pages/app/PublicProof";
+import Billing from "./pages/app/Billing";
+import Security from "./pages/app/Security";
+import ActivityPage from "./pages/app/Activity";
+import SettingsPage from "./pages/app/Settings";
 
 const queryClient = new QueryClient();
 
@@ -38,9 +48,19 @@ const App = () => (
           <Route path="/certificate" element={<CertificateDemo />} />
           <Route path="/certificate2" element={<CertificateDemo2 />} />
           <Route path="/og-preview" element={<OgImagePreview />} />
+          <Route path="/app" element={<AppLayout />}>
+            <Route index element={<Overview />} />
+            <Route path="identities" element={<Identities />} />
+            <Route path="attestations" element={<Attestations />} />
+            <Route path="assets" element={<AssetsPage />} />
+            <Route path="proof" element={<PublicProof />} />
+            <Route path="billing" element={<Billing />} />
+            <Route path="security" element={<Security />} />
+            <Route path="activity" element={<ActivityPage />} />
+            <Route path="settings" element={<SettingsPage />} />
+          </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
-        
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
