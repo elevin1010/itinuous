@@ -128,15 +128,12 @@ const InvestorOneSheet = () => {
           <span className="section-label">Early Signal</span>
           <div className="signal-box">
             <p>
-              Representatives managing <strong>notable public figures</strong> — representing musicians Cardi B and Tom Hamilton as well as soccer star Alisha Lehmann — have indicated that if Intinuous were
-              available today, they would purchase it or advise their clients to do so.
+              Representatives of musicians Cardi B and Tom Hamilton as well as soccer star Alisha Lehmann have indicated that if Intinuous were available today, they would purchase it or advise their clients to do so.
             </p>
             <p>
-              This is not surveyed interest. These are <strong>unsolicited, specific expressions
-              of purchase intent</strong> from people whose job is to protect the identity and
-              commercial value of high-profile talent.
+              This is not surveyed interest. These are unsolicited, specific expressions of purchase intent from people whose job is to protect the identity and commercial value of high-profile talent.
             </p>
-            <p className="signal-note">
+            <p>
               No formal commitments. Product launching shortly. The signal is early and real.
             </p>
           </div>
