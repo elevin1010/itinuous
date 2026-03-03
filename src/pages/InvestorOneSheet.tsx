@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import '@/styles/investor-onesheet.css';
+import intinuousBadge from '@/assets/intinuous-badge.png';
 
 const InvestorOneSheet = () => {
   const pageRef = useRef<HTMLDivElement>(null);
@@ -34,6 +35,13 @@ const InvestorOneSheet = () => {
           <span className="logo">Intinuous</span>
           <span className="doc-label">Private Investor Overview · Confidential</span>
         </header>
+
+        {/* Badge watermark */}
+        <img
+          src={intinuousBadge}
+          alt=""
+          className="ios-badge-watermark"
+        />
 
         {/* Hero */}
         <div className="hero">
@@ -120,8 +128,7 @@ const InvestorOneSheet = () => {
           <span className="section-label">Early Signal</span>
           <div className="signal-box">
             <p>
-              Representatives managing <strong>notable public figures</strong> — individuals with direct
-              economic exposure to AI likeness misuse — have indicated that if Intinuous were
+              Representatives managing <strong>notable public figures</strong> — representing musicians Cardi B and Tom Hamilton as well as soccer star Alisha Lehmann — have indicated that if Intinuous were
               available today, they would purchase it or advise their clients to do so.
             </p>
             <p>
@@ -227,7 +234,7 @@ const InvestorOneSheet = () => {
             or get on a call.
           </p>
           <div className="cta-actions">
-            <a href="mailto:eric@intinuous.com" className="btn-primary">Get in Touch</a>
+            <Link to="/contact" className="btn-primary">Get in Touch</Link>
             <Link to="/contact" className="btn-outline">Request Full Brief</Link>
           </div>
         </div>
