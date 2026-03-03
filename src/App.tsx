@@ -15,6 +15,7 @@ import CertificateDemo from "./pages/CertificateDemo";
 import CertificateDemo2 from "./pages/CertificateDemo2";
 import IndexV2 from "./pages/IndexV2";
 import InvestorOneSheet from "./pages/InvestorOneSheet";
+import OgImagePreview from "./pages/OgImagePreview";
 
 const queryClient = new QueryClient();
 
@@ -36,6 +37,7 @@ const App = () => (
           <Route path="/logo" element={<LogoDownload />} />
           <Route path="/certificate" element={<CertificateDemo />} />
           <Route path="/certificate2" element={<CertificateDemo2 />} />
+          <Route path="/og-preview" element={<OgImagePreview />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         
