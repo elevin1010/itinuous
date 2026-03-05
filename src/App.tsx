@@ -15,6 +15,7 @@ import CertificateDemo from "./pages/CertificateDemo";
 import CertificateDemo2 from "./pages/CertificateDemo2";
 import IndexV2 from "./pages/IndexV2";
 import InvestorOneSheet from "./pages/InvestorOneSheet";
+import DeckContact from "./pages/DeckContact";
 import OgImagePreview from "./pages/OgImagePreview";
 import { AppLayout } from "./components/app/AppLayout";
 import Overview from "./pages/app/Overview";
@@ -48,6 +49,7 @@ const App = () => (
           <Route path="/certificate" element={<CertificateDemo />} />
           <Route path="/certificate2" element={<CertificateDemo2 />} />
           <Route path="/og-preview" element={<OgImagePreview />} />
+          <Route path="/deck/contact" element={<DeckContact />} />
           <Route path="/app" element={<AppLayout />}>
             <Route index element={<Overview />} />
             <Route path="identities" element={<Identities />} />
