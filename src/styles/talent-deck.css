@@ -26,11 +26,11 @@
 }
 .talent-deck .nav-logo{display:flex;align-items:center;gap:0.6rem;text-decoration:none;}
 .talent-deck .nav-logo img{height:26px;width:26px;object-fit:contain;}
-.talent-deck .nav-logo span{font-weight:600;font-size:0.95rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink);}
-.talent-deck .nav-badge{font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);
+.talent-deck .nav-logo span{font-weight:600;font-size:1.4rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink);}
+.talent-deck .nav-badge{font-size:1rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);
   padding:0.3rem 0.8rem;border:1px solid var(--rule);border-radius:2px;}
 .talent-deck .nav-cta{display:inline-flex;align-items:center;gap:0.45rem;padding:0.55rem 1.4rem;
-  background:var(--ink);color:var(--white);font-size:0.75rem;font-weight:500;
+  background:var(--ink);color:var(--white);font-size:1.1rem;font-weight:500;
   letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;border-radius:9999px;transition:background 0.2s;}
 .talent-deck .nav-cta:hover{background:var(--gold);}
 .talent-deck .nav-cta svg{width:12px;height:12px;}
@@ -50,19 +50,19 @@
 /* Typography */
 .talent-deck .pill{display:inline-flex;align-items:center;padding:0.28rem 0.85rem;
   border:1px solid rgba(184,146,74,0.4);border-radius:9999px;
-  font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;
+  font-size:0.93rem;letter-spacing:0.2em;text-transform:uppercase;
   color:var(--gold);font-weight:500;margin-bottom:1.4rem;width:fit-content;}
 .talent-deck .pill-dark{border-color:rgba(212,170,106,0.3);color:var(--goldlt);}
-.talent-deck .display{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,4.5vw,3.6rem);
+.talent-deck .display{font-family:'Cormorant Garamond',serif;font-size:clamp(3.6rem,6.5vw,5.4rem);
   font-weight:300;line-height:1.1;letter-spacing:-0.01em;color:var(--ink);margin-bottom:0.5rem;}
 .talent-deck .display em{font-style:italic;color:var(--gold);}
 .talent-deck .display-dark{color:var(--white);}
 .talent-deck .display-dark em{color:var(--goldlt);}
-.talent-deck .display-xl{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,6vw,5rem);
+.talent-deck .display-xl{font-family:'Cormorant Garamond',serif;font-size:clamp(4.5rem,9vw,7.5rem);
   font-weight:300;line-height:1.05;letter-spacing:-0.02em;}
 .talent-deck .rule-line{width:100%;max-width:600px;height:1px;background:var(--rule);margin:2rem 0;}
 .talent-deck blockquote{border-left:2px solid rgba(184,146,74,0.4);padding-left:1.5rem;margin:2rem 0;max-width:580px;}
-.talent-deck blockquote p{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-style:italic;color:var(--ink);line-height:1.6;}
+.talent-deck blockquote p{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-style:italic;color:var(--ink);line-height:1.6;}
 
 /* Cards */
 .talent-deck .card-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule);
@@ -70,29 +70,29 @@
 .talent-deck .fact-card{background:var(--white);padding:1.8rem 1.6rem;position:relative;transition:background 0.2s;}
 .talent-deck .fact-card:hover{background:var(--offwhite);}
 .talent-deck .fact-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--gold);}
-.talent-deck .card-num{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;color:var(--gold);opacity:0.7;line-height:1;margin-bottom:0.8rem;}
-.talent-deck .card-head{font-size:0.95rem;font-weight:600;color:var(--ink);margin-bottom:0.6rem;line-height:1.3;}
-.talent-deck .card-body{font-size:0.82rem;color:var(--muted);line-height:1.65;font-weight:300;}
+.talent-deck .card-num{font-family:'Cormorant Garamond',serif;font-size:2.7rem;font-weight:600;color:var(--gold);opacity:0.7;line-height:1;margin-bottom:0.8rem;}
+.talent-deck .card-head{font-size:1.4rem;font-weight:600;color:var(--ink);margin-bottom:0.6rem;line-height:1.3;}
+.talent-deck .card-body{font-size:1.2rem;color:var(--muted);line-height:1.65;font-weight:300;}
 
 /* Gap section */
 .talent-deck .gap-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;margin-top:2rem;max-width:1000px;}
 .talent-deck .platform-list{display:flex;flex-direction:column;gap:0.8rem;}
 .talent-deck .platform-row{display:flex;justify-content:space-between;align-items:center;padding:1rem 1.4rem;
   background:var(--offwhite);border:1px solid var(--rule);}
-.talent-deck .platform-name{font-size:1rem;font-weight:600;color:var(--body);font-family:'Cormorant Garamond',serif;}
-.talent-deck .platform-sub{font-size:0.8rem;color:var(--muted);font-weight:300;margin-top:0.2rem;}
-.talent-deck .platform-x{font-size:1rem;color:var(--rule);}
+.talent-deck .platform-name{font-size:1.5rem;font-weight:600;color:var(--body);font-family:'Cormorant Garamond',serif;}
+.talent-deck .platform-sub{font-size:1.2rem;color:var(--muted);font-weight:300;margin-top:0.2rem;}
+.talent-deck .platform-x{font-size:1.5rem;color:var(--rule);}
 .talent-deck .dark-panel{background:var(--ink);padding:2.2rem;position:relative;}
 .talent-deck .dark-panel::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;
   background:linear-gradient(90deg,var(--gold),var(--goldlt),var(--gold));}
-.talent-deck .dark-panel p{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;line-height:1.5;color:var(--white);}
+.talent-deck .dark-panel p{font-family:'Cormorant Garamond',serif;font-size:2.25rem;font-weight:300;line-height:1.5;color:var(--white);}
 
 /* Analogy */
 .talent-deck .analogy-attrs{display:grid;grid-template-columns:repeat(4,1fr);
   border-top:1px solid rgba(255,255,255,0.1);margin-top:2.5rem;padding-top:2rem;max-width:900px;}
 .talent-deck .attr{padding-right:2rem;}
-.talent-deck .attr-label{font-size:1.1rem;font-weight:600;font-family:'Cormorant Garamond',serif;color:var(--goldlt);margin-bottom:0.4rem;}
-.talent-deck .attr-sub{font-size:0.8rem;color:var(--darkbody);font-weight:300;line-height:1.5;}
+.talent-deck .attr-label{font-size:1.65rem;font-weight:600;font-family:'Cormorant Garamond',serif;color:var(--goldlt);margin-bottom:0.4rem;}
+.talent-deck .attr-sub{font-size:1.2rem;color:var(--darkbody);font-weight:300;line-height:1.5;}
 
 /* Kit */
 .talent-deck .kit-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);
@@ -101,19 +101,19 @@
 .talent-deck .kit-card:hover{background:var(--offwhite);}
 .talent-deck .kit-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--gold);}
 .talent-deck .kit-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.6rem;}
-.talent-deck .kit-num{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--gold);}
-.talent-deck .kit-tag{font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);
+.talent-deck .kit-num{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;color:var(--gold);}
+.talent-deck .kit-tag{font-size:0.93rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);
   padding:0.2rem 0.6rem;border:1px solid var(--rule);border-radius:2px;}
-.talent-deck .kit-title{font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:0.45rem;}
-.talent-deck .kit-body{font-size:0.85rem;color:var(--muted);line-height:1.65;font-weight:300;}
+.talent-deck .kit-title{font-size:1.5rem;font-weight:600;color:var(--ink);margin-bottom:0.45rem;}
+.talent-deck .kit-body{font-size:1.25rem;color:var(--muted);line-height:1.65;font-weight:300;}
 
 /* Where it lives */
 .talent-deck .uses-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 3rem;margin-top:2rem;max-width:800px;}
 .talent-deck .use-item{display:flex;align-items:center;gap:0.85rem;padding:0.65rem 0;border-bottom:1px solid var(--rule);}
 .talent-deck .use-bar{width:3px;height:28px;background:var(--gold);flex-shrink:0;}
-.talent-deck .use-label{font-size:0.95rem;font-family:'Cormorant Garamond',serif;color:var(--body);}
+.talent-deck .use-label{font-size:1.4rem;font-family:'Cormorant Garamond',serif;color:var(--body);}
 .talent-deck .uses-note{margin-top:1.5rem;padding:1rem 1.4rem;background:var(--offwhite);border:1px solid var(--rule);max-width:800px;}
-.talent-deck .uses-note p{font-size:0.85rem;color:var(--muted);font-style:italic;font-weight:300;}
+.talent-deck .uses-note p{font-size:1.25rem;color:var(--muted);font-style:italic;font-weight:300;}
 
 /* Scenarios */
 .talent-deck .scenario-list{display:flex;flex-direction:column;gap:0.8rem;margin-top:2rem;max-width:1000px;}
@@ -121,9 +121,9 @@
   padding:1.1rem 1.5rem;background:var(--white);border:1px solid var(--rule);
   border-left:4px solid var(--gold);transition:background 0.2s;}
 .talent-deck .scenario-row:hover{background:var(--offwhite);}
-.talent-deck .scenario-who{font-size:1rem;font-weight:600;color:var(--ink);font-family:'Cormorant Garamond',serif;}
-.talent-deck .scenario-action{font-size:0.85rem;color:var(--muted);font-weight:300;}
-.talent-deck .scenario-when{font-size:0.78rem;color:var(--gold);font-weight:500;padding:0.3rem 0.85rem;
+.talent-deck .scenario-who{font-size:1.5rem;font-weight:600;color:var(--ink);font-family:'Cormorant Garamond',serif;}
+.talent-deck .scenario-action{font-size:1.25rem;color:var(--muted);font-weight:300;}
+.talent-deck .scenario-when{font-size:1.15rem;color:var(--gold);font-weight:500;padding:0.3rem 0.85rem;
   border:1px solid rgba(184,146,74,0.3);border-radius:9999px;white-space:nowrap;}
 
 /* Claims */
@@ -131,59 +131,59 @@
 .talent-deck .claim-points{display:flex;flex-direction:column;gap:1.2rem;}
 .talent-deck .claim-point{display:flex;gap:1rem;align-items:flex-start;}
 .talent-deck .claim-bar{width:3px;min-height:40px;background:var(--gold);flex-shrink:0;margin-top:4px;}
-.talent-deck .claim-head{font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:0.3rem;font-family:'Cormorant Garamond',serif;}
-.talent-deck .claim-body{font-size:0.85rem;color:var(--muted);line-height:1.65;font-weight:300;}
+.talent-deck .claim-head{font-size:1.5rem;font-weight:600;color:var(--ink);margin-bottom:0.3rem;font-family:'Cormorant Garamond',serif;}
+.talent-deck .claim-body{font-size:1.25rem;color:var(--muted);line-height:1.65;font-weight:300;}
 .talent-deck .quote-block{background:var(--ink);padding:2.2rem;position:relative;}
 .talent-deck .quote-block::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;
   background:linear-gradient(90deg,var(--gold),var(--goldlt));}
 .talent-deck .quote-block blockquote{border-left:none;padding-left:0;margin:0 0 1.2rem;}
-.talent-deck .quote-block blockquote p{font-size:1.25rem;color:var(--white);}
-.talent-deck .quote-sub{font-size:0.82rem;color:var(--darkbody);font-weight:300;line-height:1.6;}
+.talent-deck .quote-block blockquote p{font-size:1.85rem;color:var(--white);}
+.talent-deck .quote-sub{font-size:1.2rem;color:var(--darkbody);font-weight:300;line-height:1.6;}
 
 /* Positioning */
 .talent-deck .not-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2rem;max-width:1000px;}
-.talent-deck .not-col-label{font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:0.8rem;font-weight:500;}
+.talent-deck .not-col-label{font-size:1rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:0.8rem;font-weight:500;}
 .talent-deck .not-col-label-gold{color:var(--gold);}
 .talent-deck .not-list{display:flex;flex-direction:column;gap:0.5rem;}
 .talent-deck .not-item{display:flex;align-items:center;gap:0.85rem;padding:0.7rem 1rem;
-  background:var(--offwhite);border:1px solid var(--rule);font-size:0.9rem;color:var(--muted);font-weight:300;}
+  background:var(--offwhite);border:1px solid var(--rule);font-size:1.35rem;color:var(--muted);font-weight:300;}
 .talent-deck .not-item .sym{color:var(--rule);}
 .talent-deck .is-item{display:flex;align-items:center;gap:0.85rem;padding:0.7rem 1rem;
   background:var(--white);border:1px solid var(--rule);border-left:3px solid var(--gold);
-  font-size:0.9rem;color:var(--body);font-weight:300;transition:background 0.2s;}
+  font-size:1.35rem;color:var(--body);font-weight:300;transition:background 0.2s;}
 .talent-deck .is-item:hover{background:var(--offwhite);}
 .talent-deck .is-item .sym{color:var(--gold);}
 
 /* Timing */
 .talent-deck .timing-list{display:flex;flex-direction:column;gap:0.8rem;margin-top:2rem;max-width:1000px;}
-.talent-deck .timing-row{display:grid;grid-template-columns:220px 1fr;gap:1.5rem;align-items:center;
+.talent-deck .timing-row{display:grid;grid-template-columns:280px 1fr;gap:1.5rem;align-items:center;
   padding:1.1rem 1.5rem;background:var(--white);border:1px solid var(--rule);border-left:4px solid var(--gold);}
-.talent-deck .timing-label{font-size:0.95rem;font-weight:600;color:var(--ink);font-family:'Cormorant Garamond',serif;}
-.talent-deck .timing-body{font-size:0.85rem;color:var(--muted);font-weight:300;line-height:1.6;}
+.talent-deck .timing-label{font-size:1.4rem;font-weight:600;color:var(--ink);font-family:'Cormorant Garamond',serif;}
+.talent-deck .timing-body{font-size:1.25rem;color:var(--muted);font-weight:300;line-height:1.6;}
 
 /* Future */
 .talent-deck .future-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
   background:rgba(255,255,255,0.08);margin-top:2rem;max-width:900px;}
 .talent-deck .future-item{background:rgba(255,255,255,0.03);padding:1.8rem 1.6rem;transition:background 0.2s;}
 .talent-deck .future-item:hover{background:rgba(255,255,255,0.06);}
-.talent-deck .future-label{font-size:1rem;font-weight:600;color:var(--goldlt);font-family:'Cormorant Garamond',serif;margin-bottom:0.6rem;}
-.talent-deck .future-body{font-size:0.85rem;color:var(--darkbody);line-height:1.65;font-weight:300;}
+.talent-deck .future-label{font-size:1.5rem;font-weight:600;color:var(--goldlt);font-family:'Cormorant Garamond',serif;margin-bottom:0.6rem;}
+.talent-deck .future-body{font-size:1.25rem;color:var(--darkbody);line-height:1.65;font-weight:300;}
 .talent-deck .disclaimer{margin-top:2rem;padding:1rem 1.4rem;border:1px solid rgba(255,255,255,0.06);max-width:900px;}
-.talent-deck .disclaimer p{font-size:0.8rem;color:rgba(154,144,128,0.6);font-style:italic;}
+.talent-deck .disclaimer p{font-size:1.2rem;color:rgba(154,144,128,0.6);font-style:italic;}
 
 /* CTA */
 .talent-deck .cta-contact{margin-top:2rem;display:flex;flex-direction:column;gap:0.5rem;}
-.talent-deck .cta-contact a{font-size:1rem;color:var(--body);text-decoration:none;font-weight:400;transition:color 0.2s;}
+.talent-deck .cta-contact a{font-size:1.5rem;color:var(--body);text-decoration:none;font-weight:400;transition:color 0.2s;}
 .talent-deck .cta-contact a:hover{color:var(--gold);}
 .talent-deck .cta-contact .url{color:var(--muted);}
 .talent-deck .cta-closes{margin-top:2rem;display:flex;flex-direction:column;gap:0.3rem;}
-.talent-deck .cta-closes span{font-size:0.88rem;color:var(--muted);font-weight:300;}
+.talent-deck .cta-closes span{font-size:1.3rem;color:var(--muted);font-weight:300;}
 .talent-deck .cta-closes span:first-child{color:var(--body);font-weight:500;}
 
 /* Corner logo */
 .talent-deck .corner-logo{position:absolute;bottom:1.5rem;right:2rem;display:flex;align-items:center;gap:0.5rem;opacity:0.4;}
 .talent-deck .corner-logo img{height:22px;width:22px;object-fit:contain;}
-.talent-deck .corner-logo span{font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);font-weight:500;}
+.talent-deck .corner-logo span{font-size:1rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);font-weight:500;}
 .talent-deck .watermark{position:absolute;right:-3%;top:5%;width:38%;opacity:0.05;pointer-events:none;z-index:0;}
 .talent-deck .watermark-dark{opacity:0.07;}
 
@@ -192,8 +192,8 @@
   align-items:center;flex-wrap:wrap;gap:1rem;background:var(--cream);}
 .talent-deck .footer-logo{display:flex;align-items:center;gap:0.5rem;}
 .talent-deck .footer-logo img{height:20px;width:20px;object-fit:contain;}
-.talent-deck .footer-logo span{font-size:0.75rem;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;color:var(--ink);}
-.talent-deck .footer-note{font-size:0.7rem;color:var(--muted);letter-spacing:0.06em;}
+.talent-deck .footer-logo span{font-size:1.1rem;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;color:var(--ink);}
+.talent-deck .footer-note{font-size:1.05rem;color:var(--muted);letter-spacing:0.06em;}
 
 /* Reveal animation */
 .talent-deck .reveal{opacity:0;transform:translateY(12px);transition:opacity 0.55s ease,transform 0.55s ease;}

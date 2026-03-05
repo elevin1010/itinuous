@@ -77,11 +77,11 @@ const TalentDeck = () => {
             <h1 className="display-xl reveal" style={{ color: 'var(--ink)', maxWidth: 780, marginBottom: '1rem' }}>
               Likeness is replicable<br />at scale.
             </h1>
-            <p className="display reveal" style={{ fontSize: 'clamp(1.6rem,3vw,2.4rem)', color: 'var(--gold)', fontStyle: 'italic', marginBottom: 0 }}>
+            <p className="display reveal" style={{ fontSize: 'clamp(2.4rem,4.5vw,3.6rem)', color: 'var(--gold)', fontStyle: 'italic', marginBottom: 0 }}>
               Here is how to protect it.
             </p>
             <div className="rule-line reveal"></div>
-            <p className="reveal" style={{ fontSize: '0.88rem', color: 'var(--muted)', fontWeight: 300, letterSpacing: '0.04em' }}>
+            <p className="reveal" style={{ fontSize: '1.3rem', color: 'var(--muted)', fontWeight: 300, letterSpacing: '0.04em' }}>
               Intinuous — Portable Identity Attestation for the AI Era
             </p>
           </div>
@@ -120,7 +120,7 @@ const TalentDeck = () => {
                 <p>AI-generated content travels everywhere.<br /><br />Platform verification does not.</p>
               </div>
             </div>
-            <p className="reveal" style={{ marginTop: '1.5rem', fontSize: '0.88rem', color: 'var(--muted)', fontStyle: 'italic', fontWeight: 300 }}>
+            <p className="reveal" style={{ marginTop: '1.5rem', fontSize: '1.3rem', color: 'var(--muted)', fontStyle: 'italic', fontWeight: 300 }}>
               There is currently no portable, cross-platform attestation tied to a performer's likeness.
             </p>
           </div>
@@ -133,7 +133,7 @@ const TalentDeck = () => {
           <div style={{ position: 'relative', zIndex: 1, maxWidth: 900 }}>
             <div className="pill pill-dark reveal">What It Is</div>
             <h2 className="display-xl display-dark reveal" style={{ maxWidth: 700 }}>Think of it as a<br />copyright for your<br />likeness.</h2>
-            <p className="display reveal" style={{ color: 'var(--goldlt)', fontStyle: 'italic', fontSize: 'clamp(1.6rem,3vw,2.4rem)' }}>But better.</p>
+            <p className="display reveal" style={{ color: 'var(--goldlt)', fontStyle: 'italic', fontSize: 'clamp(2.4rem,4.5vw,3.6rem)' }}>But better.</p>
             <div className="analogy-attrs reveal">
               <div className="attr"><div className="attr-label">Faster</div><div className="attr-sub">Verify in minutes,<br />not months</div></div>
               <div className="attr"><div className="attr-label">Easier</div><div className="attr-sub">Fully automated —<br />no legal filing</div></div>
@@ -190,7 +190,7 @@ const TalentDeck = () => {
               <div className="scenario-row"><div><div className="scenario-who">Your Representation</div></div><div className="scenario-action">Negotiating digital likeness clauses with documented proof</div><div className="scenario-when">At the table</div></div>
               <div className="scenario-row"><div><div className="scenario-who">Legal Teams</div></div><div className="scenario-action">Establishing prior claim in disputes or unauthorized use</div><div className="scenario-when">When it matters most</div></div>
             </div>
-            <p className="reveal" style={{ marginTop: '1.2rem', fontSize: '0.85rem', color: 'var(--muted)', fontStyle: 'italic', fontWeight: 300 }}>
+            <p className="reveal" style={{ marginTop: '1.2rem', fontSize: '1.25rem', color: 'var(--muted)', fontStyle: 'italic', fontWeight: 300 }}>
               Verification is not checked casually. It is checked when money, contracts, and reputation are on the line.
             </p>
           </div>
@@ -272,7 +272,7 @@ const TalentDeck = () => {
           <div style={{ position: 'relative', zIndex: 1, maxWidth: 900 }}>
             <div className="pill pill-dark reveal">Where This Goes</div>
             <h2 className="display-xl display-dark reveal" style={{ maxWidth: 700 }}>Today, a portable<br />identity attestation.</h2>
-            <p className="display reveal" style={{ color: 'var(--goldlt)', fontStyle: 'italic', fontSize: 'clamp(1.4rem,2.5vw,2rem)' }}>Tomorrow, the reference layer.</p>
+            <p className="display reveal" style={{ color: 'var(--goldlt)', fontStyle: 'italic', fontSize: 'clamp(2.1rem,3.75vw,3rem)' }}>Tomorrow, the reference layer.</p>
             <div className="future-grid reveal">
               <div className="future-item"><div className="future-label">AI Platform Checks</div><div className="future-body">Generative systems referencing the registry before producing likeness content.</div></div>
               <div className="future-item"><div className="future-label">Contractual Standard</div><div className="future-body">Digital likeness clauses citing Intinuous ID as the recognized verification reference.</div></div>
@@ -290,7 +290,7 @@ const TalentDeck = () => {
           <img className="watermark" src={logoMark} alt="" />
           <div style={{ position: 'relative', zIndex: 1, paddingLeft: '1.5rem', maxWidth: 700 }}>
             <h2 className="display-xl reveal" style={{ color: 'var(--ink)' }}>Let's talk about<br />protecting your clients.</h2>
-            <p className="display reveal" style={{ color: 'var(--gold)', fontStyle: 'italic', fontSize: 'clamp(1.4rem,2.5vw,2rem)' }}>
+            <p className="display reveal" style={{ color: 'var(--gold)', fontStyle: 'italic', fontSize: 'clamp(2.1rem,3.75vw,3rem)' }}>
               <Link to="/deck/contact" style={{ color: 'inherit', textDecoration: 'none' }}>Get in Touch →</Link>
             </p>
             <div className="rule-line reveal" style={{ maxWidth: 400 }}></div>
