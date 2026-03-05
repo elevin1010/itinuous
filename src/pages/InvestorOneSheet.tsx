@@ -231,8 +231,8 @@ const InvestorOneSheet = () => {
             or get on a call.
           </p>
           <div className="cta-actions">
-            <Link to="/contact" className="btn-primary">Get in Touch</Link>
-            <Link to="/contact" className="btn-outline">Request Full Brief</Link>
+            <Link to="/deck/contact" className="btn-primary">Get in Touch</Link>
+            <Link to="/deck/contact" className="btn-outline">Request Full Brief</Link>
           </div>
         </div>
 
